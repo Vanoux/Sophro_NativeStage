@@ -4,11 +4,16 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert; // Déclaration des annotations Constraints qui permettent de valider les champs comme @Assert\length() pour la longeur min et max d'ue chaine...
+use Symfony\Component\Validator\Constraints as Assert; // Déclaration des annotations Constraints qui permettent mettre des conditions avant de valider les champs comme @Assert\length() pour la longeur min et max d'ue chaine...
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Permet d'utiliser l'annotation UniqueEntity() pour rendre une donnée unique
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
+ * @UniqueEntity(
+ *  fields={"mail"},
+ *  message="L'email que vous avez indiqué est déjà utilisé !" 
+ * )
  */
 class Admin implements UserInterface //UserInterface = Représente l'interface que toutes les classes d'utilisateurs doivent implémenter pour créer de vrai utilisateurs
 {
@@ -21,11 +26,13 @@ class Admin implements UserInterface //UserInterface = Représente l'interface q
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email()
      */
     private $mail;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimun 8 caractères !")
      */
     private $password;
 
