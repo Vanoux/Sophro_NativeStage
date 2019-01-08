@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert; // Déclaration des annotations Constraints qui permettent de valider les champs comme @Assert\length() pour la longeur min et max d'ue chaine...
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
  */
-class Admin
+class Admin implements UserInterface //UserInterface = Représente l'interface que toutes les classes d'utilisateurs doivent implémenter pour créer de vrai utilisateurs
 {
     /**
      * @ORM\Id()
@@ -70,5 +73,23 @@ class Admin
         $this->role = $role;
 
         return $this;
+    }
+
+    // Ajout des methods manquante de l'UserInterface = sinon fait tout planter !
+    public function eraseCredentials()
+    {
+
+    }
+    public function getSalt()
+    {
+
+    }
+    public function getRoles()
+    {
+
+    }
+    public function getUsername()
+    {
+
     }
 }

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Incription{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Inscription ✅</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.mail, {'label': 'Adresse Email : ','attr': {'placeholder': 'Adresse email...'}}) }}
+    {{ form_row(form.password, {'label':'Mot de passe : ' ,'attr': {'placeholder': 'Mot de passe...'}}) }}
+    {{ form_row(form.role, {'label':'Votre rôle : ' ,'attr': {'placeholder': 'Votre rôle...'}}) }}
+
+    <button type="submit" class="btn btn-successs">Incription !</button>
+
+    {{ form_end(form) }}
+</div>
+{% endblock %}
