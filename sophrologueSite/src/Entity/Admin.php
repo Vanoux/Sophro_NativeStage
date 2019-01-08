@@ -37,7 +37,7 @@ class Admin implements UserInterface //UserInterface = Représente l'interface q
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=80, nullable=true)
+     * @ORM\Column(type="array", length=80, nullable=true)
      */
     private $role;
 
@@ -70,12 +70,12 @@ class Admin implements UserInterface //UserInterface = Représente l'interface q
         return $this;
     }
 
-    public function getRole(): ?string
+    public function getRole(): ?array
     {
         return $this->role;
     }
 
-    public function setRole(?string $role): self
+    public function setRole(?array $role): self
     {
         $this->role = $role;
 
@@ -93,10 +93,10 @@ class Admin implements UserInterface //UserInterface = Représente l'interface q
     }
     public function getRoles()
     {
-
+        return $this->role;
     }
     public function getUsername()
     {
-
+        return 'Admin';
     }
 }
