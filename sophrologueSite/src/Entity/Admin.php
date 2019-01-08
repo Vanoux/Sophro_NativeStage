@@ -93,7 +93,7 @@ class Admin implements UserInterface //UserInterface = Représente l'interface q
     }
     public function getRoles()
     {
-
+       return ['ROLE_USER'];
     }
     public function getUsername()
     {
