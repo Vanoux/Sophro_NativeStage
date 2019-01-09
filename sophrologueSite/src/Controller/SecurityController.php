@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Admin;
+use App\Entity\User;
 use App\Form\RegistrationType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,18 +13,18 @@ use Doctrine\Common\Persistence\ObjectManager;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/inscription", name="admin_registration")
+     * @Route("/inscription", name="user_registration")
      */
     
     // Formulaire d'inscription
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) //Userpasswordencoderinterface = permet d'encoder les mdp
     {
         //Nouvel utilisateur
-        $admin = new Admin();
-        $admin->setRole(array('ROLE_USER'));
+        $user = new User();
+        $user->setRole(array('ROLE_ADMIN'));
 
         //Création du formulaire 
-        $form = $this->createForm(RegistrationType::class, $admin);
+        $form = $this->createForm(RegistrationType::class, $user);
 
         //Permet au formulaire d'analyser la requête
         $form->handleRequest($request);
@@ -33,11 +33,11 @@ class SecurityController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             
             //Avant de sauvegarder l'utilisateur = hash du mdp
-            $hash = $encoder->encodePassword($admin, $admin->getPassword());
-            $admin->setPassword($hash);
+            $hash = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($hash);
 
             //Puis fait persister dans le temps l'utilisateur et le prépare pour la bdd
-            $manager->persist($admin);
+            $manager->persist($user);
             //Et le sauvegarde dans la bdd
             $manager->flush();
 

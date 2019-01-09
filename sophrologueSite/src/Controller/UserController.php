@@ -5,17 +5,17 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\RegistrationType;
-use App\Entity\Admin;
+use App\Entity\User;
 
-class AdminController extends AbstractController
+class UserController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/user", name="user")
      */
     public function index()
     {
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
+        return $this->render('user/index.html.twig', [
+            'controller_name' => 'UserController',
         ]);
     }
 

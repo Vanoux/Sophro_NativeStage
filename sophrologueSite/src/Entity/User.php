@@ -9,13 +9,13 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Permet d'util
 
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(
  *  fields={"mail"},
  *  message="L'email que vous avez indiqué est déjà utilisé !" 
  * )
  */
-class Admin implements UserInterface //UserInterface = Représente l'interface que toutes les classes d'utilisateurs doivent implémenter pour créer de vrai utilisateurs
+class User implements UserInterface //UserInterface = Représente l'interface que toutes les classes d'utilisateurs doivent implémenter pour créer de vrai utilisateurs
 {
     /**
      * @ORM\Id()
@@ -97,6 +97,6 @@ class Admin implements UserInterface //UserInterface = Représente l'interface q
     }
     public function getUsername()
     {
-        return 'Admin';
+        return 'User';
     }
 }
