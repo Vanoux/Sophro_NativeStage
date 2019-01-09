@@ -9,6 +9,7 @@
 
     {{ form_start(form) }}
 
+    {{ form_row(form.username, {'label': 'Nom ou Pseudo : ','attr': {'placeholder': 'Votre nom ou pseudo...'}}) }}
     {{ form_row(form.mail, {'label': 'Adresse Email : ','attr': {'placeholder': 'Adresse email...'}}) }}
     {{ form_row(form.password, {'label':'Mot de passe : ' ,'attr': {'placeholder': 'Mot de passe...'}}) }}
 

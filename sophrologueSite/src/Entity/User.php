@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert; // Déclaration des annotations Constraints qui permettent mettre des conditions avant de valider les champs comme @Assert\length() pour la longeur min et max d'ue chaine...
@@ -37,9 +39,25 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
     private $password;
 
     /**
-     * @ORM\Column(type="array", length=80, nullable=true)
+     * @ORM\Column(type="array", length=80)
      */
-    private $role;
+    private $roles;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Articles", mappedBy="user", orphanRemoval=true)
+     */
+    private $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -70,14 +88,26 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
         return $this;
     }
 
-    public function getRole(): ?array
+    public function getRoles(): ?array
     {
-        return $this->role;
+        return $this->roles;
     }
 
-    public function setRole(?array $role): self
+    public function setRoles(?array $roles): self
     {
-        $this->role = $role;
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }
@@ -91,12 +121,42 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
     {
 
     }
-    public function getRoles()
+
+    /**
+     * @return Collection|Articles[]
+     */
+    public function getArticles(): Collection
     {
-        return $this->role;
+        return $this->articles;
     }
-    public function getUsername()
+
+    public function addArticle(Articles $article): self
     {
-        return 'User';
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setUser($this);
+        }
+
+        return $this;
     }
+
+    public function removeArticle(Articles $article): self
+    {
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            // set the owning side to null (unless already changed)
+            if ($article->getUser() === $this) {
+                $article->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+    //public function getRoles()
+    //{
+    //    return $this->role;
+    //}
+
+
+
 }

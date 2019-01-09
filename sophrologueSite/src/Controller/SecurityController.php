@@ -21,7 +21,7 @@ class SecurityController extends AbstractController
     {
         //Nouvel utilisateur
         $user = new User();
-        $user->setRole(array('ROLE_ADMIN'));
+        $user->setRoles(array('ROLE_USER'));
 
         //Création du formulaire 
         $form = $this->createForm(RegistrationType::class, $user);
@@ -59,7 +59,9 @@ class SecurityController extends AbstractController
     //Connexion
     public function login()
     {
-        return $this->render('security/login.html.twig');
+       return $this->render('security/login.html.twig');
+        //return $this->redirectToRoute('user');
+
     }
 
     /**
