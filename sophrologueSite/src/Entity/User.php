@@ -53,9 +53,15 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
      */
     private $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Faq", mappedBy="user", orphanRemoval=true)
+     */
+    private $faqs;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->faqs = new ArrayCollection();
     }
 
 
@@ -152,10 +158,37 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
 
         return $this;
     }
-    //public function getRoles()
-    //{
-    //    return $this->role;
-    //}
+
+    /**
+     * @return Collection|Faq[]
+     */
+    public function getFaqs(): Collection
+    {
+        return $this->faqs;
+    }
+
+    public function addFaq(Faq $faq): self
+    {
+        if (!$this->faqs->contains($faq)) {
+            $this->faqs[] = $faq;
+            $faq->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFaq(Faq $faq): self
+    {
+        if ($this->faqs->contains($faq)) {
+            $this->faqs->removeElement($faq);
+            // set the owning side to null (unless already changed)
+            if ($faq->getUser() === $this) {
+                $faq->setUser(null);
+            }
+        }
+
+        return $this;
+    }
 
 
 
