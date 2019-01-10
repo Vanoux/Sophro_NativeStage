@@ -34,5 +34,13 @@ class UserController extends AbstractController
     {
         return $this->render('user/actu.html.twig');
     }
+
+    /**
+     * @Route("/statistiques", name="stat")
+     */
+    public function stat()
+    {
+        return $this->render('user/stat.html.twig');
+    }
     
 }

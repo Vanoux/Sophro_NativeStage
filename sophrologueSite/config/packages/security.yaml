@@ -16,13 +16,16 @@ security:
             security: false
         main:
             anonymous: true
-
+            pattern: ^/ # permet de définir les routes sur lesquelles s'appliqueront ces paramètres, ici toutes
             provider: in_database
 
             form_login:
                 login_path: security_login
                 check_path: security_login
                 default_target_path: user
+                # ! ** ligne d'en dessous fonctionne mais pour TOUT les utilisateurs ** !
+                # csrf_token_generator: security.csrf.token_manager # permet la sécurisation du formulaire = retour sur l'authentification si role non autorisé
+
             
             logout: 
                 path: security_logout
@@ -40,5 +43,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/user, roles: ROLE_ADMIN }
+         - { path: ^/actualités, roles: ROLE_ADMIN }
+         - { path: ^/faq, roles: ROLE_ADMIN }
+         - { path: ^/statistiques, roles: ROLE_ADMIN }
          - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-         

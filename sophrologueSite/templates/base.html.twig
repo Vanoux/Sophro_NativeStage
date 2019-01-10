@@ -25,6 +25,7 @@
 
         <div class="navbar-collapse collapse show" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
+                <!--dropdown Informations-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -37,16 +38,24 @@
                         <a class="dropdown-item" href="{{ path('faq') }}">Foire à questions</a>
                     </div>
                 </li>
+                <!--Actualités -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('actualités') }}">Actualités</a>
                 </li>
-
+                <!-- Contact -->
                 <li class="nav-item">
                     <a href="{{ path('contact') }}" class="nav-link">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('user') }}" class="nav-link">Dashboard Home</a>
+                    {% endif %}
                 </li>
             </ul>
         </div>
     </nav>
+
 
 
     {% block body %}{% endblock %}

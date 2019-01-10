@@ -21,6 +21,7 @@ class SecurityController extends AbstractController
     {
         //Nouvel utilisateur
         $user = new User();
+        //Par défaut l'utilisateur à le role user
         $user->setRoles(array('ROLE_USER'));
 
         //Création du formulaire 

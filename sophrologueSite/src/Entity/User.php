@@ -96,6 +96,7 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
 
     public function getRoles(): ?array
     {
+
         return $this->roles;
     }
 
