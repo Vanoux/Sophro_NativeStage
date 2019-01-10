@@ -26,7 +26,7 @@ class SecurityController extends AbstractController
         //Création du formulaire 
         $form = $this->createForm(RegistrationType::class, $user);
 
-        //Permet au formulaire d'analyser la requête
+        //Permet au formulaire d'analyser la requête = traitement du formulaire
         $form->handleRequest($request);
 
         //Si le formulaire est soumit et que tout les champs sont valide
@@ -70,4 +70,7 @@ class SecurityController extends AbstractController
     {
 
     }
+
+
+
 }
