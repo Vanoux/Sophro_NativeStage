@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+<h1>Connexion !</h1>
+
+<form action="{{ path('security_login') }}" method="post" class="home-form">
+
+
+    <div class="form-group">
+        <input placeholder="Adresse email..." name="_username" type="text" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <input placeholder="Mot de passe..." name="_password" type="password" class="form-control" required>
+    </div>
+    <div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate')}}"/>
+    </div>
+    
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" title="Connectez-vous !">Connexion</button>
+    </div>
+
+</form>
+
+{% endblock %}

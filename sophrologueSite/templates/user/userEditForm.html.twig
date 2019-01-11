@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition{% endblock %}
+
+{% block body %}
+
+{{ dump(user) }}
+
+{{ form_start(form) }}
+
+<button type="submit" class="btn btn-successs">Envoyer !</button>
+
+{{ form_end(form) }}
+
+
+{% endblock %}

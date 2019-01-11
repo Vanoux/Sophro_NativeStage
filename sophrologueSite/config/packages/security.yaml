@@ -10,6 +10,11 @@ security:
             entity:
                 class: App\Entity\User
                 property: mail
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -23,13 +28,13 @@ security:
                 login_path: security_login
                 check_path: security_login
                 default_target_path: user
-                # ! ** ligne d'en dessous fonctionne mais pour TOUT les utilisateurs ** !
-                # csrf_token_generator: security.csrf.token_manager # permet la sécurisation du formulaire = retour sur l'authentification si role non autorisé
-
             
             logout: 
                 path: security_logout
                 target: home
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
 
             # activate different ways to authenticate
 
