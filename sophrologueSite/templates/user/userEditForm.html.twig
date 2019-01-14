@@ -4,13 +4,25 @@
 
 {% block body %}
 
-{{ dump(user) }}
+{# Affiche le tableau user : {{ dump(user) }}#} 
 
-{{ form_start(form) }}
+<div class="example-wrapper m-5">
 
-<button type="submit" class="btn btn-successs">Envoyer !</button>
+    <h1 class="mb-4">Modification informations ✅</h1>
+    {{ form_start(form) }}
 
-{{ form_end(form) }}
+    {{ form_row(form.username, {'label': 'Nom ou Pseudo : '}) }}
+    {{ form_row(form.mail, {'label': 'Adresse Email : '}) }}
+
+    <button type="submit" class="btn btn-success" title="Modifier vos informations">Envoyer</button>
+
+    {{ form_end(form) }}
+
+    <div class="mt-5">
+        <a  href="{{ path('passwordEdit') }}">Modification du mot de passe</a>
+    </div>
+
+</div>
 
 
 {% endblock %}

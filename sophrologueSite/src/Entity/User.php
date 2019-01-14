@@ -39,6 +39,11 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
     private $password;
 
     /**
+     * @Assert\EqualTo(propertyPath="password", message="Veuillez entrez le même mot de passe !")
+     */
+    public $confirm_password; // Permet de verifier si même mdp et le confirmer avant envoi 
+
+    /**
      * @ORM\Column(type="array", length=80)
      */
     private $roles;
@@ -57,6 +62,10 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
      * @ORM\OneToMany(targetEntity="App\Entity\Faq", mappedBy="user", orphanRemoval=true)
      */
     private $faqs;
+
+
+    
+
 
     public function __construct()
     {
@@ -118,6 +127,9 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
 
         return $this;
     }
+
+
+
 
     // Ajout des methods manquante de l'UserInterface = sinon fait tout planter !
     public function eraseCredentials()

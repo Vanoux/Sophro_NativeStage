@@ -50,6 +50,22 @@ class AppController extends AbstractController
     }
 
     /**
+     * @Route("/faq", name="faq")
+     */
+    public function faq()
+    {
+        return $this->render('app/faq.html.twig');
+    }
+
+    /**
+     * @Route("/actualités", name="actualités")
+     */
+    public function actu()
+    {
+        return $this->render('app/actu.html.twig');
+    }
+
+    /**
      * @Route("/contact", name="contact")
      */
     public function contact()
@@ -65,4 +81,6 @@ class AppController extends AbstractController
         return $this->render('app/conseil1.html.twig');
     }
 
+
+    
 }
