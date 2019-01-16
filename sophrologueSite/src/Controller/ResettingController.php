@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Services\Mailer;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,21 +17,16 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use App\Form\ResettingType;
 
 
-
-
 class ResettingController extends AbstractController
 {
 
     /**
      * @Route("/requete", name="request_resetting")
      */
-    public function request(Request $request, ObjectManager $manager, Mailer $mailer, TokenGeneratorInterface $tokenGenerator)
+    public function request(Request $request, ObjectManager $manager, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator)
     {
-        
-
         // création d'un formulaire, afin que l'internaute puisse renseigner son mail
         $form = $this->createFormBuilder()
-
                 ->add('mail', EmailType::class, [
                         'constraints' => [
                             new Email(),
@@ -40,50 +34,52 @@ class ResettingController extends AbstractController
                         ]
                     ])
                 ->getForm();
-                
-        //Permet au formulaire d'analyser la requête = traitement du formulaire
-        $form->handleRequest($request);
+            //Permet au formulaire d'analyser la requête = traitement du formulaire
+            $form->handleRequest($request);
 
 
-        //Si le formulaire est soumit et que tout les champs sont valide
-        if($form->isSubmitted() && $form->isValid()){
+            //Si le formulaire est soumit et que tout les champs sont valide
+            if($form->isSubmitted() && $form->isValid()){
+                //**check le mail de l'utilisateur**
+                $user = $manager->getRepository(User::class)->findOneBy([
+                    'mail' => $form->getData('mail')
+                ]);
 
-            //****** check le mail de l'utilisateur *****
-            $user = $manager->getRepository(User::class)->findBy([
-                'mail' => $form->getData('mail')
-            ]);
+                    //Envoi 1 message en cas d'erreur
+                    if(!$user){
+                        $this->get('session')->getFlashBag()->add('warning', 'Votre email n\'existe pas !');
+                        return $this->redirectToRoute('request_resetting');
+                    }
+                    
+                        //Création du token
+                        $user->setToken($tokenGenerator->generateToken());
+                        //Enregistrement de la date de création du token
+                        $user->setPasswordRequestedAt(new \Datetime());
 
-            var_dump($user);
-            // Envoi le message en cas d'erreur
-            if(!$user){
-                $this->get('session')->getFlashBag()->add('warning', 'Votre email n\'existe pas !');
-                return $this->redirectToRoute('request_resetting');
+                            //Fait persister dans le temps l'utilisateur et le prépare pour la bdd
+                            $manager->persist($user);
+                            //Et le sauvegarde dans la bdd
+                            $manager->flush();
+
+                                //Construction du message
+                                $message = (new \Swift_Message('Renouvellement du mot de passe !'))
+                                    ->setFrom('nativevan@gmail.com')
+                                    ->setTo($user->getMail())
+                                    ->setBody(
+                                        $this->renderView(
+                                            'resetting/mail.html.twig',
+                                            ['user' => $user]
+                                        ),
+                                        'text/html'
+                                    );
+                                    //Envoi le message de renouvellement
+                                    $mailer->send($message);
+
+                                        //Envoi le message qui confirme l'action
+                                        $this->get('session')->getFlashBag()->add('success', 'Un mail vient de vous être envoyé ! Le lien de renouvellement ne sera valide que 10mn !');
+                                        return $this->redirectToRoute('security_login');
+                                    
             }
-                
-            // création du token
-            $user->setToken($tokenGenerator->generateToken());
-            // enregistrement de la date de création du token
-            $user->setPasswordRequestedAt(new \Datetime());
-
-
-            //Fait persister dans le temps l'utilisateur et le prépare pour la bdd
-            $manager->persist();
-            //Et le sauvegarde dans la bdd
-            $manager->flush();
-
-
-            //On utilise le service Mailer créé précédemment
-            $bodyMail = $mailer->createBodyMail('resetting/mail.html.twig', [
-                'user' => $user
-            ]);
-            //Envoi le message de renouvellement
-            $mailer->sendMessage('email@renouvellement.fr', $user->getMail(), 'Renouvellement du mot de passe !', $bodyMail);
-            //Envoi le message qui confirme l'action
-            $this->get('session')->getFlashBag()->add('success', 'Un mail vient de vous être envoyé ! Le lien de renouvellement ne sera valide que 24h !');
-                    return $this->redirectToRoute('security_login');
-            
-        }
-
         return $this->render('resetting/request.html.twig', [
             'form' => $form->createView()
         ]);
@@ -96,18 +92,17 @@ class ResettingController extends AbstractController
         {
             return false;
         }
-        // si supérieur à 10min, retourne false
-        // sinon retourne false
-        $now = new \DateTime();
-        $interval = $now->getTimestamp() - $passwordRequestedAt->getTimestamp();
-        $daySeconds = 60 * 10;
-        $response = $interval > $daySeconds ? false : $response = true;
-        return $response;
-
+            // si supérieur à 10min, retourne false
+            // sinon retourne false
+            $now = new \DateTime();
+            $interval = $now->getTimestamp() - $passwordRequestedAt->getTimestamp();
+            $daySeconds = 60 * 10;
+            $response = $interval > $daySeconds ? false : $response = true;
+            return $response;
     }
 
     /**
-     * @Route("/{id}/{token}", name="resetting")
+     * @Route("/resetting/{id}/{token}", name="resetting")
      */
     public function resetting(User $user, $token, ObjectManager $manager, Request $request, UserPasswordEncoderInterface $encoder)
     {
@@ -120,32 +115,31 @@ class ResettingController extends AbstractController
             throw new AccessDeniedHttpException();
         }
 
-        //Création du formulaire
-        $form = $this->createForm(ResettingType::class, $user);
-        //Traitement du formulaire
-        $form->handleRequest($request);
+            //Création du formulaire
+            $form = $this->createForm(ResettingType::class, $user);
+                //Traitement du formulaire
+                $form->handleRequest($request);
 
-        //Si le formulaire est soumit et que tout les champs sont valide
-        if($form->isSubmitted() && $form->isValid()){
-            
-                //Avant de sauvegarder l'utilisateur = hash du mdp
-                $hash = $encoder->encodePassword($user, $user->getPassword());
-                $user->setPassword($hash);
+                //Si le formulaire est soumit et que tout les champs sont valide
+                if($form->isSubmitted() && $form->isValid()){
 
-            // réinitialisation du token à null pour qu'il ne soit plus réutilisable
-            $user->setToken(NULL);
-            $user->setPasswordRequestedAt(NULL);
+                    //Avant de sauvegarder l'utilisateur = hash du mdp
+                    $hash = $encoder->encodePassword($user, $user->getPassword());
+                    $user->setPassword($hash);
 
-            //Puis fait persister dans le temps l'utilisateur et le prépare pour la bdd
-            $manager->persist($user);
-            //Et le sauvegarde dans la bdd
-            $manager->flush();
+                        // réinitialisation du token à null pour qu'il ne soit plus réutilisable
+                        $user->setToken(NULL);
+                        $user->setPasswordRequestedAt(NULL);
 
-            //Envoi le message qui confirme l'action
-            $this->get('session')->getFlashBag()->add('success', 'Votre mot de passe vient d\'être renouvelé !');
-                return $this->redirectToRoute('security_login');
-            }
+                            //Puis fait persister dans le temps l'utilisateur et le prépare pour la bdd
+                            $manager->persist($user);
+                            //Et le sauvegarde dans la bdd
+                            $manager->flush();
 
+                                //Envoi le message qui confirme l'action
+                                $this->get('session')->getFlashBag()->add('success', 'Votre mot de passe vient d\'être renouvelé !');
+                                    return $this->redirectToRoute('security_login');
+                }
         return $this->render('resetting/index.html.twig', [
             'form' => $form->createView()
         ]);

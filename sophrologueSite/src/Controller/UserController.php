@@ -24,7 +24,6 @@ class UserController extends AbstractController
         ]);
     }
 
-    
     /**
      * @Route("/user/password_edit", name="passwordEdit")
      */
@@ -32,30 +31,29 @@ class UserController extends AbstractController
     {
         $user = $this->getUser();
 
-        $form = $this->createForm(EditPasswordType::class, $user);
+            $form = $this->createForm(EditPasswordType::class, $user);
 
-        $form->handleRequest($request);
+                $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+                    if($form->isSubmitted() && $form->isValid()){
 
-            //Avant de sauvegarder la modif = hash du mdp
-            $hash = $encoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($hash);
+                        //Avant de sauvegarder la modif = hash du mdp
+                        $hash = $encoder->encodePassword($user, $user->getPassword());
+                        $user->setPassword($hash);
 
-            //Puis fait persister dans le temps l'utilisateur et le prépare pour la bdd
-            $manager->persist($user);
-            //Et le sauvegarde dans la bdd
-            $manager->flush();
+                            //Puis fait persister dans le temps l'utilisateur et le prépare pour la bdd
+                            $manager->persist($user);
+                            //Et le sauvegarde dans la bdd
+                            $manager->flush();
 
-            // Envoi le message qui confirme l'action
-            $this->get('session')->getFlashBag()->add('success', 'Votre mot de passe a été modifié !');
-            return $this->redirectToRoute('user');
-        }
-
+                                // Envoi le message qui confirme l'action
+                                $this->get('session')->getFlashBag()->add('success', 'Votre mot de passe a été modifié !');
+                                return $this->redirectToRoute('user');
+                    }
         return $this->render('user/userEditPassword.html.twig', [
             "user" => $user,
             "form" => $form->createView()
-            ]);
+        ]);
     }
 
     /**
@@ -65,32 +63,29 @@ class UserController extends AbstractController
     {
         $user = $this->getUser();
 
-        //Création du formulaire 
-        $form = $this->createForm(EditUserType::class, $user);
+            //Création du formulaire 
+            $form = $this->createForm(EditUserType::class, $user);
 
-        //Permet au formulaire d'analyser la requête = traitement du formulaire
-        $form->handleRequest($request);
+                //Permet au formulaire d'analyser la requête = traitement du formulaire
+                $form->handleRequest($request);
 
-        //Si le formulaire est soumit et que tout les champs sont valide
-        if($form->isSubmitted() && $form->isValid()){
+                    //Si le formulaire est soumit et que tout les champs sont valide
+                    if($form->isSubmitted() && $form->isValid()){
 
-            //Fait persister dans le temps l'utilisateur et le prépare pour la bdd
-            $manager->persist($user);
-            //Et le sauvegarde dans la bdd
-            $manager->flush();
+                        //Fait persister dans le temps l'utilisateur et le prépare pour la bdd
+                        $manager->persist($user);
+                        //Et le sauvegarde dans la bdd
+                        $manager->flush();
 
-            // Envoi le message qui confirme l'action
-            $this->get('session')->getFlashBag()->add('success', 'Vos informations ont bien été modifiées !');
-            return $this->redirectToRoute('user');
-        }
+                            // Envoi le message qui confirme l'action
+                            $this->get('session')->getFlashBag()->add('success', 'Vos informations ont bien été modifiées !');
+                            return $this->redirectToRoute('user');
+                    }
         return $this->render('user/userEditForm.html.twig', [
-        "user" => $user,
-        "form" => $form->createView()
+            "user" => $user,
+            "form" => $form->createView()
         ]);
-
     }
-
-
 
     /**
      * @Route("/user/faq", name="mesFaq")

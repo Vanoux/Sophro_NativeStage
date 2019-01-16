@@ -16,16 +16,6 @@ class AppController extends AbstractController
     }
 
     /**
-     * @Route("/app", name="app")
-     */
-    public function index()
-    {
-        return $this->render('app/index.html.twig', [
-            'controller_name' => 'AppController',
-        ]);
-    }
-
-    /**
      * @Route("/sophrologie", name="sophrologie")
      */
     public function sophro()
@@ -38,7 +28,7 @@ class AppController extends AbstractController
      */
     public function ateliers()
     {
-       return $this->render('app/infoAteliers.html.twig');
+        return $this->render('app/infoAteliers.html.twig');
     }
 
     /**
@@ -80,7 +70,5 @@ class AppController extends AbstractController
     {
         return $this->render('app/conseil1.html.twig');
     }
-
-
     
 }

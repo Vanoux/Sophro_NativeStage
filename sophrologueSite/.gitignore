@@ -1,5 +1,6 @@
 .env
 .env.test
+/public/.htaccess
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php

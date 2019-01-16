@@ -1,19 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
-			<div class="small-12 medium-8 medium-offset-2 large-6 large-offset-3 cell">
 
-				<h1>Renouvellement du mot de passe</h1>
-				{{form_start(form)}}
-				{{form_row(form.password.first)}}
-				{{form_row(form.password.second)}}
-				<button class="button"  type="submit">Envoyer</button>
-				{{form_end(form)}}
+<div class="grid-container">
+	<div class="grid-x grid-padding-x">
+		<div class="small-12 medium-8 medium-offset-2 large-6 large-offset-3 cell">
 
-			</div>
+			<h1>Renouvellement du mot de passe</h1>
+
+			{{form_start(form)}}
+
+			{{form_row(form.password, {'label': 'Mot de passe : ','attr': {'placeholder': 'Votre Mot de passe...'}})}}
+			{{form_row(form.confirm_password, {'label': 'Confirmer votre mot de passe : ','attr': {'placeholder': 'Répéter votre
+			mot de passe...'}})}}
+			<button class="button" type="submit">Envoyer</button>
+
+			{{form_end(form)}}
+
 		</div>
 	</div>
-{% endblock %}
+</div>
 
+{% endblock %}

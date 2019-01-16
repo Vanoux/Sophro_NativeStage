@@ -68,13 +68,13 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
-    private $token;                     // 1 token pour vérifier l'accès du membre à l'espace de réinitialisation du mot de passe
+    private $token;  // 1 token pour vérifier l'accès du membre à l'espace de réinitialisation du mot de passe
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
      */
-    private $passwordRequestedAt;       // un champ datetime pour contrôler la validité du token
+    private $passwordRequestedAt; // un champ datetime pour contrôler la validité du token
     
 
 
@@ -172,9 +172,6 @@ class User implements UserInterface
         return $this;
     }
 
-
-
-
     // Ajout des 2 methods manquante de l'UserInterface = sinon fait tout planter !
     public function eraseCredentials()
     {
@@ -246,7 +243,5 @@ class User implements UserInterface
 
         return $this;
     }
-
-
 
 }

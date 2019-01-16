@@ -4,8 +4,7 @@
 
 {% block body %}
 
-{# Affiche le tableau user : {{ dump(user) }}#} 
-
+{# Affiche le tableau user : {{ dump(user) }}#}
 <div class="example-wrapper m-5">
 
     <h1 class="mb-4">Modification informations ✅</h1>
@@ -19,10 +18,9 @@
     {{ form_end(form) }}
 
     <div class="mt-5">
-        <a  href="{{ path('passwordEdit') }}">Modification du mot de passe</a>
+        <a href="{{ path('passwordEdit') }}">Modification du mot de passe</a>
     </div>
 
 </div>
-
 
 {% endblock %}

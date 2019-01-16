@@ -13,18 +13,18 @@
 </head>
 
 <body>
- 
+
     {% for label, flashes in app.session.flashbag.all %}
-    {% for flash in flashes %}
-        <div class="alert alert-{{ label }}">
-            {{ flash }}
-        </div>
-        <script>
-            setTimeout(function(){
-                $('.alert').slideUp('slow');
-            }, 7000);
-        </script>
-    {% endfor %}
+        {% for flash in flashes %}
+            <div class="alert alert-{{ label }}">
+                {{ flash }}
+            </div>
+                <script>
+                    setTimeout(function(){
+                            $('.alert').slideUp('slow');
+                        }, 7000);
+                </script>
+        {% endfor %}
     {% endfor %}
 
     <!-- ********** NAVBAR ********** -->
@@ -36,15 +36,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-
         <div class="navbar-collapse collapse show" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <!--dropdown Informations-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Informations
-                    </a>
+                        aria-haspopup="true" aria-expanded="false">Informations</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{ path('sophrologie') }}">La Sophrologie</a>
                         <a class="dropdown-item" href="{{ path('ateliers') }}">Mes Ateliers</a>
@@ -60,10 +57,10 @@
                 <li class="nav-item">
                     <a href="{{ path('contact') }}" class="nav-link">Contact</a>
                 </li>
-
+                <!-- Accueil dashboard si admin connecté -->
                 <li class="nav-item">
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('user') }}" class="nav-link">Dashboard Home</a>
+                    <a href="{{ path('user') }}" class="nav-link">Dashboard Home</a>
                     {% endif %}
                 </li>
             </ul>
@@ -86,7 +83,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('security_login') }}">Connexion</a>
                 </li>
-
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('security_logout') }}">Deconnexion</a>
@@ -106,8 +102,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     {% endblock %}
-
-
 
 </body>
 
