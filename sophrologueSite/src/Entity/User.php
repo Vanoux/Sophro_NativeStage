@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert; // Déclaration des annotations Constraints qui permettent mettre des conditions avant de valider les champs comme @Assert\length() pour la longeur min et max d'ue chaine...
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Permet d'utiliser l'annotation UniqueEntity() pour rendre une donnée unique
+use Symfony\Component\Validator\Constraints as Assert; // Déclaration des annotations Constraints qui permettent mettre des conditions avant de valider les champs comme @Assert\length() pour la longeur min et max d'ue chaine...
 
 
 /**
@@ -17,7 +17,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Permet d'util
  *  message="L'email que vous avez indiqué est déjà utilisé !" 
  * )
  */
-class User implements UserInterface //UserInterface = Représente l'interface que toutes les classes d'utilisateurs doivent implémenter pour créer de vrai utilisateurs
+class User implements UserInterface
+//UserInterface = Représente l'interface que toutes les classes d'utilisateurs doivent implémenter pour créer de vrai utilisateurs
 {
     /**
      * @ORM\Id()
@@ -63,8 +64,19 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
      */
     private $faqs;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $token;                     // 1 token pour vérifier l'accès du membre à l'espace de réinitialisation du mot de passe
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $passwordRequestedAt;       // un champ datetime pour contrôler la validité du token
     
+
 
 
     public function __construct()
@@ -128,10 +140,42 @@ class User implements UserInterface //UserInterface = Représente l'interface qu
         return $this;
     }
 
+    /*
+     * Get token
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+    /*
+     * Set token
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+        return $this;
+    }
+
+    /*
+     * Get passwordRequestedAt
+     */
+    public function getPasswordRequestedAt()
+    {
+        return $this->passwordRequestedAt;
+    }
+    /*
+     * Set passwordRequestedAt
+     */
+    public function setPasswordRequestedAt($passwordRequestedAt)
+    {
+        $this->passwordRequestedAt = $passwordRequestedAt;
+        return $this;
+    }
 
 
 
-    // Ajout des methods manquante de l'UserInterface = sinon fait tout planter !
+
+    // Ajout des 2 methods manquante de l'UserInterface = sinon fait tout planter !
     public function eraseCredentials()
     {
 

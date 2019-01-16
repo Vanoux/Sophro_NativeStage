@@ -10,6 +10,7 @@
     {% if is_granted('ROLE_ADMIN') %}
     <!-- is_granted() = méthode de sécurité pour que la hiérarchie des rôles fonctionne **granted : bénéficiaire**-->
     <h3 class="text-center">Bonjour {{ app.user.username }} !</h3>
+    {% endif %}
 
     <div class="row mt-5">
         <div class="col-sm-3">
@@ -49,9 +50,6 @@
             </div>
         </div>
     </div>
-
-
-    {% endif %}
 
 </div>
 {% endblock %}
