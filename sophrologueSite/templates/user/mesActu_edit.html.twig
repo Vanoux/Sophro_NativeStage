@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Actualités - Editer -{% endblock %}
+
+{% block body %}
+
+<h1>Edition de l'article : {{ articles.titre }}</h1>
+
+<div class="container mt-3">
+
+    {{ form_start(formArticles) }}
+
+    {{ form_row(formArticles.titre, {'attr' : {'placeholder': "Titre de l'article"}}) }}
+    {{ form_row(formArticles.metadescription, {'attr' : {'placeholder': "Mots clefs (pas obligatoire)"}}) }}
+    {{ form_row(formArticles.contenu, {'attr' : {'placeholder': "Contenu de l'article"}}) }}
+    {{ form_row(formArticles.image, {'attr' : {'placeholder': "Url de l'image (pas obligatoire)"}}) }}
+    {{ form_row(formArticles.date, {'attr' : {'placeholder': "Date de l'article"}}) }}
+
+
+    <button type="submit" class="btn btn-success">Valider les modifications</button>
+
+    {{ form_end(formArticles) }}
+
+</div>
+
+{% endblock %}

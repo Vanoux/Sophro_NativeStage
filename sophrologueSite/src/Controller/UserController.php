@@ -73,25 +73,4 @@ class UserController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/user/faq", name="mesFaq")
-     */
-    public function faq() {
-        return $this->render('user/mesFaq.html.twig');
-    }
-
-    /**
-     * @Route("/user/actualités", name="mesActualités")
-     */
-    public function actu() {
-        return $this->render('user/mesActu.html.twig');
-    }
-
-    /**
-     * @Route("/user/statistiques", name="mesStat")
-     */
-    public function stat() {
-        return $this->render('user/mesStat.html.twig');
-    }
-
 }

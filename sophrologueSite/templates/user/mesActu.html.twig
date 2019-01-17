@@ -4,6 +4,38 @@
 
 {% block body %}
 
-<h1>Ici c'est la page de mes Actualités ADMIN!!</h1>
+<h1 class="text-center mt-3">Ici c'est la page de mes Actualités ADMIN!!</h1>
+<h4>Créer une actualités</h4>
+<a href=" {{ path('create_actu') }} " class="btn btn-success btn-sm">Créer</a>
+
+{# Liste des articles #}
+{% for articles in articles %}
+<div class="example-wrapper">
+    <div class="row mt-5">
+        <div class="col mx-5">
+            <div class="card">
+                <div class="card-body">
+                    <section class="articles text-center">
+                            <article>
+                                <h2>{{ articles.titre }}</h2>
+                                <div class="metadata">Ecrit le {{ articles.date | date('d/m/Y') }}</div>
+                                <div class="content">
+                                    <img src="{{ articles.image }}" alt="image_actualités">
+                                <p>{{ articles.contenu | raw }}</p>
+                                    {#<a href="{{ path(' ', {'id': articles.id}) }}" class="btn btn-primary">lire
+                                        la suite</a>#}
+                                </div>
+                                <hr>
+                                <a href="#" class="btn btn-primary">Voir plus</a>
+                                <a href="{{ path('edit_actu', {'id': articles.id}) }}" class="btn btn-primary">Editer</a>
+                                <a href="{{ path('delete_actu', {'id': articles.id}) }}" class="btn btn-primary">Supprimer</a>
+                            </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 
 {% endblock %}
