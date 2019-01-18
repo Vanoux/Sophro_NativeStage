@@ -4,6 +4,12 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Articles;
+use App\Repository\ArticlesRepository;
+use App\Repository\FaqRepository;
+use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Article;
+
 
 class AppController extends AbstractController
 {
@@ -36,17 +42,31 @@ class AppController extends AbstractController
     }
 
     /**
-     * @Route("/faq", name="faq")
+     * @Route("/faq", name="faq", methods={"GET"})
      */
-    public function faq() {
-        return $this->render('app/faq.html.twig');
+    public function index(FaqRepository $faqRepository): Response 
+    {
+        return $this->render('faq/faq.html.twig', [
+            'faqs' => $faqRepository->findAll(),
+        ]);
     }
-
+    
     /**
-     * @Route("/actualités", name="actualités")
+     * @Route("/actualites", name="actu")
      */
-    public function actu() {
-        return $this->render('app/actu.html.twig');
+    public function actu(ArticlesRepository $articlesRepository) {
+        $articles = $articlesRepository->findAll();
+        return $this->render('app/actu.html.twig', [
+            'articles' => $articles
+        ]);
+    }
+    /**
+     * @Route("/actualites/{id}", name="actu_show")
+     */
+    public function showActu(Articles $articles) {
+        return $this->render('app/actu_show.html.twig', [
+            'articles' => $articles
+        ]);
     }
 
     /**

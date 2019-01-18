@@ -15,36 +15,6 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
-    /**
-     * @Route("/inscription", name="user_registration")
-     */
-    // Formulaire d'inscription
-    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) { //Userpasswordencoderinterface = permet d'encoder les mdp 
-        //Nouvel utilisateur
-        $user = new User();
-        //Par défaut l'utilisateur à le role user
-        $user->setRoles(array('ROLE_USER'));
-        //Création du formulaire
-        $form = $this->createForm(RegistrationType::class, $user);
-        //Permet au formulaire d'analyser la requête = traitement du formulaire
-        $form->handleRequest($request);
-        //Si le formulaire est soumit et que tout les champs sont valide
-        if ($form->isSubmitted() && $form->isValid()) {
-            //Avant de sauvegarder l'utilisateur = hash du mdp
-            $hash = $encoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($hash);
-            //Puis fait persister dans le temps l'utilisateur et le prépare pour la bdd
-            $manager->persist($user);
-            //Et le sauvegarde dans la bdd
-            $manager->flush();
-            //Une fois enregistré, l'utilisateur est redirigé à la page de connexion
-            return $this->redirectToRoute('security_login');
-        }
-        //Rendu de la page inscription avec le formulaire
-        return $this->render('security/registration.html.twig', [
-            'form' => $form->createView() 
-        ]);
-    }
 
     /**
      * @Route("/login", name="security_login")
@@ -66,6 +36,31 @@ class SecurityController extends AbstractController
      */
     public function logout() {
         
+    }
+
+    /**
+     * @Route("/user/password_edit", name="passwordEdit")
+     */
+    public function editPassword(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
+        $user = $this->getUser();
+        $form = $this->createForm(EditPasswordType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            //Avant de sauvegarder la modif = hash du mdp
+            $hash = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($hash);
+            //Puis fait persister dans le temps l'utilisateur et le prépare pour la bdd
+            $manager->persist($user);
+            //Et le sauvegarde dans la bdd
+            $manager->flush();
+            // Envoi le message qui confirme l'action
+            $this->get('session')->getFlashBag()->add('success', 'Votre mot de passe a été modifié !');
+            return $this->redirectToRoute('user');
+        }
+        return $this->render('user/userEditPassword.html.twig', [
+            "user" => $user,
+            "form" => $form->createView()
+        ]);
     }
 
 }

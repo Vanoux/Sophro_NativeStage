@@ -6,4 +6,30 @@
 
 <h1>Ici retrouvez toutes les dernières actu !!</h1>
 
+{# Liste des articles #}
+{% for articles in articles %}
+<div class="example-wrapper">
+    <div class="row mt-5">
+        <div class="col mx-5">
+            <div class="card">
+                <div class="card-body">
+                    <section class="articles text-center">
+                            <article>
+                                <h2>{{ articles.titre }}</h2>
+                                <div class="metadata">Ecrit le {{ articles.date | date('d/m/Y') }}</div>
+                                <div class="content">
+                                    <img src="{{ articles.image }}" alt="image_actualités">
+                                <p>{{ articles.contenu | raw }}</p>
+                                </div>
+                                <hr>
+                                <a href="{{ path('actu_show', {'id': articles.id})}}" class="btn btn-primary">lire la suite</a>
+                            </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
 {% endblock %}

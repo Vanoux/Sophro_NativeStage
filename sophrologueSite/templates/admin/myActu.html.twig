@@ -22,11 +22,9 @@
                                 <div class="content">
                                     <img src="{{ articles.image }}" alt="image_actualités">
                                 <p>{{ articles.contenu | raw }}</p>
-                                    {#<a href="{{ path(' ', {'id': articles.id}) }}" class="btn btn-primary">lire
-                                        la suite</a>#}
                                 </div>
                                 <hr>
-                                <a href="#" class="btn btn-primary">Voir plus</a>
+                                <a href="{{ path('actu_show', {'id': articles.id})}}" class="btn btn-primary">lire la suite</a>
                                 <a href="{{ path('edit_actu', {'id': articles.id}) }}" class="btn btn-primary">Editer</a>
                                 <a href="{{ path('delete_actu', {'id': articles.id}) }}" class="btn btn-primary">Supprimer</a>
                             </article>

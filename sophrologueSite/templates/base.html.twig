@@ -51,7 +51,7 @@
                 </li>
                 <!--Actualités -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('actualités') }}">Actualités</a>
+                    <a class="nav-link" href="{{ path('actu') }}">Actualités</a>
                 </li>
                 <!-- Contact -->
                 <li class="nav-item">
@@ -60,7 +60,7 @@
                 <!-- Accueil dashboard si admin connecté -->
                 <li class="nav-item">
                     {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('user') }}" class="nav-link">Dashboard Home</a>
+                    <a href="{{ path('dashboard') }}" class="nav-link">Dashboard Home</a>
                     {% endif %}
                 </li>
             </ul>

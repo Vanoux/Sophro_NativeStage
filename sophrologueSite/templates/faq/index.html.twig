@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma Foire à question-Liste-{% endblock %}
+
+{% block body %}
+    <h1>Ma Foire à Question -Liste-</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Reponse</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for faq in faqs %}
+            <tr>
+                <td>{{ faq.question }}</td>
+                <td>{{ faq.reponse }}</td>
+                <td>
+                    <a href="{{ path('faq_show', {'id': faq.id}) }}">Voir plus</a>
+                    <a href="{{ path('faq_edit', {'id': faq.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('faq_new') }}">Créer</a>
+{% endblock %}
