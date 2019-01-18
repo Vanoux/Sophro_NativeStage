@@ -28,7 +28,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="create_actu", methods={"GET","POST"})
+     * @Route("/new", name="actu_new", methods={"GET","POST"})
      */
     public function create_actu(Request $request, ObjectManager $manager): Response {
         
@@ -58,7 +58,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="edit_actu", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="actu_edit", methods={"GET","POST"})
      */
     public function edit_actu(Request $request, ObjectManager $manager, Articles $articles): Response {
 
@@ -80,7 +80,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="delete_actu")
+     * @Route("/{id}", name="actu_delete")
      */
     public function delete_actu(Request $request, ObjectManager $manager, Articles $articles): Response {
         $request->get('id');

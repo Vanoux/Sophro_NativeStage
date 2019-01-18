@@ -47,7 +47,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/edit", name="userEdit")
+     * @Route("/admin/edit", name="userEdit")
      */
     public function edit(Request $request, ObjectManager $manager) {
         $user = $this->getUser();
@@ -63,9 +63,9 @@ class UserController extends AbstractController
             $manager->flush();
             // Envoi le message qui confirme l'action
             $this->get('session')->getFlashBag()->add('success', 'Vos informations ont bien été modifiées !');
-            return $this->redirectToRoute('user');
+            return $this->redirectToRoute('admin');
         }
-        return $this->render('user/userEditForm.html.twig', [
+        return $this->render('admin/userEditForm.html.twig', [
             "user" => $user,
             "form" => $form->createView()
         ]);

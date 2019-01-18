@@ -6,7 +6,7 @@
 
 <h1 class="text-center mt-3">Ici c'est la page de mes Actualités ADMIN!!</h1>
 <h4>Créer une actualités</h4>
-<a href=" {{ path('create_actu') }} " class="btn btn-success btn-sm">Créer</a>
+<a href=" {{ path('actu_new') }} " class="btn btn-success btn-sm">Créer</a>
 
 {# Liste des articles #}
 {% for articles in articles %}
@@ -25,8 +25,8 @@
                                 </div>
                                 <hr>
                                 <a href="{{ path('actu_show', {'id': articles.id})}}" class="btn btn-primary">lire la suite</a>
-                                <a href="{{ path('edit_actu', {'id': articles.id}) }}" class="btn btn-primary">Editer</a>
-                                <a href="{{ path('delete_actu', {'id': articles.id}) }}" class="btn btn-primary">Supprimer</a>
+                                <a href="{{ path('actu_edit', {'id': articles.id}) }}" class="btn btn-primary">Editer</a>
+                                <a href="{{ path('actu_delete', {'id': articles.id}) }}" class="btn btn-primary">Supprimer</a>
                             </article>
                     </section>
                 </div>

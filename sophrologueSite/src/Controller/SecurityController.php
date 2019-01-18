@@ -39,7 +39,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/user/password_edit", name="passwordEdit")
+     * @Route("/admin/password_edit", name="passwordEdit")
      */
     public function editPassword(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
         $user = $this->getUser();
@@ -55,9 +55,9 @@ class SecurityController extends AbstractController
             $manager->flush();
             // Envoi le message qui confirme l'action
             $this->get('session')->getFlashBag()->add('success', 'Votre mot de passe a été modifié !');
-            return $this->redirectToRoute('user');
+            return $this->redirectToRoute('admin');
         }
-        return $this->render('user/userEditPassword.html.twig', [
+        return $this->render('security/editPassword.html.twig', [
             "user" => $user,
             "form" => $form->createView()
         ]);

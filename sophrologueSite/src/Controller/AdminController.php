@@ -12,10 +12,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Form\EditPasswordType;
 
+/**
+ * @Route("/admin")
+ */
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="dashboard")
+     * @Route("/dashboard", name="dashboard")
      */
     public function index() {
         return $this->render('admin/dashboard.html.twig', [
@@ -24,7 +27,7 @@ class AdminController extends AbstractController
     }
     
     /**
-     * @Route("/admin/stat", name="myStat")
+     * @Route("/stat", name="myStat")
      */
     public function stat() {
         return $this->render('admin/myStat.html.twig');

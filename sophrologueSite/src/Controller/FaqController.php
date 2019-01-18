@@ -41,7 +41,7 @@ class FaqController extends AbstractController
             $entityManager->flush();
             $this->get('session')->getFlashBag()->add('success', 'Votre question et sa réponse ont bien été crées !');
 
-            return $this->redirectToRoute('faq_index');
+            return $this->redirectToRoute('myFaq');
         }
 
         return $this->render('faq/new.html.twig', [
@@ -69,7 +69,7 @@ class FaqController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             $this->get('session')->getFlashBag()->add('success', 'Votre question et sa réponse ont bien été modifiés !');
-            return $this->redirectToRoute('faq_index', [
+            return $this->redirectToRoute('myFaq', [
                 'id' => $faq->getId(),
             ]);
         }
@@ -90,6 +90,6 @@ class FaqController extends AbstractController
             $entityManager->flush();
         }
         $this->get('session')->getFlashBag()->add('success', 'Votre question et sa réponse ont bien été supprimés !');
-        return $this->redirectToRoute('faq_index');
+        return $this->redirectToRoute('myFaq');
     }
 }
