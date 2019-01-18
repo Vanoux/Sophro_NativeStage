@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\EditPasswordType;
 use App\Form\RegistrationType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -19,7 +20,8 @@ class SecurityController extends AbstractController
     /**
      * @Route("/login", name="security_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response {
+    public function login(AuthenticationUtils $authenticationUtils): Response 
+    {
         //Fait 1 erreur de connexion s'il y en a une
         $error = $authenticationUtils->getLastAuthenticationError();
         //Dernier nom d'utilisateur entré par l'utilisateur
@@ -34,14 +36,16 @@ class SecurityController extends AbstractController
     /**
      * @Route("/logout", name="security_logout")
      */
-    public function logout() {
+    public function logout(): Response 
+    {
         
     }
 
     /**
-     * @Route("/admin/password_edit", name="passwordEdit")
+     * @Route("/admin/password_edit", name="password_edit")
      */
-    public function editPassword(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
+    public function editPassword(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder): Response 
+    {
         $user = $this->getUser();
         $form = $this->createForm(EditPasswordType::class, $user);
         $form->handleRequest($request);
@@ -55,9 +59,9 @@ class SecurityController extends AbstractController
             $manager->flush();
             // Envoi le message qui confirme l'action
             $this->get('session')->getFlashBag()->add('success', 'Votre mot de passe a été modifié !');
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('dashboard');
         }
-        return $this->render('security/editPassword.html.twig', [
+        return $this->render('security/edit_password.html.twig', [
             "user" => $user,
             "form" => $form->createView()
         ]);

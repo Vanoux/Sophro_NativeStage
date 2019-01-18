@@ -7,9 +7,10 @@ use App\Form\EditUserType;
 use App\Form\RegistrationType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface; //Userpasswordencoderinterface = permet d'encoder les mdp
 use App\Form\EditPasswordType;
 
 class UserController extends AbstractController
@@ -19,7 +20,8 @@ class UserController extends AbstractController
      * @Route("/inscription", name="user_registration")
      */
     // Formulaire d'inscription
-    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) { //Userpasswordencoderinterface = permet d'encoder les mdp 
+    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder): Response  
+    { 
         //Nouvel utilisateur
         $user = new User();
         //Par défaut l'utilisateur à le role user
@@ -49,7 +51,8 @@ class UserController extends AbstractController
     /**
      * @Route("/admin/edit", name="userEdit")
      */
-    public function edit(Request $request, ObjectManager $manager) {
+    public function edit(Request $request, ObjectManager $manager): Response  
+    {
         $user = $this->getUser();
         //Création du formulaire 
         $form = $this->createForm(EditUserType::class, $user);
@@ -63,9 +66,9 @@ class UserController extends AbstractController
             $manager->flush();
             // Envoi le message qui confirme l'action
             $this->get('session')->getFlashBag()->add('success', 'Vos informations ont bien été modifiées !');
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('dashboard');
         }
-        return $this->render('admin/userEditForm.html.twig', [
+        return $this->render('security/edit_admin.html.twig', [
             "user" => $user,
             "form" => $form->createView()
         ]);

@@ -22,7 +22,8 @@ class ResettingController extends AbstractController
     /**
      * @Route("/requete", name="request_resetting")
      */
-    public function request(Request $request, ObjectManager $manager, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator) {
+    public function request(Request $request, ObjectManager $manager, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator): Response 
+    {
         // création d'un formulaire, afin que l'internaute puisse renseigner son mail
         $form = $this->createFormBuilder()
                 ->add('mail', EmailType::class, [
@@ -76,7 +77,8 @@ class ResettingController extends AbstractController
         ]);
     }
 
-    private function isRequestInTime(\Datetime $passwordRequestedAt = NULL) {
+    private function isRequestInTime(\Datetime $passwordRequestedAt = NULL): Response  
+    {
         if ($passwordRequestedAt === NULL) {
             return false;
         }
@@ -92,7 +94,8 @@ class ResettingController extends AbstractController
     /**
      * @Route("/resetting/{id}/{token}", name="resetting")
      */
-    public function resetting(User $user, $token, ObjectManager $manager, Request $request, UserPasswordEncoderInterface $encoder) {
+    public function resetting(User $user, $token, ObjectManager $manager, Request $request, UserPasswordEncoderInterface $encoder): Response  
+    {
         // interdit l'accès à la page si:
         // le token associé au membre est null
         // le token enregistré en base et le token présent dans l'url ne sont pas égaux

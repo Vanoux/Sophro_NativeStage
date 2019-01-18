@@ -26,7 +26,12 @@
                                 <hr>
                                 <a href="{{ path('actu_show', {'id': articles.id})}}" class="btn btn-primary">lire la suite</a>
                                 <a href="{{ path('actu_edit', {'id': articles.id}) }}" class="btn btn-primary">Editer</a>
-                                <a href="{{ path('actu_delete', {'id': articles.id}) }}" class="btn btn-primary">Supprimer</a>
+                                {#<a href="{{ path('actu_delete', {'id': articles.id}) }}" class="btn btn-primary">Supprimer</a>#}
+                                <form method="post" action="{{ path('actu_delete', {'id': articles.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ articles.id) }}">
+                                    <button class="btn btn-primary">Supprimer</button>
+                                </form>
                             </article>
                     </section>
                 </div>

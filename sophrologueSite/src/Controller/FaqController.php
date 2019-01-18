@@ -18,8 +18,9 @@ class FaqController extends AbstractController
     /**
      * @Route("/", name="myFaq", methods={"GET"})
      */
-    public function index(FaqRepository $faqRepository): Response {
-        return $this->render('faq/index.html.twig', [
+    public function index(FaqRepository $faqRepository): Response 
+    {
+        return $this->render('admin/faq/index.html.twig', [
             'faqs' => $faqRepository->findAll(),
         ]);
     }
@@ -27,7 +28,8 @@ class FaqController extends AbstractController
     /**
      * @Route("/new", name="faq_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response {
+    public function new(Request $request): Response 
+    {
         $user = $this->getUser();
         $faq = new Faq();
         $form = $this->createForm(FaqType::class, $faq);
@@ -44,7 +46,7 @@ class FaqController extends AbstractController
             return $this->redirectToRoute('myFaq');
         }
 
-        return $this->render('faq/new.html.twig', [
+        return $this->render('admin/faq/new.html.twig', [
             'faq' => $faq,
             'form' => $form->createView(),
         ]);
@@ -53,8 +55,9 @@ class FaqController extends AbstractController
     /**
      * @Route("/{id}", name="faq_show", methods={"GET"})
      */
-    public function show(Faq $faq): Response {
-        return $this->render('faq/show.html.twig', [
+    public function show(Faq $faq): Response 
+    {
+        return $this->render('admin/faq/show.html.twig', [
             'faq' => $faq,
         ]);
     }
@@ -62,7 +65,8 @@ class FaqController extends AbstractController
     /**
      * @Route("/{id}/edit", name="faq_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Faq $faq): Response {
+    public function edit(Request $request, Faq $faq): Response 
+    {
         $form = $this->createForm(FaqType::class, $faq);
         $form->handleRequest($request);
 
@@ -74,7 +78,7 @@ class FaqController extends AbstractController
             ]);
         }
 
-        return $this->render('faq/edit.html.twig', [
+        return $this->render('admin/faq/edit.html.twig', [
             'faq' => $faq,
             'form' => $form->createView(),
         ]);
@@ -83,7 +87,8 @@ class FaqController extends AbstractController
     /**
      * @Route("/{id}", name="faq_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Faq $faq): Response {
+    public function delete(Request $request, Faq $faq): Response 
+    {
         if ($this->isCsrfTokenValid('delete'.$faq->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($faq);

@@ -16,29 +16,33 @@ class AppController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home() {
+    public function home(): Response 
+    {
         return $this->render('app/home.html.twig');
     }
 
     /**
      * @Route("/sophrologie", name="sophrologie")
      */
-    public function sophro() {
-        return $this->render('app/infoSophro.html.twig');
+    public function sophro(): Response  
+    {
+        return $this->render('app/sophro.html.twig');
     }
 
     /**
      * @Route("/ateliers", name="ateliers")
      */
-    public function ateliers() {
-        return $this->render('app/infoAteliers.html.twig');
+    public function ateliers(): Response  
+    {
+        return $this->render('app/ateliers.html.twig');
     }
 
     /**
      * @Route("/tarifsHoraires", name="tarifsHoraires")
      */
-    public function tarifsHoraires() {
-        return $this->render('app/infoTarifsHoraires.html.twig');
+    public function tarifsHoraires() : Response 
+    {
+        return $this->render('app/tarifs_horaires.html.twig');
     }
 
     /**
@@ -46,7 +50,7 @@ class AppController extends AbstractController
      */
     public function index(FaqRepository $faqRepository): Response 
     {
-        return $this->render('faq/faq.html.twig', [
+        return $this->render('app/faq.html.twig', [
             'faqs' => $faqRepository->findAll(),
         ]);
     }
@@ -54,7 +58,8 @@ class AppController extends AbstractController
     /**
      * @Route("/actualites", name="actu")
      */
-    public function actu(ArticlesRepository $articlesRepository) {
+    public function actu(ArticlesRepository $articlesRepository): Response  
+    {
         $articles = $articlesRepository->findAll();
         return $this->render('app/actu.html.twig', [
             'articles' => $articles
@@ -63,7 +68,8 @@ class AppController extends AbstractController
     /**
      * @Route("/actualites/{id}", name="actu_show")
      */
-    public function showActu(Articles $articles) {
+    public function showActu(Articles $articles): Response  
+    {
         return $this->render('app/actu_show.html.twig', [
             'articles' => $articles
         ]);
@@ -72,14 +78,16 @@ class AppController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact() {
+    public function contact(): Response 
+    {
         return $this->render('app/contact.html.twig');
     }
 
     /**
      * @Route("/conseils", name="conseils")
      */
-    public function conseils() {
+    public function conseils(): Response  
+    {
         return $this->render('app/conseils.html.twig');
     }
     

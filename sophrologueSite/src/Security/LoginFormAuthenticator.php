@@ -67,10 +67,9 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
 
         if (!$user) {
-            // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Username could not be found.');
+            // échec de l'authentification avec une erreur personnalisée
+            throw new CustomUserMessageAuthenticationException('Identifiant introuvable !');
         }
-
         return $user;
     }
 
@@ -86,7 +85,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         }
 
         return new RedirectResponse($this->router->generate('admin'));
-
     }
 
     protected function getLoginUrl()

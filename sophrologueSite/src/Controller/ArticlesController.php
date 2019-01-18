@@ -20,9 +20,10 @@ class ArticlesController extends AbstractController
     /**
      * @Route("/", name="myActu", methods={"GET"})
      */
-    public function actu(ArticlesRepository $articlesRepository): Response {
+    public function actu(ArticlesRepository $articlesRepository): Response 
+    {
         $articles = $articlesRepository->findAll();
-        return $this->render('admin/myActu.html.twig', [
+        return $this->render('admin/actu/index.html.twig', [
             'articles' => $articles
         ]);
     }
@@ -30,7 +31,8 @@ class ArticlesController extends AbstractController
     /**
      * @Route("/new", name="actu_new", methods={"GET","POST"})
      */
-    public function create_actu(Request $request, ObjectManager $manager): Response {
+    public function create_actu(Request $request, ObjectManager $manager): Response 
+    {
         
         $user = $this->getUser();
         $articles = new Articles();
@@ -51,7 +53,7 @@ class ArticlesController extends AbstractController
                 'id' => $articles->getId()
                 ]);
         }
-        return $this->render('admin/myActu_create.html.twig', [
+        return $this->render('admin/actu/new.html.twig', [
             'articles' => $articles,
             'formArticles' => $form->createView()
         ]);
@@ -60,7 +62,8 @@ class ArticlesController extends AbstractController
     /**
      * @Route("/{id}/edit", name="actu_edit", methods={"GET","POST"})
      */
-    public function edit_actu(Request $request, ObjectManager $manager, Articles $articles): Response {
+    public function edit_actu(Request $request, ObjectManager $manager, Articles $articles): Response 
+    {
 
         $form = $this->createForm(ArticlesType::class, $articles);
         $form->handleRequest($request);
@@ -73,7 +76,7 @@ class ArticlesController extends AbstractController
                 'id' => $articles->getId()
             ]);
         }
-        return $this->render('admin/myActu_edit.html.twig', [
+        return $this->render('admin/actu/edit.html.twig', [
             'articles' => $articles,
             'formArticles' => $form->createView()
         ]);
@@ -82,7 +85,8 @@ class ArticlesController extends AbstractController
     /**
      * @Route("/{id}", name="actu_delete")
      */
-    public function delete_actu(Request $request, ObjectManager $manager, Articles $articles): Response {
+    public function delete_actu(Request $request, ObjectManager $manager, Articles $articles): Response 
+    {
         $request->get('id');
         $manager->remove($articles);
         $manager->flush();
