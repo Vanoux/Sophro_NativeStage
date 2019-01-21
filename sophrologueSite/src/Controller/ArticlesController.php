@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @Route("admin/actu")
@@ -43,7 +44,12 @@ class ArticlesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //Dis qu'un article est lié à un utilisateur
             $articles->setUser($user);
-            //Puis l'enregistre et l'envoi dans la BDD
+            //Télécharge l'image
+            $image = $articles->getImage();
+            $imageName = md5(uniqid()).'.'.$image->guessExtension();
+            $image->move($this->getParameter('photos_directory'), $imageName); 
+            $articles->setImage($imageName);
+            //Puis enregistre et envoi dans la BDD
             $manager->persist($articles);
             $manager->flush();
             // Envoi le message qui confirme l'action

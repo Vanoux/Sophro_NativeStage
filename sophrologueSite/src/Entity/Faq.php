@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert; // Déclaration des annotations Constraints qui permettent mettre des conditions avant de valider les champs comme @Assert\length() pour la longeur min et max d'ue chaine...
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FaqRepository")
@@ -18,11 +20,13 @@ class Faq
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $question;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     private $reponse;
 

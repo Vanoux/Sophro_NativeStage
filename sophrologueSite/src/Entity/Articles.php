@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert; // Déclaration des annotations Constraints qui permettent mettre des conditions avant de valider les champs comme @Assert\length() pour la longeur min et max d'ue chaine...
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticlesRepository")
@@ -18,6 +20,7 @@ class Articles
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message=" Veuillez mettre un titre.")
      */
     private $titre;
 
@@ -28,11 +31,13 @@ class Articles
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message=" Veuillez mettre du contenu.")
      */
     private $contenu;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Image(mimeTypes={ "image/*"})
      */
     private $image;
 
