@@ -69,18 +69,35 @@ class ArticlesController extends AbstractController
     /**
      * @Route("/{id}/edit", name="actu_edit", methods={"GET","POST"})
      */
-    public function edit_actu(Request $request, ObjectManager $manager, Articles $articles): Response 
+    public function edit_actu(Request $request, ObjectManager $manager, Articles $articles): Response
     {
+        /*
+         *
+         * Ici nous mettons la conversion du string contenu dans articles->getImage(). De ce fait le formulaire sait qu'on utilise
+         * Un fichier File
+         *
+         */
+        $articles->setImage(
+            new File($this->getParameter('images_directory').'/'.$articles->getImage())
+        );
 
         $form = $this->createForm(ArticlesType::class, $articles);
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $articles->setImage(
-                new File($this->getParameter('images_directory').'/'.$articles->getImage())
-            );
-
+            /*
+             *
+             * Ici tu vas devoir gérer toute la logique d'image que je t'ai indiqué dans la journée.
+             * Tu as trois cas de figure :
+             *
+             * 1) Tu edites le contenu mais l'image reste la même
+             * 2) Tu édites l'image, dans ce cas on doit supprimer l'ancienne et en mettre une nouvelle
+             * 3) Tu n'avais pas d'image au départ et tu veux en mettre une désormais
+             *
+             * À toi de me faire une belle logique conditionnel pour gérer ça :)
+             *
+             */
             $manager->persist($articles);
             $manager->flush();
             $this->get('session')->getFlashBag()->add('success', 'Votre article a bien été modifié !');

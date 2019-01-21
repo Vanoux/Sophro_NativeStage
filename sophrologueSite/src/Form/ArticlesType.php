@@ -20,7 +20,8 @@ class ArticlesType extends AbstractType
             ->add('contenu', TextareaType::class)
             ->add('image', FileType::class, [
                 'label' => 'Image',
-                //'data_class' => null
+                'required' => false,
+                'data_class' => null
                 ])
             ->add('date')
             //->add('user')
