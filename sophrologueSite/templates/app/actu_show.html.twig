@@ -9,7 +9,7 @@
         <h2 class="pb-3">{{ articles.titre }}</h2>
         <div class="metadata">Ecrit le {{ articles.date | date('d/m/Y') }}</div>
         <div class="content">
-            <img src="{{ articles.image }}" alt="image d'actualité">
+            <img src="{{ asset('uploads/photos/')~ articles.image }}" alt="image d'actualité">
             <p>{{ articles.contenu | raw }}</p>
             {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('myActu') }}" class="btn btn-primary btn-sm">Retour à la liste</a>

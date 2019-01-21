@@ -18,7 +18,7 @@
                                 <h2>{{ articles.titre }}</h2>
                                 <div class="metadata">Ecrit le {{ articles.date | date('d/m/Y') }}</div>
                                 <div class="content">
-                                    <img src="{{ articles.image }}" alt="image_actualités">
+                                    <img src="{{ asset('uploads/photos/')~ articles.image }}" alt="image_actualités">
                                 <p>{{ articles.contenu | raw }}</p>
                                 </div>
                                 <hr>

@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @Route("admin/actu")
@@ -45,9 +46,9 @@ class ArticlesController extends AbstractController
             //Dis qu'un article est lié à un utilisateur
             $articles->setUser($user);
             //Télécharge l'image
-            $image = $articles->getImage();
+            $image = $form->get('image')->getData();
             $imageName = md5(uniqid()).'.'.$image->guessExtension();
-            $image->move($this->getParameter('photos_directory'), $imageName); 
+            $image->move($this->getParameter('images_directory'), $imageName); 
             $articles->setImage($imageName);
             //Puis enregistre et envoi dans la BDD
             $manager->persist($articles);
@@ -75,6 +76,11 @@ class ArticlesController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $articles->setImage(
+                new File($this->getParameter('images_directory').'/'.$articles->getImage())
+            );
+
             $manager->persist($articles);
             $manager->flush();
             $this->get('session')->getFlashBag()->add('success', 'Votre article a bien été modifié !');

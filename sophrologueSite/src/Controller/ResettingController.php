@@ -77,7 +77,7 @@ class ResettingController extends AbstractController
         ]);
     }
 
-    private function isRequestInTime(\Datetime $passwordRequestedAt = NULL): Response  
+    private function isRequestInTime(\Datetime $passwordRequestedAt = NULL)  
     {
         if ($passwordRequestedAt === NULL) {
             return false;
