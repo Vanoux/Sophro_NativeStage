@@ -83,13 +83,14 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="actu_delete")
+     * @Route("/{id}", name="actu_delete", methods={"DELETE"})
      */
     public function delete_actu(Request $request, ObjectManager $manager, Articles $articles): Response 
     {
-        $request->get('id');
-        $manager->remove($articles);
-        $manager->flush();
+        if ($this->isCsrfTokenValid('delete'.$articles->getId(), $request->request->get('_token'))) {
+            $manager->remove($articles);
+            $manager->flush();
+        }
         $this->get('session')->getFlashBag()->add('success', 'Votre article a bien été supprimé !');
         return $this->redirectToRoute('myActu');
     }

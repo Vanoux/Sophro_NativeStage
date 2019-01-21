@@ -17,7 +17,7 @@ class UserController extends AbstractController
 {
 
     /**
-     * @Route("/inscription", name="user_registration")
+     * @Route("/inscription", name="user_registration", methods={"POST"})
      */
     // Formulaire d'inscription
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder): Response  
@@ -49,7 +49,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/edit", name="userEdit")
+     * @Route("/edit", name="userEdit", methods={"GET","POST"})
      */
     public function edit(Request $request, ObjectManager $manager): Response  
     {
@@ -68,7 +68,7 @@ class UserController extends AbstractController
             $this->get('session')->getFlashBag()->add('success', 'Vos informations ont bien été modifiées !');
             return $this->redirectToRoute('dashboard');
         }
-        return $this->render('security/edit_admin.html.twig', [
+        return $this->render('security/edit_user.html.twig', [
             "user" => $user,
             "form" => $form->createView()
         ]);

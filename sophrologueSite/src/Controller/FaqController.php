@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Common\Persistence\ObjectManager;
+
 
 /**
  * @Route("admin/faq")
@@ -87,12 +89,11 @@ class FaqController extends AbstractController
     /**
      * @Route("/{id}", name="faq_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Faq $faq): Response 
+    public function delete(Request $request, ObjectManager $manager, Faq $faq): Response 
     {
         if ($this->isCsrfTokenValid('delete'.$faq->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($faq);
-            $entityManager->flush();
+            $manager->remove($faq);
+            $manager->flush();
         }
         $this->get('session')->getFlashBag()->add('success', 'Votre question et sa réponse ont bien été supprimés !');
         return $this->redirectToRoute('myFaq');
