@@ -8,29 +8,29 @@
 <h4>Créer une actualités</h4>
 <a href=" {{ path('actu_new') }} " class="btn btn-success btn-sm">Créer</a>
 
-{# Liste des articles #}
-{% for articles in articles %}
+{# Liste des article #}
+{% for article in articles %}
 <div class="example-wrapper">
     <div class="row mt-5">
         <div class="col mx-5">
             <div class="card">
                 <div class="card-body">
-                    <section class="articles text-center">
+                    <section class="article text-center">
                             <article>
-                                <h2>{{ articles.titre }}</h2>
-                                <div class="metadata">Ecrit le {{ articles.date | date('d/m/Y') }}</div>
+                                <h2>{{ article.titre }}</h2>
+                                <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }}</div>
                                 <div class="content">
-                                    {# <img src="{{ articles.image }}" alt="image_actualités"> #}
-                                    <img src="{{ asset('uploads/photos/')~ articles.image }}" alt="image_article">
-                                <p>{{ articles.contenu | raw }}</p>
+                                    {# <img src="{{ article.image }}" alt="image_actualités"> #}
+                                    <img src="{{ asset('uploads/photos/')~ article.image }}" alt="image_article">
+                                <p>{{ article.contenu | raw }}</p>
                                 </div>
                                 <hr>
-                                <a href="{{ path('actu_show', {'id': articles.id})}}" class="btn btn-primary">lire la suite</a>
-                                <a href="{{ path('actu_edit', {'id': articles.id}) }}" class="btn btn-primary">Editer</a>
-                                {#<a href="{{ path('actu_delete', {'id': articles.id}) }}" class="btn btn-primary">Supprimer</a>#}
-                                <form method="post" action="{{ path('actu_delete', {'id': articles.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
+                                <a href="{{ path('actu_show', {'id': article.id})}}" class="btn btn-primary">lire la suite</a>
+                                <a href="{{ path('actu_edit', {'id': article.id}) }}" class="btn btn-primary">Editer</a>
+                                {#<a href="{{ path('actu_delete', {'id': article.id}) }}" class="btn btn-primary">Supprimer</a>#}
+                                <form method="post" action="{{ path('actu_delete', {'id': article.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ articles.id) }}">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
                                     <button class="btn btn-primary">Supprimer</button>
                                 </form>
                             </article>

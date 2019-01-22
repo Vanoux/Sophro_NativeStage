@@ -5,10 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use App\Entity\Articles;
-use App\Repository\ArticlesRepository;
+use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use App\Repository\FaqRepository;
-use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Article;
+//use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Article;
 
 
 class AppController extends AbstractController
@@ -58,9 +58,9 @@ class AppController extends AbstractController
     /**
      * @Route("/actualites", name="actu")
      */
-    public function actu(ArticlesRepository $articlesRepository): Response  
+    public function actu(ArticleRepository $articleRepository): Response  
     {
-        $articles = $articlesRepository->findAll();
+        $articles = $articleRepository->findAll();
         return $this->render('app/actu.html.twig', [
             'articles' => $articles
         ]);
@@ -68,10 +68,10 @@ class AppController extends AbstractController
     /**
      * @Route("/actualites/{id}", name="actu_show")
      */
-    public function showActu(Articles $articles): Response  
+    public function showActu(Article $article): Response  
     {
         return $this->render('app/actu_show.html.twig', [
-            'articles' => $articles
+            'article' => $article
         ]);
     }
 

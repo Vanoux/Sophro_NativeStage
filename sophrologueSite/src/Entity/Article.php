@@ -7,9 +7,9 @@ use Symfony\Component\Validator\Constraints as Assert; // Déclaration des annot
 
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ArticlesRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  */
-class Articles
+class Article
 {
     /**
      * @ORM\Id()
@@ -47,7 +47,7 @@ class Articles
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="article")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
