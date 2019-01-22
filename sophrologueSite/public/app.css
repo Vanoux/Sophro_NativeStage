@@ -5,3 +5,6 @@
     left: 0;
     position: absolute !important;
 }
+.card-header {
+    background-color: #95B0CA;
+}

@@ -5,51 +5,58 @@
 {% block body %}
 
 <div class="example-wrapper">
-
-    <h1 class="text-center mt-4">✅ Accueil Admin ✅</h1>
-    {% if is_granted('ROLE_ADMIN') %}
-    <!-- is_granted() = méthode de sécurité pour que la hiérarchie des rôles fonctionne **granted : bénéficiaire**-->
-    <h3 class="text-center">Bonjour {{ app.user.username }} !</h3>
-    {% endif %}
-
-    <div class="row mt-5">
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Mes Actualités</h5>
-                    <p class="card-text">Ici retrouvez toutes vos actualités et les actions de CRUD</p>
-                    <a href="{{ path('myActu') }}" class="btn btn-primary">Voir plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Ma Foire à questions</h5>
-                    <p class="card-text">Ici retrouvez toutes votre Faq et les actions de CRUD</p>
-                    <a href="{{ path('myFaq') }}" class="btn btn-primary">Voir plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Ma Statistiques</h5>
-                    <p class="card-text">Ici retrouvez toutes les Statistiques de fréquentations de votre site</p>
-                    <a href="{{ path('myStat') }}" class="btn btn-primary">Voir plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Modifications Info</h5>
-                    <p class="card-text">Ici modifiez vos informations de connexion et votre nom</p>
-                    <a href="{{ path('userEdit') }}" class="btn btn-primary">Voir plus</a>
-                </div>
-            </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center">Dashboard Admin</h1>
+            {% if is_granted('ROLE_ADMIN') %}
+            <!-- is_granted() = méthode de sécurité pour que la hiérarchie des rôles fonctionne **granted : bénéficiaire**-->
+            <h3 class="text-center">Bonjour {{ app.user.username }} !</h3>
+            {% endif %}
         </div>
     </div>
+
+    {# <div class="row mt-5">
+        <div class="col-sm-3"> #}
+            <div class="card text-center m-5">
+                <h4 class="card-header">Mes Actualités</h4>
+                    <div class="card-body">
+                        {# <h5 class="card-title">Mes Actualités</h5> #}
+                        <p class="card-text">Ici retrouvez toutes vos actualités et les actions de CRUD</p>
+                        <a href="{{ path('myActu') }}" class="btn btn-primary btn-sm">Voir plus</a>
+                    </div>
+            </div>
+        {# </div> #}
+        {# <div class="col-sm-3"> #}
+            <div class="card text-center m-5">
+                <h4 class="card-header">Ma Foire à questions</h4>
+                    <div class="card-body">
+                        {# <h5 class="card-title">Ma Foire à questions</h5> #}
+                        <p class="card-text">Ici retrouvez toutes votre Faq et les actions de CRUD</p>
+                        <a href="{{ path('myFaq') }}" class="btn btn-primary btn-sm">Voir plus</a>
+                    </div>
+            </div>
+        {# </div>
+        <div class="col-sm-3"> #}
+            <div class="card text-center m-5">
+                <h4 class="card-header">Mes Statistiques Google Analytics</h4>
+                    <div class="card-body">
+                        {# <h5 class="card-title">Ma Statistiques</h5> #}
+                        <p class="card-text">Ici retrouvez toutes les Statistiques de fréquentations de votre site</p>
+                        <a href="{{ path('myStat') }}" class="btn btn-primary btn-sm">Voir plus</a>
+                    </div>
+            </div>
+        {# </div>
+        <div class="col-sm-3"> #}
+            <div class="card text-center m-5">
+                <h4 class="card-header">Mes Modifications personnelles</h4>
+                    <div class="card-body">
+                        {# <h5 class="card-title">Modifications Info</h5> #}
+                        <p class="card-text">Ici modifiez vos informations de connexion et vos informations personnelles</p>
+                        <a href="{{ path('userEdit') }}" class="btn btn-primary btn-sm">Voir plus</a>
+                    </div>
+            </div>
+        {# </div>
+    </div> #}
 
 </div>
 {% endblock %}

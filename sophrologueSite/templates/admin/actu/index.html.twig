@@ -4,9 +4,24 @@
 
 {% block body %}
 
-<h1 class="text-center mt-3">Ici c'est la page de mes Actualités ADMIN!!</h1>
-<h4>Créer une actualités</h4>
-<a href=" {{ path('actu_new') }} " class="btn btn-success btn-sm">Créer</a>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-5 text-center">Toutes mes Actualités ADMIN</h1>
+    </div>
+</div>
+
+{# <div class="row">
+    <div class="col-sm-3"> #}
+        <div class="card text-center m-5">
+            <div class="card-body">
+                <h4 class="card-title">Créer une actualité</h4>
+                <a href=" {{ path('actu_new') }} " class="btn btn-success btn-sm">Créer</a>
+            </div>
+        </div>
+    {# </div>
+</div> #}
+
+
 
 {# Liste des article #}
 {% for article in articles %}
