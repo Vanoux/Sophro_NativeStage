@@ -3,32 +3,76 @@
 {% block title %}Ma Foire à question-Liste-{% endblock %}
 
 {% block body %}
-    <h1>Ma Foire à Question -Liste-</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Question</th>
-                <th>Reponse</th>
-            </tr>
-        </thead>
-        <tbody>
+<div class="jumbotron jumbotron-fluid jumbotronTitle">
+    <div class="container">
+        <h1 class="display-5 text-center">Ma Foire à question ADMIN</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card text-center m-5 createCard">
+        <div class="card-body">
+            <h4 class="card-title">Créer une nouvelle question / réponse</h4>
+            <a href=" {{ path('faq_new') }} " class="btn btn-secondary">Créer</a>
+        </div>
+    </div>
+</div>
+
+{# *** Liste des questions / réponses *** #}
+{% for faq in faqs %}
+<div class="container">
+    <div class="card m-5 cardContour">
+        <div class="card-body">
+            <section class="article text-center">
+                <article>
+                    <h2 class="card-title">{{ faq.question }}</h2>
+                    <div class="content">
+                        <p class="card-text">{{ faq.reponse }}</p>
+                    </div>
+                    <hr>
+                    <a href="{{ path('faq', {'id': faq.id}) }}" class="btn-sm btnSuite px-4 py-2">Voir sur le site</a>
+                    <a href="{{ path('faq_edit', {'id': faq.id}) }}" class="btn-sm btnEdit px-4 py-2">Editer</a>
+                    <form class="mt-2" method="post" action="{{ path('faq_delete', {'id': faq.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ faq.id) }}">
+                        <button class="btn btn-sm btnSupr">Supprimer</button>
+                    </form>
+                </article>
+            </section>
+            {# {% else %}
+            <h2 class="card-title">La Foire à question est vide !</h2> #}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+
+{# LISTE SOUS FORME DE TABLEAU MOCHE
+<table class="table">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Reponse</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for faq in faqs %}
-            <tr>
-                <td>{{ faq.question }}</td>
-                <td>{{ faq.reponse }}</td>
-                <td>
-                    <a href="{{ path('faq_show', {'id': faq.id}) }}">Voir plus</a>
-                    <a href="{{ path('faq_edit', {'id': faq.id}) }}">Editer</a>
-                </td>
-            </tr>
+        <tr>
+            <td>{{ faq.question }}</td>
+            <td>{{ faq.reponse }}</td>
+            <td>
+                <a href="{{ path('faq_show', {'id': faq.id}) }}">Voir plus</a>
+                <a href="{{ path('faq_edit', {'id': faq.id}) }}">Editer</a>
+            </td>
+        </tr>
         {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
+        <tr>
+            <td colspan="4">no records found</td>
+        </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </tbody>
+</table> #}
 
-    <a href="{{ path('faq_new') }}">Créer</a>
 {% endblock %}

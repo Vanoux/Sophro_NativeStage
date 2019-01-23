@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+
 {% block title %}Mes Actualités - Editer -{% endblock %}
 
 {% block body %}
 
-<h1>Edition de l'article : {{ article.titre }}</h1>
+<h2 class="text-center mt-4">Edition de l'article : {{ article.titre }}</h2>
 
 <div class="container mt-3">
 
@@ -13,7 +15,7 @@
     {{ form_row(formArticle.titre, {'attr' : {'placeholder': "Titre de l'article"}}) }}
     {{ form_row(formArticle.metadescription, {'attr' : {'placeholder': "Mots clefs (pas obligatoire)"}}) }}
     {{ form_row(formArticle.contenu, {'attr' : {'placeholder': "Contenu de l'article"}}) }}
-    {{ form_row(formArticle.image, {'attr' : {'placeholder': "Url de l'image (pas obligatoire)"}}) }}
+    {{ form_row(formArticle.image, {'attr' : {'placeholder': "Changez votre image (pas obligatoire)"}}) }}
     {{ form_row(formArticle.date, {'attr' : {'placeholder': "Date de l'article"}}) }}
 
 
@@ -22,5 +24,7 @@
     {{ form_end(formArticle) }}
 
 </div>
+<a href="{{ path('myActu') }}" class="btn-sm btn-secondary">Retour à la liste</a>
+
 
 {% endblock %}

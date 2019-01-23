@@ -1,3 +1,9 @@
+body {
+    font-family: raleway;
+}
+nav, footer {
+    background-color: #434B56;
+}
 .alert {
     top:0;
     width:100%;
@@ -5,6 +11,58 @@
     left: 0;
     position: absolute !important;
 }
-.card-header {
-    background-color: #95B0CA;
+.card-header, .createCard {
+    background-color: #A69D9F; 
+}
+.cardContour {
+    border-color: #A69D9F; 
+}
+.actuAccueil {
+    background-color: #FED586;
+}
+.btnSuite {
+    background-color: #626780;
+    color: white;
+    border-radius: 20px;
+}
+.btnEdit {
+    background-color: #4CABB1;
+    color: white;
+    border-radius: 20px;
+}
+.btnSupr {
+    background-color: maroon;
+    color: white;
+    border-radius: 20px;
+}
+.jumbotron {
+    background-color: #4E5266;
+}
+.jumbotronTitle {
+    color : whitesmoke;
+}
+
+
+
+/* /////////////////// */
+/* ///////// */
+/* ////////////////////////////////@MEDIA//////////////////////////////// */
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+	
+}
+
+@media (max-width: 576px) {
+
+	footer {
+		height : 17vh;
+	}
+	
 }

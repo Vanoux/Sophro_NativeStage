@@ -3,22 +3,34 @@
 {% block title %}Foire à Questions{% endblock %}
 
 {% block body %}
-    <h1>Foire à questions</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Question</th>
-                <th>Reponse</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for faq in faqs %}
-            <tr>
-                <td>{{ faq.question }}</td>
-                <td>{{ faq.reponse }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+        <div class="container">
+            <h1 class="display-5 text-center">Foire à questions</h1>
+        </div>
+    </div>
+
+   {# *** Liste des questions / réponses *** #}
+{% for faq in faqs %}
+<div class="container">
+    <div class="card m-5 cardContour">
+        <div class="card-body">
+            <section class="article text-center">
+                <article>
+                    <h3 class="card-title">{{ faq.question }}</h3>
+                    <hr>
+                    <div class="content">
+                        <p class="card-text">{{ faq.reponse }}</p>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </div>
+</div>
+{% endfor %}
+    <!-- Retour liste Faq dashboard si admin connecté -->
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn-sm btn-primary" href="{{ path('myFaq') }}">Retour à la Faq Admin</a>
+        {% endif %}
+
 {% endblock %}

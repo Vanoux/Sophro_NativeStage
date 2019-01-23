@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+
+
 {% block title %}Mes Actualités - Créer -{% endblock %}
 
 {% block body %}
 
-<h1>Création d'un article d'Actualités!!</h1>
+<h2 class="text-center mt-4">Créer un nouvel article d'actualité</h2>
 
 <div class="container mt-3">
 
@@ -13,7 +16,7 @@
     {{ form_row(formArticle.titre, {'attr' : {'placeholder': "Titre de l'article"}}) }}
     {{ form_row(formArticle.metadescription, {'attr' : {'placeholder': "Mots clefs (pas obligatoire)"}}) }}
     {{ form_row(formArticle.contenu, {'attr' : {'placeholder': "Contenu de l'article"}}) }}
-    {{ form_row(formArticle.image) }}
+    {{ form_row(formArticle.image, {'attr' : {'placeholder': "Image à télécharger (pas obligatoire)"}}) }}
     {{ form_row(formArticle.date, {'attr' : {'placeholder': "Date de l'article"}}) }}
 
     <button type="submit" class="btn btn-success"> Ajouter l'article</button>
@@ -21,5 +24,7 @@
     {{ form_end(formArticle) }}
 
 </div>
+<a href="{{ path('myActu') }}" class="btn-sm btn-secondary">Retour à la liste</a>
+
 
 {% endblock %}

@@ -4,39 +4,36 @@
 
 {% block body %}
 
+<div class="actuAccueil">
 
-<div class="example-wrapper">
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
         <div class="container">
             <h1 class="display-5 text-center">Retrouvez ici toutes mes dernières actualités</h1>
         </div>
     </div>
 
-    {# <div class="row mt-5">
-    <div class="col mx-5"> #}
-
-            {# Liste des article #}
-            {% for article in articles %}
-            <div class="card m-5">
-                <div class="card-body">
-                    <section class="article text-center">
-                        <article>
-                            <h2>{{ article.titre }}</h2>
-                            <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }}</div>
-                            <div class="content">
-                                <img src="{{ asset('uploads/photos/')~ article.image }}" alt="image_actualités">
-                                <p>{{ article.contenu | raw }}</p>
-                            </div>
-                            <hr>
-                            <a href="{{ path('actu_show', {'id': article.id})}}" class="btn btn-primary">lire la suite</a>
-                        </article>
-                    </section>
-                </div>
+    {# *** Liste des articles *** #}
+    {% for article in articles %}
+    <div class="container">
+        <div class="actu card m-4 shadow">
+            <img src="{{ asset('uploads/photos/')~ article.image }}" class="card-img-top" alt="image_actualités">
+            <div class="card-body">
+                <section class="article text-center">
+                    <article>
+                        <h2 class="mt-3">{{ article.titre }}</h2>
+                        <div class="metadata mt-3">Ecrit le {{ article.date | date('d/m/Y') }}</div>
+                        <div class="content mt-3">
+                            <p>{{ article.contenu | raw }}</p>
+                        </div>
+                        <hr>
+                        <a href="{{ path('actu_show', {'id': article.id})}}" class="btnSuite btn px-4 py-2">Lire la
+                            suite</a>
+                    </article>
+                </section>
             </div>
-
-    {# </div>
-    </div> #}
+        </div>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
 {% endblock %}

@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
 {% block title %}Edition{% endblock %}
 
 {% block body %}
 
 {# Affiche le tableau user : {{ dump(user) }}#}
-<div class="example-wrapper m-5">
+<div class="example-wrapper m-5 p-5">
 
     <h1 class="mb-4">Modification informations ✅</h1>
     {{ form_start(form) }}
@@ -17,9 +20,13 @@
 
     {{ form_end(form) }}
 
-    <div class="mt-5">
-        <a href="{{ path('password_edit') }}">Modification du mot de passe</a>
+    <div class="mt-5 pt-1">
+        <a href="{{ path('password_edit') }}" class="btn btn-danger">Modification du mot de passe</a>
     </div>
+
+    {# <div class="m-5">
+        <a href="{{ path('dashboard') }}" class="btn-sm btn-secondary pull-right">Retour au dashboard</a>
+    </div> #}
 
 </div>
 

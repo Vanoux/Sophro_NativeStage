@@ -4,20 +4,27 @@
 
 {% block body %}
 
-<div class="container m-3">
-    <article>
-        <h2 class="pb-3">{{ article.titre }}</h2>
-        <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }}</div>
-        <div class="content">
-            <img src="{{ asset('uploads/photos/')~ article.image }}" alt="image d'actualité">
-            <p>{{ article.contenu | raw }}</p>
-            {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('myActu') }}" class="btn btn-primary btn-sm">Retour à la liste</a>
-            {% else %}
-            <a href="{{ path('actu') }}" class="btn btn-primary btn-sm">Retour à la liste</a>
-            {% endif %}
+<div class="container">
+    <div class="actu card m-4 shadow">
+        <div class="card-body">
+            <section class="article text-center">
+                <article>
+                    <h2 class="pb-3">{{ article.titre }}</h2>
+                    <h6>Les conseils d'Anne Sophie</h6>
+                    <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }}</div>
+                    <div class="content">
+                        <img src="{{ asset('uploads/photos/')~ article.image }}" class="img-fluid p-5" alt="image d'actualité">
+                        <p>{{ article.contenu | raw }}</p>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('myActu') }}" class="btn btn-primary btn-sm">Retour à la liste</a>
+                        {% else %}
+                        <a href="{{ path('actu') }}" class="btn btn-primary btn-sm">Retour à la liste</a>
+                        {% endif %}
+                    </div>
+                </article>
+            </section>
         </div>
-    </article>
+    </div>
 </div>
 
 {% endblock %}
