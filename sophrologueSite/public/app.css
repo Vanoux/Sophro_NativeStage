@@ -46,16 +46,13 @@ nav, footer {
 .cardInfoHome {
     background-color: #69C7AD;
 }
-.cardInfoPraticienne {
+.infoPraticienne {
     background-color: #E9967A;
 }
-/*
-Forces carousel image to be 100% width and not max width of 100%
-*/
-/* .carousel-item .img-fluid {
-    width:100%;
+.carousel-item .img-fluid {
+    width:100vw; /*Pour que l'image soit responsive sur les grands écrans*/
     height:100%;
-  } */
+}
 
 
 
