@@ -15,7 +15,7 @@
     {# *** Liste des articles *** #}
     {% for article in articles %}
     <div class="container">
-        <div class="actu card m-4 shadow">
+        <div class="card m-4 shadow">
             <img src="{{ asset('uploads/photos/')~ article.image }}" class="card-img-top" alt="image_actualités">
             <div class="card-body">
                 <section class="article text-center">
@@ -33,6 +33,22 @@
             </div>
         </div>
     </div>
+
+    {# <div class="media">
+        <img class="mx-2" src="{{ asset('uploads/photos/')~ article.image }}" alt="image_actualités">
+        <div class="media-body">
+                <h5 class="mt-0">Titre du média</h5>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo
+                consequat.
+            <a href="{{ path('actu_show', {'id': article.id})}}" class="btnSuite btn px-4 py-2">Lire la
+                suite</a>
+        </div>
+    </div> #}
     {% endfor %}
 </div>
 

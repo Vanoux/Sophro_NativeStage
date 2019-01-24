@@ -4,9 +4,6 @@
 
 {% block body %}
 
-
-<h1 class="text-center">Ici c'est l'accueil !!</h1>
-
 <!-- ********** SLIDE CONSEILS ********** -->
 <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -20,7 +17,10 @@
     <!-- The slideshow -->
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{ asset('img/artichaut.png') }}" alt="artichaut">
+            <picture>
+                <img srcset="{{ asset('img/artichaut.png') }}" alt="artichaut" class="d-block img-fluid">
+            </picture>
+            {# <img src="{{ asset('img/artichaut.png') }}" class="img-fluid" alt="artichaut"> #}
             <div class="carousel-caption d-none d-md-block">
                 <h2>Conseil 1</h2>
                 <p>...</p>
@@ -28,7 +28,10 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('img/kiwi.png') }}" alt="kiwi">
+            <picture>
+                <img srcset="{{ asset('img/kiwi.png') }}" alt="kiwi" class="d-block img-fluid">
+            </picture>
+            {# <img src="{{ asset('img/kiwi.png') }}" class="img-fluid" alt="kiwi"> #}
             <div class="carousel-caption d-none d-md-block">
                 <h2>Conseil 2</h2>
                 <p>...</p>
@@ -36,7 +39,10 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('img/choux.png') }}" alt="choux">
+            <picture>
+                <img srcset="{{ asset('img/choux.png') }}" alt="choux" class="d-block img-fluid">
+            </picture>
+            {# <img src="{{ asset('img/choux.png') }}" class="img-fluid" alt="choux"> #}
             <div class="carousel-caption d-none d-md-block">
                 <h2>Conseil 3</h2>
                 <p>...</p>
@@ -58,9 +64,9 @@
 <!-- ********** INFORMATIONS PRATICIENNE ********** -->
 
 
-<div class="container m-3">
+<div class="card-deck mx-1">
 
-    <div class="card">
+    <div class="card mt-2 cardInfoPraticienne">
         <div class="card-body">
             <h4 class="card-title text-center">Formation</h4>
             <p class="card-text">Titulaire du diplôme de master spécialiste en Sophrologie Caycédienne et formée en
@@ -83,64 +89,51 @@
             </p>
         </div>
     </div>
+
+    <div class="card mt-2 cardInfoPraticienne">
+        <div class="card-body">
+            <h4 class="card-title text-center">Expériences</h4>
+            <p class="card-text">
+                En parallèle de mon cursus scolaire et universitaire,<br>
+                Je me suis toujours orientée vers des activités professionnelles auprès d’enfants, en tant
+                qu’animatrice, dans
+                l’encadrement,l’organisation et dans la gestion du quotidien.<br>
+                Aussi j’ai choisie l’Aide à domicile, auprès de personne âgées ou dans l’accompagnement au quotidien de
+                personnes en difficultés.<br>
+                Ces différentes expériences, au fil des années, m’ont montrée l’importance d’être à l’écoute de
+                l’autre, de
+                soi, de ce que l’on ressent.<br>
+                Savoir prendre du temps pour s’écouter, les bienfaits d’une attitude positive et que les solutions sont
+                souvent
+                en nous.<br>
+                Je me suis donc orientée dans une profession où l’on est dans l’accompagnement et l’écoute, qui propose
+                de
+                laisser le mental de côté pour s’accorder un temps pour soi, où l’on apprend à faire la parenthèse avec
+                le
+                quotidien pour vivre un moment de détente, positif, et surtout qui donne des outils pour être mieux
+                dans son
+                quotidien.<br>
+                J’ai découvert la sophrologie Caycédienne, une évidence, pas seulement un moment de relaxation, c’est
+                aussi une
+                méthode efficace pour renforcer profondément ses capacités et ses valeurs, mobiliser ses ressources,
+                être à
+                l’écoute de ce qui nous mobilise ou immobilise, pour être en harmonie avec soi-même.<br>
+                « Selon qui nous sommes, nous trouvons nos propres solutions »<br>
+                Je pratique la sophrologie auprès de toutes et tous, en réponse à des difficultés ou par volonté de
+                développement personnel.<br>
+                Depuis 2013, j"anime des séances collectives avec les enfants, de la maternelle au primaire, auprès
+                d'associations, d'amicale laïque, de club-sportif ou sur les temps périscolaires.
+                J'interviens en entreprise pour des modules de préventions sur les risques psychosociaux liée au
+                travail.
+                Je participe à des journée de prévention et de bien-être au travail avec des mutuelles (MNT, MNJ) et
+                des
+                collectivités (mairies).
+                Mon champs d'intervention est la Haute-Garonne (31),les Hautes-Pyrénées(65) et l'Ariège (09).
+            </p>
+        </div>
+    </div>
+
 </div>
-
-    <hr>
-    
-    <h4 class="text-center">Formation</h4>
-    <p>
-        Titulaire du diplôme de master spécialiste en Sophrologie Caycédienne et formée en relation d’aide, je pratique
-        la sophrologie depuis l’année 2011.<br>
-        Spécialisée dans la prévention et la gestion du stress, des émotions et dans le développement personnel, je
-        propose de vous accompagner avec des techniques de relaxation dynamique adaptées à votre demande.<br>
-        J’ai effectué mon premier cycle de formation à l’école de sophrologie Caycédienne VIFIA à Toulouse, j’ai
-        continué ma formation avec l’académie internationale de Sophrologie Caycédienne en Andorre.
-    </p>
-    <p>
-        Je suis sophrologue de métier ; je reste dans mon champ de compétence ; je n’interviens pas dans les décisions
-        médicales, cependant la sophrologie Caycédienne peut être une pratique complémentaire.<br>
-        Titulaire de mon BAFA, je suis habilitée à encadrer des groupes d’enfants à l’extérieur de mon cabinet de
-        sophrologie et ainsi intervenir dans les écoles, associations ou club-sportif.<br>
-        Formée aux techniques de la sophrologie adaptée aux enfants : la sophro-ludique, je propose aux enfants de se
-        familiariser avec la sophrologie dès leur plus jeune âge.
-    </p>
-
-<div class="m-3">
-    <h4 class="text-center">Expériences</h4>
-    <p>
-        En parallèle de mon cursus scolaire et universitaire,<br>
-        Je me suis toujours orientée vers des activités professionnelles auprès d’enfants, en tant qu’animatrice, dans
-        l’encadrement,l’organisation et dans la gestion du quotidien.<br>
-        Aussi j’ai choisie l’Aide à domicile, auprès de personne âgées ou dans l’accompagnement au quotidien de
-        personnes en difficultés.<br>
-        Ces différentes expériences, au fil des années, m’ont montrée l’importance d’être à l’écoute de l’autre, de
-        soi, de ce que l’on ressent.<br>
-        Savoir prendre du temps pour s’écouter, les bienfaits d’une attitude positive et que les solutions sont souvent
-        en nous.<br>
-        Je me suis donc orientée dans une profession où l’on est dans l’accompagnement et l’écoute, qui propose de
-        laisser le mental de côté pour s’accorder un temps pour soi, où l’on apprend à faire la parenthèse avec le
-        quotidien pour vivre un moment de détente, positif, et surtout qui donne des outils pour être mieux dans son
-        quotidien.<br>
-        J’ai découvert la sophrologie Caycédienne, une évidence, pas seulement un moment de relaxation, c’est aussi une
-        méthode efficace pour renforcer profondément ses capacités et ses valeurs, mobiliser ses ressources, être à
-        l’écoute de ce qui nous mobilise ou immobilise, pour être en harmonie avec soi-même.<br>
-        « Selon qui nous sommes, nous trouvons nos propres solutions »<br>
-        Je pratique la sophrologie auprès de toutes et tous, en réponse à des difficultés ou par volonté de
-        développement personnel.<br>
-        Depuis 2013, j"anime des séances collectives avec les enfants, de la maternelle au primaire, auprès
-        d'associations, d'amicale laïque, de club-sportif ou sur les temps périscolaires.
-        J'interviens en entreprise pour des modules de préventions sur les risques psychosociaux liée au travail.
-        Je participe à des journée de prévention et de bien-être au travail avec des mutuelles (MNT, MNJ) et des
-        collectivités (mairies).
-        Mon champs d'intervention est la Haute-Garonne (31),les Hautes-Pyrénées(65) et l'Ariège (09).
-    </p>
-</div>
-
-
-
-
-
-
 
 
 
@@ -148,8 +141,29 @@
 <!-- ********** INFORMATIONS CABINETS / TARIFS / LOCALISATION CARTE ********** -->
 
 
+<div class="card-deck mx-1">
 
+    <div class="card mt-2 cardInfoHome">
+        <div class="card-body">
+            <h4 class="card-title text-center">Découvrir le cabinet</h4>
+            <p class="card-text">....Infos des 2 cabinets.....</p>
+        </div>
+    </div>
 
+    <div class="card mt-2 cardInfoHome">
+        <div class="card-body">
+            <h4 class="card-title text-center">Choisissez votre formule</h4>
+            <p class="card-text">....Tarifs.....</p>
+        </div>
+    </div>
+
+    <div class="card mt-2 cardInfoHome">
+        <div class="card-body">
+            <h4 class="card-title text-center">Où me trouver</h4>
+            <p class="card-text">.....Google Map....</p>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}

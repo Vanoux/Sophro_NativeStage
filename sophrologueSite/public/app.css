@@ -13,9 +13,11 @@ nav, footer {
 }
 .card-header, .createCard {
     background-color: #A69D9F; 
+
 }
 .cardContour {
     border-color: #A69D9F; 
+    border-radius: 5px;
 }
 .actuAccueil {
     background-color: #FED586;
@@ -41,13 +43,26 @@ nav, footer {
 .jumbotronTitle {
     color : whitesmoke;
 }
+.cardInfoHome {
+    background-color: #69C7AD;
+}
+.cardInfoPraticienne {
+    background-color: #E9967A;
+}
+/*
+Forces carousel image to be 100% width and not max width of 100%
+*/
+/* .carousel-item .img-fluid {
+    width:100%;
+    height:100%;
+  } */
 
 
 
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////@MEDIA//////////////////////////////// */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
 
 }
 
