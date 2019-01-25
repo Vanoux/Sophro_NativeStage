@@ -16,9 +16,9 @@
                         <img src="{{ asset('uploads/photos/')~ article.image }}" class="img-fluid p-5" alt="image d'actualité">
                         <p>{{ article.contenu | raw }}</p>
                         {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('myActu') }}" class="btn btn-primary btn-sm">Retour à la liste</a>
+                        <a href="{{ path('myActu') }}" class="btn btn-primary btn-sm" title="Retour à la liste : Mes actualités">Retour à la liste</a>
                         {% else %}
-                        <a href="{{ path('actu') }}" class="btn btn-primary btn-sm">Retour à la liste</a>
+                        <a href="{{ path('actu') }}" class="btn btn-primary btn-sm" title="Retour à la liste : Actualités">Retour à la liste</a>
                         {% endif %}
                     </div>
                 </article>

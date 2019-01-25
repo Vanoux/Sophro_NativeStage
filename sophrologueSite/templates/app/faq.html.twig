@@ -30,7 +30,7 @@
 {% endfor %}
     <!-- Retour liste Faq dashboard si admin connecté -->
         {% if is_granted('ROLE_ADMIN') %}
-            <a class="btn-sm btn-primary" href="{{ path('myFaq') }}">Retour à la Faq Admin</a>
+            <a class="btn-sm btn-primary" href="{{ path('myFaq') }}" title="Retour à la gestion de la FAQ">Retour à la Faq Admin</a>
         {% endif %}
 
 {% endblock %}

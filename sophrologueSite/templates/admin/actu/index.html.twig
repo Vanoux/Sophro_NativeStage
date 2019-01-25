@@ -14,7 +14,7 @@
     <div class="card text-center m-5 createCard">
         <div class="card-body">
             <h4 class="card-title">Créer une nouvelle actualité</h4>
-            <a href=" {{ path('actu_new') }} " class="btn btn-secondary">Créer</a>
+            <a href=" {{ path('actu_new') }} " class="btn btn-secondary" title="Créer : Une nouvelle actualité">Créer</a>
         </div>
     </div>
 </div>
@@ -36,14 +36,14 @@
                         <p>{{ article.contenu | raw }}</p>
                     </div>
                     <hr>
-                    <a href="{{ path('actu_show', {'id': article.id})}}" class="btn-sm btnSuite px-4 py-2">Lire la
+                    <a href="{{ path('actu_show', {'id': article.id})}}" class="btn-sm btnSuite px-4 py-2" title="Lire la suite : de l'article d'actualité">Lire la
                         suite</a>
-                    <a href="{{ path('actu_edit', {'id': article.id}) }}" class="btn-sm btnEdit px-4 py-2">Editer</a>
+                    <a href="{{ path('actu_edit', {'id': article.id}) }}" class="btn-sm btnEdit px-4 py-2" title="Editer : l'article d'actualité">Editer</a>
                     {#<a href="{{ path('actu_delete', {'id': article.id}) }}" class="btn btn-primary">Supprimer</a>#}
                     <form class="mt-2" method="post" action="{{ path('actu_delete', {'id': article.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
-                        <button class="btn btn-sm btnSupr">Supprimer</button>
+                        <button class="btn btn-sm btnSupr" title="Supprimer l'article d'actualité">Supprimer</button>
                     </form>
                 </article>
             </section>

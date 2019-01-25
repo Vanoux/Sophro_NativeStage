@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}{% endblock %}</title>
     {% block stylesheets %}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+    <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
+    <!-- Summernote -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+    <!-- Css -->
     <link rel="stylesheet" href="{{ asset('app.css') }}">
     {% endblock %}
 </head>
@@ -17,7 +23,7 @@
     <!-- ********** NAVBAR ********** -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow">
 
-        <a class="navbar-brand" href="{{ path('home') }}">Anne-Sophie Labat</a>
+        <a class="navbar-brand" href="{{ path('home') }}" title="Retour à l'accueil">Anne-Sophie Labat</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,21 +34,21 @@
                 <!--dropdown Informations-->
                 <li class="nav-item dropdown">
                     <a class="nav-link mr-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informations</a>
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Cliquez ici pour retrouver toutes les informations">Informations</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ path('sophrologie') }}">La Sophrologie</a>
-                        <a class="dropdown-item" href="{{ path('ateliers') }}">Mes Ateliers</a>
-                        <a class="dropdown-item" href="{{ path('tarifsHoraires') }}">Tarifs et Horaires</a>
-                        <a class="dropdown-item" href="{{ path('faq') }}">Foire à questions</a>
+                        <a class="dropdown-item" href="{{ path('sophrologie') }}" title="Informations sur la sophrologie">La Sophrologie</a>
+                        <a class="dropdown-item" href="{{ path('ateliers') }}" title="Informations sur les ateliers que j'anime">Mes Ateliers</a>
+                        <a class="dropdown-item" href="{{ path('tarifsHoraires') }}" title="Informations sur mes tarifs et horaires">Tarifs et Horaires</a>
+                        <a class="dropdown-item" href="{{ path('faq') }}" title="Retrouvez ici la foire à question">Foire à questions</a>
                     </div>
                 </li>
                 <!--Actualités -->
                 <li class="nav-item">
-                    <a class="nav-link mr-3" href="{{ path('actu') }}">Actualités</a>
+                    <a class="nav-link mr-3" href="{{ path('actu') }}" title="Actualités : Toutes mes articles et actualités">Actualités</a>
                 </li>
                 <!-- Contact -->
                 <li class="nav-item">
-                    <a class="nav-link mr-3" href="{{ path('contact') }}">Contact</a>
+                    <a class="nav-link mr-3" href="{{ path('contact') }}" title="Contactez-moi !">Contact</a>
                 </li>
             </ul>
 
@@ -50,7 +56,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     {% if is_granted('ROLE_ADMIN') %}
-                    <a class="nav-link" href="{{ path('dashboard') }}">Dashboard Home</a>
+                    <a class="nav-link" href="{{ path('dashboard') }}" title="Retour accueil gestion administrateur">Dashboard Home</a>
                     {% endif %}
                 </li>
             </ul>
@@ -107,12 +113,15 @@
 
     <!-- ********** SCRIPTS ********** -->
     {% block javascripts %}
+    <!-- BOOTSTRAP -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+    <!-- SUMMERNOTE -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
     {% endblock %}
 
     {% for label, flashes in app.session.flashbag.all %}
@@ -132,6 +141,12 @@
 
     {% endfor %}
     {% endfor %}
+  <script>
+    $(document).ready(function() {
+        $('.summernote').summernote();
+    });
+  </script>
+
 
 </body>
 

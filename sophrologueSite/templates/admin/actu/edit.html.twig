@@ -2,7 +2,7 @@
 
 {# {% form_theme formArticle 'bootstrap_4_layout.html.twig' %} #}
 
-{% block title %}Mes Actualités - Editer -{% endblock %}
+{% block title %}Edition - Mes Actualités{% endblock %}
 
 {% block body %}
 
@@ -14,17 +14,18 @@
 
     {{ form_row(formArticle.titre, {'attr' : {'placeholder': "Titre de l'article"}}) }}
     {{ form_row(formArticle.metadescription, {'attr' : {'placeholder': "Mots clefs (pas obligatoire)"}}) }}
-    {{ form_row(formArticle.contenu, {'attr' : {'placeholder': "Contenu de l'article"}}) }}
     {{ form_row(formArticle.image, {'attr' : {'placeholder': "Changez votre image (pas obligatoire)"}}) }}
     {{ form_row(formArticle.date, {'attr' : {'placeholder': "Date de l'article"}}) }}
+    {{ form_row(formArticle.contenu, {'attr' : {'placeholder': "Contenu de l'article"}}) }}
 
 
-    <button type="submit" class="btn btn-success">Valider les modifications</button>
+
+    <button type="submit" class="btn btn-success" title="Valider les modifications">Valider les modifications</button>
 
     {{ form_end(formArticle) }}
 
 </div>
-<a href="{{ path('myActu') }}" class="btn-sm btn-secondary">Retour à la liste</a>
+<a href="{{ path('myActu') }}" class="btn-sm btn-secondary" title="Retour à la liste : Mes actualités">Retour à la liste</a>
 
 
 {% endblock %}

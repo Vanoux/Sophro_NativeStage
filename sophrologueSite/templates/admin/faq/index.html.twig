@@ -14,7 +14,7 @@
     <div class="card text-center m-5 createCard">
         <div class="card-body">
             <h4 class="card-title">Créer une nouvelle question / réponse</h4>
-            <a href=" {{ path('faq_new') }} " class="btn btn-secondary">Créer</a>
+            <a href=" {{ path('faq_new') }} " class="btn btn-secondary" title="Créer : Une nouvelle question et réponse">Créer</a>
         </div>
     </div>
 </div>
@@ -31,12 +31,12 @@
                         <p class="card-text">{{ faq.reponse }}</p>
                     </div>
                     <hr>
-                    <a href="{{ path('faq', {'id': faq.id}) }}" class="btn-sm btnSuite px-4 py-2">Voir sur le site</a>
-                    <a href="{{ path('faq_edit', {'id': faq.id}) }}" class="btn-sm btnEdit px-4 py-2">Editer</a>
+                    <a href="{{ path('faq', {'id': faq.id}) }}" class="btn-sm btnSuite px-4 py-2" title="Voir sur le site : Visiteur">Voir sur le site</a>
+                    <a href="{{ path('faq_edit', {'id': faq.id}) }}" class="btn-sm btnEdit px-4 py-2" title="Editer : La question / réponse">Editer</a>
                     <form class="mt-2" method="post" action="{{ path('faq_delete', {'id': faq.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ faq.id) }}">
-                        <button class="btn btn-sm btnSupr">Supprimer</button>
+                        <button class="btn btn-sm btnSupr" title="Supprimer la question avec sa réponse">Supprimer</button>
                     </form>
                 </article>
             </section>

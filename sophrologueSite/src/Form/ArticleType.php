@@ -17,7 +17,11 @@ class ArticleType extends AbstractType
         $builder
             ->add('titre', TextType::class)
             ->add('metadescription')
-            ->add('contenu', TextareaType::class)
+            ->add('contenu', TextareaType::class, [
+                'attr' => [
+                    'class' => 'summernote'
+                ]
+            ])
             ->add('image', FileType::class, [
                 'label' => 'Image',
                 'required' => false,

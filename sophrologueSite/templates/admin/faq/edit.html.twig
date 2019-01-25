@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edition{% endblock %}
+{% block title %}Edition - Foire à questions{% endblock %}
 
 {% block body %}
-    <h1>Edition d'un question/réponse</h1>
+    <h2 class="text-center mt-4">Edition d'un question/réponse</h2>
 
     {{ include('admin/faq/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
-    <a href="{{ path('myFaq') }}" class="btn-sm btn-secondary">Retour à la liste</a>
+    <a href="{{ path('myFaq') }}" class="btn-sm btn-secondary" title="Retour à la liste : Ma foire à questions">Retour à la liste</a>
 
 {% endblock %}

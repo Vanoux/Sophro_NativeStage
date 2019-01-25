@@ -14,16 +14,17 @@
 
     {{ form_row(formArticle.titre, {'attr' : {'placeholder': "Titre de l'article"}}) }}
     {{ form_row(formArticle.metadescription, {'attr' : {'placeholder': "Mots clefs (pas obligatoire)"}}) }}
-    {{ form_row(formArticle.contenu, {'attr' : {'placeholder': "Contenu de l'article"}}) }}
     {{ form_row(formArticle.image, {'attr' : {'placeholder': "Image à télécharger (pas obligatoire)"}}) }}
     {{ form_row(formArticle.date, {'attr' : {'placeholder': "Date de l'article"}}) }}
-
-    <button type="submit" class="btn btn-success"> Ajouter l'article</button>
+    {{ form_row(formArticle.contenu | raw, {'attr' : {'placeholder': "Contenu de l'article"} } ) }}
+    
+    <button type="submit" class="btn btn-success" title="Ajouter l'article d'actualité"> Ajouter l'article</button>
 
     {{ form_end(formArticle) }}
+    
 
 </div>
-<a href="{{ path('myActu') }}" class="btn-sm btn-secondary">Retour à la liste</a>
-
+<a href="{{ path('myActu') }}" class="btn-sm btn-secondary" title="Retour à la liste : Mes actualités">Retour à la liste</a>
 
 {% endblock %}
+
