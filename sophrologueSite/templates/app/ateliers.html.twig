@@ -4,10 +4,50 @@
 
 {% block body %}
 
-<div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
-    <div class="container">
-        <h1 class="display-5 text-center">Retrouvez ici toutes les informations sur mes ateliers</h1>
+<div class="pb-2">
+
+    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+        <div class="container">
+            <h1 class="text-center">Retrouvez ici toutes les informations sur mes ateliers</h1>
+        </div>
     </div>
+
+<div class="text-center">
+    <h3 class="py-3">Les ateliers</h3>
+        <p>En séance collective</p>
+</div>
+
+<div class="container my-5">
+    <div class="card-group effetShadow">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title py-3">Découverte</h3>
+                <p class="card-text pt-2">Venez découvrir la sophrologie, une méthode, une pratique, un art de vivre. Prendre un moment pour soi, avec soi, lâcher-prise avec ce qui nous entoure, apprendre les techniques de base pour renforcer ses valeurs, ses capacités positives et sa quotidienneté.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title py-3">Ma sophro</h3>
+                <p class="card-text pt-2">Vous avez déjà pratiqué la sophro, pendant quelques séances ou pendant plusieurs années ? Continuer l’entraînement chez soi n’est pas évident ? Venez intégrer un groupe de personnes connaissant et pratiquant régulièrement la sophrologie.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title py-3">À la carte</h3>
+                <p class="card-text pt-2">En famille, entre amis, lycéens, étudiants, entre collègue de travail ou en couple, contactez-moi pour organiser des séances collectives de sophrologie adaptées à votre demande et selon votre emploi du temps.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <h4 class="py-3">Début des séances collectives à partir du lundi 24 septembre 2018</h4>
+        <h5>Nouveau, séance collective pour les enfants</h5>
+            <ul>
+                <li>Adultes de 11h à 12h et une horaire en soirée</li>
+                <li>Enfants de 14h à 14h45</li>
+            </ul>
+</div>
+    <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à l'accueil</a>
 </div>
 
 {% endblock %}

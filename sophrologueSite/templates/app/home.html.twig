@@ -24,7 +24,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h2>Conseil 1</h2>
                 <p>...</p>
-                <a href="#" class="btn btn-primary btn-sm" title="Lire la suite du conseil">lire la suite</a>
+                <a href="#" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la suite</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -35,7 +35,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h2>Conseil 2</h2>
                 <p>...</p>
-                <a href="#" class="btn btn-primary btn-sm" title="Lire la suite du conseil">lire la suite</a>
+                <a href="#" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la suite</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -46,7 +46,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h2>Conseil 3</h2>
                 <p>...</p>
-                <a href="#" class="btn btn-primary btn-sm" title="Lire la suite du conseil">lire la suite</a>
+                <a href="#" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la suite</a>
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@
 <!-- ********** INFORMATIONS PRATICIENNE ********** -->
 
 <div class="container my-5">
-    <div class="card-group shadow">
+    <div class="card-group effetShadow">
         <div class="card">
             <div class="card-body">
                 <picture>
@@ -82,7 +82,7 @@
                         dans la prévention et
                         la gestion du stress, des émotions et dans le développement personnel, je propose de vous
                         accompagner avec des techniques de relaxation dynamique adaptées à votre demande...</p>
-                    <a href="{{ path('formation') }}" class="btnSuite btn mt-5 px-4 py-2" title="En savoir plus : Formation de la praticienne">En
+                    <a href="{{ path('formation') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Formation de la praticienne">En
                         savoir plus...</a>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                         Savoir prendre du temps pour s’écouter, les bienfaits d’une attitude positive et que les solution sont souvent
                         en nous.<br><br>
                         Je me suis donc orientée dans une profession où l’on est dans l’accompagnement et l’écoute, qui propose de laisser le mental de côté pour s’accorder un temps pour soi, où l’on apprend à faire la parenthèse avec le quotidien pour vivre un moment de détente, positif, et surtout qui donne des outils pour être mieux dans son quotidien...</p>
-                    <a href="{{ path('experiences') }}" class="btnSuite btn mt-5 px-4 py-2" title="En savoir plus : Expériences de la praticienne">En
+                    <a href="{{ path('experiences') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Expériences de la praticienne">En
                         savoir plus...</a>
                 </div>
             </div>
@@ -126,25 +126,77 @@
 <!-- ********** INFORMATIONS CABINETS / TARIFS / LOCALISATION CARTE ********** -->
 
 
-<div class="card-deck mx-1 my-2">
+<div class="card-deck mx-1 my-5">
 
-    <div class="card mt-2 cardInfoHome">
+    <div class="card mt-2 cardInfoHome effetShadow">
         <div class="card-body">
-            <h4 class="card-title text-center">Découvrir le cabinet</h4>
-            <p class="card-text">....Infos des 2 cabinets.....</p>
+            <h4 class="card-title text-center py-3 pb-4">Découvrir le cabinet</h4>
+            <p class="card-text font-weight-bold">
+                CABINET DE SOPHROLOGIE , au centre du village de Labarthe-Rivière.
+            </p>
+            <p class="card-text">
+                Situé entre Saint-Gaudens et Montrejeau, à 20 minutes d’Aspet et 40 minutes de Bagnères-de-Luchon.<br> 
+                Une petite grange rénovée pour vous accueillir dans un cadre chaleureux et apaisant.<br>
+                Un lieu calme, un espace de détente et d’échange pour faire la parenthèse avec son quotidien, se ressourcer, respirer, se détendre et faire le plein de vitalité.
+            <p class="card-text">
+                8 Place Galliéni 31800 Labarthe-Rivière - Cabinet
+            </p>
+            </p>
+            <p class="card-text">
+                Ayant des interventions extérieures et une permanence à Saint-Gaudens, je vous accueille sur rendez-vous, que ce soit pour une séance ou des renseignements.<br>
+            </p>
+            <hr>
+            <p class="card-text font-weight-bold">
+                Sophrologie à Saint-Gaudens et à domicile
+            </p>
+            <p class="card-text">
+                Je vous propose des séances de sophrologie Caycédienne sur rendez-vous, à Saint-Gaudens dans un cabinet pluridisciplinaire.<br>
+                Situé en centre ville de Saint-Gaudens, avec places de parking gratuits à proximité.<br>
+                Pour les personnes ne pouvant se déplacer, je propose des interventions à domicile, le tarif peut varier en fonction de l’indemnité kilométrique,<br>
+                Soit hors commune de Saint-Gaudens.
+            </p>
+            <p class="card-text">   
+                31 Avenue François Mitterrand 31800 Saint-Gaudens - Permanence
+            </p>
+            <hr>
+            <p class="card-text text-right">
+                N'hésitez-pas à me contactez,<br>
+                à bientôt,<br>
+                Anne-Sophie.
+            </p>
         </div>
     </div>
 
-    <div class="card mt-2 cardInfoHome">
+    <div class="card mt-2 cardInfoHome effetShadow">
         <div class="card-body">
-            <h4 class="card-title text-center">Choisissez votre formule</h4>
-            <p class="card-text">....Tarifs.....</p>
+            <h4 class="card-title text-center py-3 pb-4">Choisissez votre formule</h4>
+            <h6 class="card-text text-center">Séance individuelle</h6>
+                <p class="card-text text-center py-3">40€<br>
+                35€ *
+                </p>
+            <h6 class="card-text text-center">Séance collective</h6>
+                <p class="card-text text-center py-3">10€<br>
+                8€ *
+                </p>
+            <h6 class="card-text text-center">Forfaits</h6>
+                <p class="card-text text-center py-3">forfait 3 séances : 105 euros<br>
+                forfait 4 séances individuelles de 35 minutes pour les enfants (3/11 ans) : 75 euros
+                </p>
+            <h6 class="card-text text-center">Bon cadeau</h6>
+                <p class="card-text text-center py-3">Offrez une séance à vos amis et vos proches pour leur bien-être</p>
+            <h6 class="card-text text-center">Parrainage</h6>
+                <p class="card-text text-center py-3">Parrainez un membre de votre famille et faîte lui découvrir la Sophrologie Caycédienne</p>
+            <h6 class="card-text text-center">Mutuelle</h6>
+                <p class="card-text text-center py-3">Parrainez un membre de votre famille et faîte lui découvrir la Sophrologie Caycédienne<br>
+                <a href="{{ asset('doc/mutuelles_prise_en_charge_sophrologie_caycedienne.pdf') }}" title="Pdf de la liste non-exhaustives des mutuelles partenaires">Liste non-exhaustives des mutuelles partenaires</a>
+                </p>
+                <p class="card-text text-center py-3"> * Enfants/adolescents/étudiants/demandeur d'emploi</p>
         </div>
     </div>
 
-    <div class="card mt-2 cardInfoHome">
+    <div class="card mt-2 cardInfoHome effetShadow">
         <div class="card-body">
-            <h4 class="card-title text-center">Où me trouver</h4>
+            <h4 class="card-title text-center py-3 pb-4">Où me trouver</h4>
             <p class="card-text">.....Google Map....</p>
         </div>
     </div>

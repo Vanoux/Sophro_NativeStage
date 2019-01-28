@@ -4,33 +4,38 @@
 
 {% block body %}
 
-<div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+<div class="pb-2">
+    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
         <div class="container">
-            <h1 class="display-5 text-center">Foire à questions</h1>
+            <h1 class="text-center">Foire à questions</h1>
         </div>
     </div>
 
-   {# *** Liste des questions / réponses *** #}
-{% for faq in faqs %}
-<div class="container">
-    <div class="card m-5 cardContour">
-        <div class="card-body">
-            <section class="article text-center">
-                <article>
-                    <h3 class="card-title">{{ faq.question }}</h3>
-                    <hr>
-                    <div class="content">
-                        <p class="card-text">{{ faq.reponse }}</p>
-                    </div>
-                </article>
-            </section>
+    {# *** Liste des questions / réponses *** #}
+    {% for faq in faqs %}
+    <div class="container">
+        <div class="card m-5 cardContour">
+            <div class="card-body">
+                <section class="article text-center">
+                    <article>
+                        <h3 class="card-title">{{ faq.question }}</h3>
+                        <hr>
+                        <div class="content">
+                            <p class="card-text">{{ faq.reponse }}</p>
+                        </div>
+                    </article>
+                </section>
+            </div>
         </div>
     </div>
-</div>
-{% endfor %}
+    {% endfor %}
     <!-- Retour liste Faq dashboard si admin connecté -->
-        {% if is_granted('ROLE_ADMIN') %}
-            <a class="btn-sm btn-primary" href="{{ path('myFaq') }}" title="Retour à la gestion de la FAQ">Retour à la Faq Admin</a>
-        {% endif %}
-
+    {% if is_granted('ROLE_ADMIN') %}
+    <a class="btn btnSuite mt-5 px-4 py-2 effetHover" href="{{ path('myFaq') }}" title="Retour à la gestion de la FAQ">Retour
+        à la Faq Admin</a>
+    {% else %}
+    <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la l'accueil">Retour à
+        la l'accueil</a>
+    {% endif %}
+</div>
 {% endblock %}
