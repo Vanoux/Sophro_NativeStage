@@ -19,7 +19,7 @@ nav, footer {
     border-color: #A69D9F; 
     border-radius: 5px;
 }
-.actuAccueil {
+.actu {
     background-color: #FED586;
 }
 .btnSuite {
@@ -53,6 +53,11 @@ nav, footer {
     width:100vw; /*Pour que l'image soit responsive sur les grands écrans*/
     height:100%;
 }
+/* .imgCarousel { // Pour redimentionner les image dans le carousel mais ca ne marche pas !
+    width: 100%;
+    height: 50%;
+} */
+
 
 
 
