@@ -4,17 +4,17 @@
 
 {% block body %}
 
-<div class="jumbotron jumbotron-fluid jumbotronTitle">
+<div class="jumbotron jumbotron-fluid jumbotronTitle effetShadow">
     <div class="container">
         <h1 class="display-5 text-center">Toutes mes Actualités ADMIN</h1>
     </div>
 </div>
 
 <div class="container">
-    <div class="card text-center m-5 createCard">
+    <div class="card text-center m-5 createCard effetShadow">
         <div class="card-body">
             <h4 class="card-title">Créer une nouvelle actualité</h4>
-            <a href=" {{ path('actu_new') }} " class="btn btn-secondary" title="Créer : Une nouvelle actualité">Créer</a>
+            <a href=" {{ path('actu_new') }} " class="btn btnSuite mt-2 px-4 effetHover" title="Créer : Une nouvelle actualité">Créer</a>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
 {# **** Liste des articles *** #}
 {% for article in articles %}
 <div class="container">
-    <div class="card m-5 cardContour">
+    <div class="card m-5 cardContour effetShadow">
         <div class="card-body">
             <section class="article text-center">
                 <article>

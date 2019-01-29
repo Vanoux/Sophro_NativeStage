@@ -4,14 +4,14 @@
 
 {% block body %}
 
-<div class="jumbotron jumbotron-fluid jumbotronTitle">
+<div class="jumbotron jumbotron-fluid jumbotronTitle effetShadow">
     <div class="container">
         <h1 class="display-5 text-center">Ma Foire à question ADMIN</h1>
     </div>
 </div>
 
 <div class="container">
-    <div class="card text-center m-5 createCard">
+    <div class="card text-center m-5 createCard effetShadow">
         <div class="card-body">
             <h4 class="card-title">Créer une nouvelle question / réponse</h4>
             <a href=" {{ path('faq_new') }} " class="btn btn-secondary" title="Créer : Une nouvelle question et réponse">Créer</a>
@@ -22,7 +22,7 @@
 {# *** Liste des questions / réponses *** #}
 {% for faq in faqs %}
 <div class="container">
-    <div class="card m-5 cardContour">
+    <div class="card m-5 cardContour effetShadow">
         <div class="card-body">
             <section class="article text-center">
                 <article>
