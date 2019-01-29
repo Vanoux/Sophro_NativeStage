@@ -19,6 +19,15 @@ p, ul {
     color: #434B56;
     /* color:white */
 }
+.dropdown-menu {
+    background-color: #434B56;
+}
+.dropdown-item {
+    color: white;
+}
+.dropdown-item:active {
+    background-color: #434B56;
+}
 .alert {
     top:0;
     width:100%;

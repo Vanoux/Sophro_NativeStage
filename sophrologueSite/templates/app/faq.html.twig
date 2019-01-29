@@ -18,7 +18,7 @@
             <div class="card-body">
                 <section class="article text-center">
                     <article>
-                        <h3 class="card-title">{{ faq.question }}</h3>
+                        <h5 class="card-title">{{ faq.question }}</h5>
                         <hr>
                         <div class="content">
                             <p class="card-text">{{ faq.reponse }}</p>
@@ -35,9 +35,7 @@
         <a class="btn btnSuite mt-5 px-4 py-2 effetHover" href="{{ path('myFaq') }}" title="Retour à la gestion de la FAQ">Retour
             à la Faq Admin</a>
         {% else %}
-        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la l'accueil">Retour
-            à
-            la l'accueil</a>
+        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la l'accueil">Retour à l'accueil</a>
         {% endif %}
     </div>
 </div>
