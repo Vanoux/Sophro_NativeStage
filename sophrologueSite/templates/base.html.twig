@@ -7,7 +7,7 @@
     <title>{% block title %}{% endblock %}</title>
     {% block stylesheets %}
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
@@ -36,10 +36,14 @@
                     <a class="nav-link mr-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Cliquez ici pour retrouver toutes les informations">Informations</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ path('sophrologie') }}" title="Informations sur le cadre de la sophrologie">La Sophrologie</a>
-                        <a class="dropdown-item" href="{{ path('ateliers') }}" title="Informations sur les ateliers que j'anime">Mes Ateliers</a>
-                        <a class="dropdown-item" href="{{ path('tarifsHoraires') }}" title="Informations sur mes tarifs et horaires">Tarifs et Horaires</a>
-                        <a class="dropdown-item" href="{{ path('faq') }}" title="Retrouvez ici la foire à question">Foire à questions</a>
+                        <a class="dropdown-item" href="{{ path('sophrologie') }}" title="Informations sur le cadre de la sophrologie">La
+                            Sophrologie</a>
+                        <a class="dropdown-item" href="{{ path('ateliers') }}" title="Informations sur les ateliers que j'anime">Mes
+                            Ateliers</a>
+                        <a class="dropdown-item" href="{{ path('tarifsHoraires') }}" title="Informations sur mes tarifs et horaires">Tarifs
+                            et Horaires</a>
+                        <a class="dropdown-item" href="{{ path('faq') }}" title="Retrouvez ici la foire à question">Foire
+                            à questions</a>
                     </div>
                 </li>
                 <!--Actualités -->
@@ -56,7 +60,8 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     {% if is_granted('ROLE_ADMIN') %}
-                    <a class="nav-link" href="{{ path('dashboard') }}" title="Retour accueil gestion administrateur">Dashboard Home</a>
+                    <a class="nav-link" href="{{ path('dashboard') }}" title="Retour accueil gestion administrateur">Dashboard
+                        Home</a>
                     {% endif %}
                 </li>
             </ul>
@@ -67,54 +72,87 @@
     {% block body %}{% endblock %}
 
     <!-- ********** FOOTER ********** -->
-    <footer class="pt-2">
-        <nav class="navbar navbar-inverse collaspe-show navbar-dark">
+<footer class="navbar-dark text-center py-3">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 md-4 sm-12">
+            <h5 class="text-white">Partenaires</h5>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://www.sofrocay.com/">Sofrocay</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.facebook.com/CCLa5C/">La 5C</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://www.ccsg.fr/cias-saint-gaudens.html">Azimut</a>
+                    </li>
+                </ul>
+        </div>
 
-            <div class="card-deck">
-                <div class="card mt-1 cardFooter">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Partenaires</h4>
-                        <p class="card-text">.........</p>
-                    </div>
-                </div>
+        <div class="col-lg-4 md-4 sm-12">
+            <h5 class="text-white">Réseaux sociaux</h5>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.facebook.com/Anne-Sophie-Sophrologue-Labarthe-Rivi%C3%A8re-268080020377888/" target="_blank" title="Allez sur mon facebook...">
+                        <i class="fab fa-facebook"></i>facebook</a>
+                    </li>
+                </ul>
+        </div>
 
-                <div class="card mt-1 cardFooter">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Réseaux sociaux</h4>
-                        <p class="card-text">.........</p>
-                    </div>
-                </div>
+        <div class="col-lg-4 md-4 sm-12">
+            <h5 class="text-white">Contactez-moi</h5>
+                <p class="text-white">Anne-Sophie Labat<br>
+                    Sophrologue<br>
+                    06 88 55 48 03<br>
+                    contact@sophrologue-labat.fr</p>
+        </div>
 
-                <div class="card mt-1 cardFooter">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Coordonnées</h4>
-                        <p class="card-text">.........</p>
-                    </div>
-                </div>
-            </div>
+    </div>
+    <!-- Mentions légale & connexion -->
+    {#<div class="col-xs-12 col-sm-12 col-md-12 mt-5 mt-sm-2 mb-0 text-center">
+            <a class="px-2" href="#">Mentions Légales</a>
+            <span class="h6">Tout droits réservés.</span>
+            {% if not app.user %}
+            
+                <a class="ml-4" href="{{ path('user_registration') }}">Enregistrement</a>
+                <a class="mr-auto" href="{{ path('security_login') }}">Connexion</a>
+            
+            {% else %}
+         
+                <a class="mr-auto" href="{{ path('security_logout') }}">Deconnexion</a>
+            
+            {% endif %}#}
+    
+            <div class="col-lg-12 md-12 sm-12">    
+    <ul class="navbar">
+            {% if not app.user %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('user_registration') }}">Enregistrement</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('security_login') }}">Connexion</a>
+            </li>
+            {% else %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('security_logout') }}">Deconnexion</a>
+            </li>
+            {% endif %}
+        </ul>
+        </div>
+    </div>
+    </div>
+</footer>
 
 
-            <ul class="navbar-nav ml-auto">
-                {% if not app.user %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('user_registration') }}">Enregistrement</a>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('security_login') }}">Connexion</a>
-                </li>
-                {% else %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('security_logout') }}">Deconnexion</a>
-                </li>
-                {% endif %}
-            </ul>
-        </nav>
-    </footer>
+
+<!-- Footer -->
+<!-- <footer class="navbar navbar-expand-lg navbar-dark sticky-bottom shadow mt-5"> -->
 
 
     <!-- ********** SCRIPTS ********** -->
     {% block javascripts %}
     <!-- BOOTSTRAP -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
@@ -141,11 +179,11 @@
 
     {% endfor %}
     {% endfor %}
-  <script>
-    $(document).ready(function() {
-        $('.summernote').summernote();
-    });
-  </script>
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote();
+        });
+    </script>
 
 
 </body>
