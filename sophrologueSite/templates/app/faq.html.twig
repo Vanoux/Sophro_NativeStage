@@ -30,12 +30,15 @@
     </div>
     {% endfor %}
     <!-- Retour liste Faq dashboard si admin connecté -->
-    {% if is_granted('ROLE_ADMIN') %}
-    <a class="btn btnSuite mt-5 px-4 py-2 effetHover" href="{{ path('myFaq') }}" title="Retour à la gestion de la FAQ">Retour
-        à la Faq Admin</a>
-    {% else %}
-    <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la l'accueil">Retour à
-        la l'accueil</a>
-    {% endif %}
+    <div class="text-center">
+        {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btnSuite mt-5 px-4 py-2 effetHover" href="{{ path('myFaq') }}" title="Retour à la gestion de la FAQ">Retour
+            à la Faq Admin</a>
+        {% else %}
+        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la l'accueil">Retour
+            à
+            la l'accueil</a>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

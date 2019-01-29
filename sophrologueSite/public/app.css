@@ -74,7 +74,7 @@ p, ul {
 }
 .effetHover:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    background-color: #434B56;
+    background-color: #434b56;
     color:#DCDCDC;
 }
 .effetShadow {
@@ -83,6 +83,14 @@ p, ul {
 .adminText {
     text-transform: capitalize;
 }
+.linkColor:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    color: white;
+}
+.linkColor{
+    color: white;
+}
+
 #atelierHover1:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #4CABB1;
@@ -119,7 +127,7 @@ p, ul {
 @media (max-width: 576px) {
 
 	footer {
-		height : 17vh;
+		height : auto;
 	}
 	
 }

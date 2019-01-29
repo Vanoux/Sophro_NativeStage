@@ -5,16 +5,56 @@
 {% block body %}
 <div class="pb-2">
 
-<div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
-    <div class="container">
-        <h1 class="text-center">Retrouvez ici toutes les informations sur les Tarifs et Horaires</h1>
+    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+        <div class="container">
+            <h1 class="text-center">Retrouvez ici toutes les informations sur les Tarifs et Horaires</h1>
+        </div>
     </div>
-</div>
 
-<h5>Pour me contacter cliquez sur le bouton !</h5>
-{# <a href="{{ path('contact') }}"><input type="button" value="Contactez-moi" title="Lien de contact"></a> #}
-<a href="{{ path('contact') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" value="Contactez-moi" title="Contactez-moi : Formulaire de contact">Contactez-moi</a>
-<hr>
-<a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à l'accueil</a>
-</div>
-{% endblock %}
+    <div class="container">
+        <div class="card m-4 cardInfoHome effetShadow">
+            <div class="card-body">
+                <h4 class="card-title text-center py-3 pb-4">Choisissez votre formule</h4>
+                <h6 class="card-text text-center">Séance individuelle</h6>
+                <p class="card-text text-center py-3">40€<br>
+                    35€ *
+                </p>
+                <h6 class="card-text text-center">Séance collective</h6>
+                <p class="card-text text-center py-3">10€<br>
+                    8€ *
+                </p>
+                <h6 class="card-text text-center">Forfaits</h6>
+                <p class="card-text text-center py-3">forfait 3 séances : 105 euros<br>
+                    forfait 4 séances individuelles de 35 minutes pour les enfants (3/11 ans) : 75 euros
+                </p>
+                <h6 class="card-text text-center">Bon cadeau</h6>
+                <p class="card-text text-center py-3">Offrez une séance à vos amis et vos proches pour leur
+                    bien-être</p>
+                <h6 class="card-text text-center">Parrainage</h6>
+                <p class="card-text text-center py-3">Parrainez un membre de votre famille et faîte lui découvrir
+                    la Sophrologie Caycédienne</p>
+                <h6 class="card-text text-center">Mutuelle</h6>
+                <p class="card-text text-center py-3">Parrainez un membre de votre famille et faîte lui découvrir
+                    la Sophrologie Caycédienne<br>
+                    <a href="{{ asset('doc/mutuelles_prise_en_charge_sophrologie_caycedienne.pdf') }}" title="Pdf de la liste non-exhaustives des mutuelles partenaires"
+                        class="linkColor">Liste non-exhaustives des mutuelles partenaires</a>
+                </p>
+                <p class="card-text text-center py-3"> * Enfants/adolescents/étudiants/demandeur d'emploi</p>
+
+                <hr>
+                <div class="text-center">
+                    <h5>Pour me contacter cliquez sur le bouton !</h5>
+                    {# <a href="{{ path('contact') }}"><input type="button" value="Contactez-moi" title="Lien de contact"></a>
+                    #}
+                    <a href="{{ path('contact') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" value="Contactez-moi"
+                        title="Contactez-moi : Formulaire de contact">Contactez-moi</a>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour
+                        à l'accueil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endblock %}
