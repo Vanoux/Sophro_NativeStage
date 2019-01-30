@@ -3,9 +3,11 @@
 {% block title %}Créer{% endblock %}
 
 {% block body %}
-<h2 class="text-center mt-4">Créer une nouvelle question / réponse</h2>
+<h2 class="text-center mt-5 text-secondary">Créer une nouvelle question / réponse</h2>
 
-    {{ include('admin/faq/_form.html.twig') }}
+{{ include('admin/faq/_form.html.twig') }}
 
+<div class="mb-2">
     <a href="{{ path('myFaq') }}" class="btn-sm btn-secondary" title="Retour à la liste : Ma foire à questions">Retour à la liste</a>
+</div>
 {% endblock %}

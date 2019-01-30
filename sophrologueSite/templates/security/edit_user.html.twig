@@ -7,18 +7,18 @@
 {# Affiche le tableau user : {{ dump(user) }}#}
 <div class="example-wrapper m-5 p-5">
 
-    <h1 class="mb-4">Modification informations ✅</h1>
+    <h1 class="mb-4 text-secondary">Modification informations</h1>
     {{ form_start(form) }}
 
     {{ form_row(form.username) }}
     {{ form_row(form.mail) }}
 
-    <button type="submit" class="btn btn-success" title="Envoyer : Modifiez vos informations">Envoyer</button>
+    <button type="submit" class="btn btn-success" title="Envoyer : La modification de vos informations">Envoyer</button>
 
     {{ form_end(form) }}
 
     <div class="mt-5 pt-1">
-        <a href="{{ path('password_edit') }}" class="btn btn-danger" title="MOdifiez votre mot de passe">Modification du mot de passe</a>
+        <a href="{{ path('password_edit') }}" class="btn btn-danger" title="Modifiez votre mot de passe">Modification du mot de passe</a>
     </div>
 
     {# <div class="m-5">

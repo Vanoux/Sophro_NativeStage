@@ -138,85 +138,41 @@
 
     <div class="card mt-2 cardInfoHome effetShadow">
         <div class="card-body">
-            <h4 class="card-title text-center py-3 pb-4">Découvrir le cabinet</h4>
-            <p class="card-text font-weight-bold">
-                CABINET DE SOPHROLOGIE , au centre du village de Labarthe-Rivière.
-            </p>
-            <p class="card-text">
-                Situé entre Saint-Gaudens et Montrejeau, à 20 minutes d’Aspet et 40 minutes de Bagnères-de-Luchon.<br>
-                Une petite grange rénovée pour vous accueillir dans un cadre chaleureux et apaisant.<br>
-                Un lieu calme, un espace de détente et d’échange pour faire la parenthèse avec son quotidien, se
-                ressourcer, respirer, se détendre et faire le plein de vitalité.
-                <p class="card-text">
-                    8 Place Galliéni 31800 Labarthe-Rivière - Cabinet
-                </p>
-            </p>
-            <p class="card-text">
-                Ayant des interventions extérieures et une permanence à Saint-Gaudens, je vous accueille sur
-                rendez-vous, que ce soit pour une séance ou des renseignements.<br>
-            </p>
+            <h4 class="card-title text-center py-3 ">Découvrir le cabinet</h4>
+            <h6 class="card-text text-center">CABINET DE SOPHROLOGIE , au centre du village de Labarthe-Rivière.</h6>
+                <p class="card-text text-center py-3">8 Place Galliéni 31800 Labarthe-Rivière - Cabinet</p>
             <hr>
-            <p class="card-text font-weight-bold">
+            <h6 class="card-text text-center">
                 Sophrologie à Saint-Gaudens et à domicile
-            </p>
-            <p class="card-text">
-                Je vous propose des séances de sophrologie Caycédienne sur rendez-vous, à Saint-Gaudens dans un cabinet
-                pluridisciplinaire.<br>
-                Situé en centre ville de Saint-Gaudens, avec places de parking gratuits à proximité.<br>
-                Pour les personnes ne pouvant se déplacer, je propose des interventions à domicile, le tarif peut
-                varier en fonction de l’indemnité kilométrique,<br>
-                Soit hors commune de Saint-Gaudens.
-            </p>
-            <p class="card-text">
-                31 Avenue François Mitterrand 31800 Saint-Gaudens - Permanence
-            </p>
-            <hr>
-            <p class="card-text text-right">
-                N'hésitez-pas à me contactez,<br>
-                à bientôt,<br>
-                Anne-Sophie.
-            </p>
+            </h6>
+            <p class="card-text text-center pt-3">31 Avenue François Mitterrand 31800 Saint-Gaudens - Permanence</p>
+            <div class="text-center">
+                    <a href="{{ path('cabinets') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Tarifs et Horaires">En savoir plus...</a>
+                </div>
         </div>
     </div>
 
     <div class="card mt-2 cardInfoHome effetShadow">
         <div class="card-body">
-            <h4 class="card-title text-center py-3 pb-4">Choisissez votre formule</h4>
-            <h6 class="card-text text-center">Séance individuelle</h6>
-            <p class="card-text text-center py-3">40€<br>
-                35€ *
-            </p>
-            <h6 class="card-text text-center">Séance collective</h6>
-            <p class="card-text text-center py-3">10€<br>
-                8€ *
-            </p>
+            <h4 class="card-title text-center py-3">Choisissez votre formule</h4>
+            <p class="card-text text-center font-weight-bold pb-1">Séance individuelle</p>
+            <p class="card-text text-center font-weight-bold pb-1">Séance collective</p>
+            <p class="card-text text-center font-weight-bold pb-2">Forfaits</p>
+            <p class="card-text text-center pt-4">Bon cadeau, Parrainage ...</p>
+            <p class="card-text text-center">Mutuelles</p>
+
             <div class="text-center">
-                <a href="{{ path('tarifsHoraires') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Voir plus : Tarifs et Horaires">Voir
-                    plus...</a>
+                <a href="{{ path('tarifsHoraires') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Tarifs et Horaires">En savoir plus...</a>
             </div>
-            <!-- <h6 class="card-text text-center">Forfaits</h6>
-                <p class="card-text text-center py-3">forfait 3 séances : 105 euros<br>
-                forfait 4 séances individuelles de 35 minutes pour les enfants (3/11 ans) : 75 euros
-                </p>
-            <h6 class="card-text text-center">Bon cadeau</h6>
-                <p class="card-text text-center py-3">Offrez une séance à vos amis et vos proches pour leur bien-être</p>
-            <h6 class="card-text text-center">Parrainage</h6>
-                <p class="card-text text-center py-3">Parrainez un membre de votre famille et faîte lui découvrir la Sophrologie Caycédienne</p>
-            <h6 class="card-text text-center">Mutuelle</h6>
-                <p class="card-text text-center py-3">Parrainez un membre de votre famille et faîte lui découvrir la Sophrologie Caycédienne<br>
-                <a href="{{ asset('doc/mutuelles_prise_en_charge_sophrologie_caycedienne.pdf') }}" title="Pdf de la liste non-exhaustives des mutuelles partenaires" class="linkColor">Liste non-exhaustives des mutuelles partenaires</a>
-                </p>
-                <p class="card-text text-center py-3"> * Enfants/adolescents/étudiants/demandeur d'emploi</p> -->
         </div>
     </div>
 
     <div class="card mt-2 cardInfoHome effetShadow">
-        <h4 class="card-title text-center py-3 pb-4">Où me trouver</h4>
-        {# Div qui contient la carte google map #}
+        <h4 class="card-title text-center pt-4 mt-2">Où me trouver</h4>
+        {# div qui contient la carte google map #}
         <div class="card-body" id="map"></div>
     </div>
 
 </div>
-
 
 {% endblock %}

@@ -14,15 +14,15 @@ class EditUserType extends AbstractType
     {
         $builder
             ->add('mail', TextType::class, [
-                'label' => 'Nom ou Pseudo : ',
-                'attr' => [
-                    'placeholder' => 'Entrez votre nouveau nom ou pseudo...'
-                ]
-            ])
-            ->add('username', TextType::class, [
                 'label' => 'Adresse Email : ',
                 'attr' => [
                     'placeholder' => 'Entrez votre nouvelle adresse mail...'
+                ]
+            ])
+            ->add('username', TextType::class, [
+                'label' => 'Nom ou Pseudo : ',
+                'attr' => [
+                    'placeholder' => 'Entrez votre nouveau nom ou pseudo...'
                 ]
             ])
         ;

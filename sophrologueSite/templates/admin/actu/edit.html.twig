@@ -6,7 +6,7 @@
 
 {% block body %}
 
-<h2 class="text-center mt-4">Edition de l'article : {{ article.titre }}</h2>
+<h2 class="text-center mt-5 text-secondary">Edition de l'article : {{ article.titre }}</h2>
 
 <div class="container mt-3">
 
@@ -25,7 +25,8 @@
     {{ form_end(formArticle) }}
 
 </div>
-<a href="{{ path('myActu') }}" class="btn-sm btn-secondary" title="Retour à la liste : Mes actualités">Retour à la liste</a>
-
+<div class="mb-2">
+    <a href="{{ path('myActu') }}" class="btn-sm btn-secondary" title="Retour à la liste : Mes actualités">Retour à la liste</a>
+</div>
 
 {% endblock %}

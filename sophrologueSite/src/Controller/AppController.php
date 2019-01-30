@@ -107,4 +107,11 @@ class AppController extends AbstractController
         return $this->render('app/experiences.html.twig');
     }
     
+     /**
+     * @Route("/cabinets", name="cabinets")
+     */
+    public function cabinets(): Response 
+    {
+        return $this->render('app/cabinets.html.twig');
+    }
 }

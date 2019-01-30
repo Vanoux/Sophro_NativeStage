@@ -1,8 +1,9 @@
 <div class="container mt-3">
 {{ form_start(form) }}
-
+<div class="my-5">
     {{ form_widget(form) }}
     <button class="btn btn-success" type="submit" title="Sauvegarder">{{ button_label|default('Sauvegarder') }}</button>
+</div>
 
 {{ form_end(form) }}
 </div>
