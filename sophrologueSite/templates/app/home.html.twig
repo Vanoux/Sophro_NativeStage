@@ -191,7 +191,8 @@
                 8€ *
             </p>
             <div class="text-center">
-                <a href="{{ path('tarifsHoraires') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Voir plus : Tarifs et Horaires">Voir plus...</a>
+                <a href="{{ path('tarifsHoraires') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Voir plus : Tarifs et Horaires">Voir
+                    plus...</a>
             </div>
             <!-- <h6 class="card-text text-center">Forfaits</h6>
                 <p class="card-text text-center py-3">forfait 3 séances : 105 euros<br>
@@ -210,11 +211,11 @@
     </div>
 
     <div class="card mt-2 cardInfoHome effetShadow">
-        <div class="card-body">
-            <h4 class="card-title text-center py-3 pb-4">Où me trouver</h4>
-            <p class="card-text">.....Google Map....</p>
-        </div>
+        <h4 class="card-title text-center py-3 pb-4">Où me trouver</h4>
+        {# Div qui contient la carte google map #}
+        <div class="card-body" id="map"></div>
     </div>
+
 </div>
 
 
