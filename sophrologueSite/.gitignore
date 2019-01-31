@@ -2,6 +2,7 @@
 .env.test
 /public/.htaccess
 /templates/script.html.twig
+/templates/base.html.twig
 ###> symfony/framework-bundle ###
 
 /.env.local
