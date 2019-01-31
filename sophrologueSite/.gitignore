@@ -1,8 +1,8 @@
 .env
 .env.test
 /public/.htaccess
-/templates/script.html.twig
 /templates/base.html.twig
+/templates/script.html.twig
 ###> symfony/framework-bundle ###
 
 /.env.local
