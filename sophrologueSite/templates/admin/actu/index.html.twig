@@ -20,7 +20,7 @@
 </div>
 
 {# **** Liste des articles *** #}
-{% for article in articles %}
+{% for article in articles |sort|reverse %}
 <div class="container">
     <div class="card m-5 cardContour effetShadow">
         <div class="card-body">

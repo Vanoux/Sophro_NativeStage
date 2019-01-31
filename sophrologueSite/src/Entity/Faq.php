@@ -20,13 +20,13 @@ class Faq
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message=" Veuillez mettre une question !")
      */
     private $question;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message=" Veuillez mettre une réponse !")
      */
     private $reponse;
 

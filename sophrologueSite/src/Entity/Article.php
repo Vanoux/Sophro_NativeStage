@@ -20,7 +20,7 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message=" Veuillez mettre un titre.")
+     * @Assert\NotBlank(message=" Veuillez mettre un titre !")
      */
     private $titre;
 
@@ -31,7 +31,7 @@ class Article
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message=" Veuillez mettre du contenu.")
+     * @Assert\NotBlank(message=" Veuillez mettre du contenu !")
      */
     private $contenu;
 

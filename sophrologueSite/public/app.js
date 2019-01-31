@@ -20,10 +20,12 @@ function initMap() {
     //Instance de la classe google LatLngBounds qui représente un rectangle virtuel en coordonnées géographiques dans lequel l'ensemble des marqueurs seront contenus
     var zoneMarqueurs = new google.maps.LatLngBounds();
     var optionsCarte = {
-        zoom: 8,
+        zoom: 13,
         center: {
-            lat: 43.080026,
-            lng: 0.673081,
+            // lat: 43.080026,
+            // lng: 0.673081
+            lat: 43.094608,
+            lng: 0.705339
         }
     }
     //Création de la carte google map dans la div
@@ -49,9 +51,11 @@ function initMap() {
 
         //4) Au clique sur le marqueur = redirection vers l'adresse google du marqueur
         google.maps.event.addListener(marqueur, 'click', function() {
-            window.location.href = this.url;
+            //window.location.href = this.url; => ouvre le lien sur la même page !
+            window.open(this.url,'_blank'); // ouvre le lien sur une nouvelle page !
+
         });
     });
-    //une fois la boucle terminée, la méthode fitBounds() de la classe Map permet d'optimiser l'affichage de la carte (centre et niveau de zoom optimum)
-    maCarte.fitBounds(zoneMarqueurs);
+    // //une fois la boucle terminée, la méthode fitBounds() de la classe Map permet d'optimiser l'affichage de la carte (centre et niveau de zoom optimum)
+    // maCarte.fitBounds(zoneMarqueurs);
 }
