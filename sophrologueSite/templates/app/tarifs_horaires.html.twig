@@ -3,19 +3,20 @@
 {% block title %}Tarifs Horaires{% endblock %}
 
 {% block body %}
-<div class="pb-2">
+<div class="pb-2 cardInfoHome">
 
     <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
         <div class="container">
-            <h1 class="text-center">Retrouvez ici toutes les informations sur les Tarifs et Horaires</h1>
+            <h1 class="text-center titrePerso">Retrouvez ici toutes les informations sur les Tarifs et Horaires</h1>
         </div>
     </div>
 
-    <div class="container">
-        <div class="card m-4 cardInfoHome effetShadow">
+    <div class="container my-5">
+        <div class="card m-5 effetShadow">
             <div class="card-body">
                 <h4 class="card-title text-center py-3 pb-4">Choisissez votre formule</h4>
-                <h6 class="card-text text-center">Séance individuelle</h6>
+                <hr>
+                <h6 class="card-text text-center mt-5">Séance individuelle</h6>
                 <p class="card-text text-center py-3">40€<br>
                     35€ *
                 </p>
@@ -56,4 +57,5 @@
             </div>
         </div>
     </div>
-    {% endblock %}
+</div>
+{% endblock %}

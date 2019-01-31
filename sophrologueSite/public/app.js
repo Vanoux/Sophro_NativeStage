@@ -23,7 +23,7 @@ function initMap() {
         zoom: 8,
         center: {
             lat: 43.080026,
-            lng: 0.673081
+            lng: 0.673081,
         }
     }
     //Création de la carte google map dans la div
@@ -40,7 +40,7 @@ function initMap() {
             map: maCarte,
             position: new google.maps.LatLng(latitude, longitude),
             title:this.title,
-            url:this.url
+            url:this.url,
         };
         //2) Affiche le marqueur sur la carte via la classe Marker
         var marqueur = new google.maps.Marker(optionsMarqueur);

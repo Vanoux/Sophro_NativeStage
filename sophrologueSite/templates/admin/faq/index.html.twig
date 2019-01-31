@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ma Foire à question-Liste-{% endblock %}
+{% block title %}Ma Foire aux questions - Liste{% endblock %}
 
 {% block body %}
 
 <div class="jumbotron jumbotron-fluid jumbotronTitle effetShadow">
     <div class="container">
-        <h1 class="display-5 text-center">Ma Foire à question ADMIN</h1>
+        <h1 class="display-5 text-center titrePerso">Ma Foire aux questions ADMIN</h1>
     </div>
 </div>
 
@@ -45,32 +45,5 @@
 </div>
 {% endfor %}
 
-
-
-{# LISTE SOUS FORME DE TABLEAU MOCHE
-<table class="table">
-    <thead>
-        <tr>
-            <th>Question</th>
-            <th>Reponse</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for faq in faqs %}
-        <tr>
-            <td>{{ faq.question }}</td>
-            <td>{{ faq.reponse }}</td>
-            <td>
-                <a href="{{ path('faq_show', {'id': faq.id}) }}">Voir plus</a>
-                <a href="{{ path('faq_edit', {'id': faq.id}) }}">Editer</a>
-            </td>
-        </tr>
-        {% else %}
-        <tr>
-            <td colspan="4">no records found</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table> #}
 
 {% endblock %}

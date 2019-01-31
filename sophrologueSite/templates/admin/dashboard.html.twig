@@ -8,10 +8,10 @@
 
     <div class="jumbotron jumbotron-fluid jumbotronTitle effetShadow">
         <div class="container">
-            <h1 class="display-4 text-center mb-3">Dashboard Admin</h1>
+            <h1 class="display-4 text-center titrePerso mb-3">Dashboard Admin</h1>
             {% if is_granted('ROLE_ADMIN') %}
             <!-- is_granted() = méthode de sécurité pour que la hiérarchie des rôles fonctionne **granted : bénéficiaire**-->
-            <h2 class="text-center adminText">Bonjour {{ app.user.username }} !</h2>
+            <h2 class="text-center titrePerso adminText">Bonjour {{ app.user.username }} !</h2>
             {% endif %}
         </div>
     </div>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="card text-center m-5 cardContour effetShadow">
-        <h4 class="card-header">Ma Foire à questions</h4>
+        <h4 class="card-header">Ma Foire aux questions</h4>
         <div class="card-body">
             {# <h5 class="card-title">Ma Foire à questions</h5> #}
             <p class="card-text">Ici retrouvez toutes votre Faq et les actions de CRUD</p>

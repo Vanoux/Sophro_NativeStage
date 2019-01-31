@@ -4,7 +4,7 @@ body {
 nav, footer {
     background-color: #434B56;
 }
-h1, h2 {
+.titrePerso {
     text-transform: uppercase;
     font-weight: bold;
     color: white;
@@ -19,13 +19,13 @@ p, ul {
     color: #434B56;
     /* color:white */
 }
-.dropdown-menu {
+.dropdownPerso {
     background-color: #434B56;
 }
-.dropdown-item {
+.dropdownItemColor {
     color: white;
 }
-.dropdown-item:active {
+.dropdownItemColor:active {
     background-color: #434B56;
 }
 .alert {
