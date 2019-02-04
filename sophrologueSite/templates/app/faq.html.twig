@@ -12,13 +12,13 @@
     </div>
 
     {# *** Liste des questions / réponses *** #}
-    {% for faq in faqs %}
+    {% for faq in faqs |sort|reverse %}
     <div class="container">
         <div class="card m-5 cardContour effetShadow">
             <div class="card-body">
-                <section class="article text-center">
+                <section class="article">
                     <article>
-                        <h5 class="card-title">{{ faq.question }}</h5>
+                        <h5 class="card-title text-center">{{ faq.question }}</h5>
                         <hr>
                         <div class="content">
                             <p class="card-text">{{ faq.reponse }}</p>

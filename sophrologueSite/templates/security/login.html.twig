@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="example-wrapper m-5 p-5">
-
+    {% if not is_granted('ROLE_ADMIN') %}
 <h2 class="mb-5 text-secondary">Connectez-vous</h2>
 
 <form method="post" action="{{ path('security_login') }}" class="form-login">
@@ -29,24 +29,18 @@
     <div class="form-group">
         <button class="btn btn-success mt-4" type="submit" title="Connectez-vous !">Connexion</button>
     </div>
-
     <div class="mt-5">
         <a href="{{ path('request_resetting')}}" title="Mot de passe oublié ?">Mot de passe oublié </a>
     </div>
 
+    {% else %}
+    <script>
+    window.location.replace("{{ path('home') }}");
+    </script>
+    {% endif %}
+
 </form>
 
 </div>
-
-{#
-Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-See https://symfony.com/doc/current/security/remember_me.html
-
-<div class="checkbox mb-3">
-    <label>
-        <input type="checkbox" name="_remember_me"> Remember me
-    </label>
-</div>
-#}
 
 {% endblock %}

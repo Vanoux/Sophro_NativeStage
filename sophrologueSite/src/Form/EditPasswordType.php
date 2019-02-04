@@ -15,7 +15,7 @@ class EditPasswordType extends AbstractType
             ->add('password', PasswordType::class, [
                 'label' => 'Nouveau mot de passe :',
                 'attr' => [
-                     'placeholder' => 'Nouveau mot de passe...'
+                    'placeholder' => 'Nouveau mot de passe...'
                 ]
             ])
             ->add('confirm_password', PasswordType::class, [

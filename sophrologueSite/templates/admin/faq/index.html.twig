@@ -20,7 +20,7 @@
 </div>
 
 {# *** Liste des questions / réponses *** #}
-{% for faq in faqs %}
+{% for faq in faqs |sort|reverse %}
 <div class="container">
     <div class="card m-5 cardContour effetShadow">
         <div class="card-body">

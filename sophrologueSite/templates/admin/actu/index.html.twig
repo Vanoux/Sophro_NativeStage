@@ -33,7 +33,7 @@
                     <h2>{{ article.titre }}</h2>
                     <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }}</div>
                     <div class="content">
-                        <p>{{ article.contenu |truncate(20, false, '.....' | raw )}}</p>
+                        <p>{{ article.contenu | striptags | truncate(119, false, '.....'  )}}</p>
                     </div>
                     <hr>
                     <a href="{{ path('actu_show', {'id': article.id})}}" class="btn-sm btnSuite px-4 py-2" title="Lire la suite : de l'article d'actualité">Lire la

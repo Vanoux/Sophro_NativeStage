@@ -79,7 +79,7 @@
         <div class="card text-center">
             <div class="container my-3">
                 <div class="card-body infoPraticienne">
-                    <h4 class="card-title py-3">Formation</h4>
+                    <h4 class="card-title py-3" id="formation">Formation</h4>
                     <p class="card-text pt-2">Titulaire du diplôme de master spécialiste en Sophrologie Caycédienne
                         et formée en relation d’aide, je pratique la sophrologie depuis l’année 2011<br>Spécialisée
                         dans la prévention et
@@ -106,11 +106,7 @@
                         l’autre, de soi, de ce que l’on ressent.<br>
                         Savoir prendre du temps pour s’écouter, les bienfaits d’une attitude positive et que les
                         solution sont souvent
-                        en nous.<br><br>
-                        Je me suis donc orientée dans une profession où l’on est dans l’accompagnement et l’écoute, qui
-                        propose de laisser le mental de côté pour s’accorder un temps pour soi, où l’on apprend à faire
-                        la parenthèse avec le quotidien pour vivre un moment de détente, positif, et surtout qui donne
-                        des outils pour être mieux dans son quotidien...</p>
+                        en nous.<br>
                     <a href="{{ path('experiences') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Expériences de la praticienne">En
                         savoir plus...</a>
                 </div>
@@ -119,7 +115,7 @@
         <div class="card">
             <div class="card-body">
                 <picture>
-                    <img srcset="{{ asset('img/cabinet_sophrologie_labarthe_riviere.jpg') }}" alt="photo_cabinet" class="d-block card-img">
+                    <img srcset="{{ asset('img/cabinet_sophrologie_labarthe_riviere.jpg') }}" alt="photo_cabinet" class="d-block card-img imgCabinetHome">
                 </picture>
             </div>
         </div>
@@ -169,5 +165,6 @@
     </div>
 
 </div>
+
 
 {% endblock %}
