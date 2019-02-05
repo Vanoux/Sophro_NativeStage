@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use App\Repository\FaqRepository;
+use App\Repository\ConseilRepository;
+use App\Entity\Conseil;
 //use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Article;
 
 
@@ -16,9 +18,12 @@ class AppController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home(): Response 
+    public function home(ConseilRepository $conseilRepository): Response 
     {
-        return $this->render('app/home.html.twig');
+        $conseils = $conseilRepository->findAll();
+        return $this->render('app/home.html.twig', [
+            'conseils' => $conseils,
+        ]);
     }
 
     /**
@@ -84,11 +89,13 @@ class AppController extends AbstractController
     }
 
     /**
-     * @Route("/conseils", name="conseils")
+     * @Route("/conseil/{id}", name="conseil_show")
      */
-    public function conseils(): Response  
+    public function conseils(Conseil $conseil): Response  
     {
-        return $this->render('app/conseils.html.twig');
+        return $this->render('app/conseil_show.html.twig', [
+            'conseil' => $conseil
+        ]);
     }
 
     /**

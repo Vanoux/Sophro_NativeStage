@@ -13,11 +13,9 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     font-weight: bold;
     color: #434B56;
-    /* color:white; */
 }
 p, ul {
     color: #434B56;
-    /* color:white */
 }
 .dropdownPerso {
     background-color: #434B56;

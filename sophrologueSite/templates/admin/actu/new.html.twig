@@ -16,6 +16,7 @@
     {{ form_row(formArticle.metadescription, {'attr' : {'placeholder': "Mots clefs (pas obligatoire)"}}) }}
     {{ form_row(formArticle.image, {'attr' : {'placeholder': "Image à télécharger (pas obligatoire)"}}) }}
     {{ form_row(formArticle.date, {'attr' : {'placeholder': "Date de l'article"}}) }}
+    {{ form_row(formArticle.category)}}
     {{ form_row(formArticle.contenu | raw, {'attr' : {'placeholder': "Contenu de l'article"} } ) }}
 
     <button type="submit" class="btn btn-success" title="Ajouter l'article d'actualité"> Ajouter l'article</button>

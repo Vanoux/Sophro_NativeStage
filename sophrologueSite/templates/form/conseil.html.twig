@@ -1,0 +1,29 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{# {% form_theme formArticle 'bootstrap_4_layout.html.twig' %} #}
+
+{% block title %}Mes Conseils - Créer{% endblock %}
+
+{% block body %}
+
+<h2 class="text-center mt-5 text-secondary">Créer un nouvel article de conseil</h2>
+
+<div class="container mt-3">
+
+    {{ form_start(formConseil) }}
+
+    {{ form_row(formConseil.titre, {'attr' : {'placeholder': "Titre du conseil"}}) }}
+    {{ form_row(formConseil.intro, {'attr' : {'placeholder': "Introduction du conseil"}}) }}
+    {{ form_row(formConseil.image, {'attr' : {'placeholder': "Image à télécharger"}}) }}
+    {{ form_row(formConseil.contenu | raw, {'attr' : {'placeholder': "Contenu du conseil"} } ) }}
+
+    <button type="submit" class="btn btn-success" title="Ajouter l'article de conseil"> Ajouter le conseil</button>
+
+    {{ form_end(formConseil) }}
+
+</div>
+
+<div class="mb-2">
+    <a href="{{ path('home') }}" class="btn-sm btn-secondary" title="Retour à l'accueil">Retour à la l'accueil</a>
+</div>
+{% endblock %}

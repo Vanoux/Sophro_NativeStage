@@ -19,36 +19,36 @@
         <div class="carousel-item active">
             <picture>
                 <img srcset="{{ asset('img/sunset-tree.jpg') }}" class="d-block img-fluid" alt="image">
-                {#<img srcset="{{ asset('img/artichaut.png') }}" alt="image" class="d-block img-fluid imgCarousel">#}
             </picture>
             <div class="carousel-caption d-none d-md-block">
-                <h2 class="titrePerso">Conseil 1</h2>
-                <p>...</p>
-                <a href="#" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la
-                    suite</a>
+                <h2 class="titrePerso mb-5">{{conseils[0].titre}}</h2>
+                <h6 class="text-white">{{conseils[0].intro}}</h6>
+                <p class="text-white">Les conseils d'Anne-Sophie</p>
+                <a href="{{ path('conseil_show', {'id': conseils[0].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la suite</a>
             </div>
         </div>
+
         <div class="carousel-item">
             <picture>
                 <img srcset="{{ asset('img/tree-purple.jpg') }}" class="d-block img-fluid" alt="image">
-                {#<img srcset="{{ asset('img/kiwi.png') }}" alt="image" class="d-block img-fluid imgCarousel">#}
             </picture>
             <div class="carousel-caption d-none d-md-block">
-                <h2 class="titrePerso">Conseil 2</h2>
-                <p>...</p>
-                <a href="#" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la
+                <h2 class="titrePerso mb-5">{{conseils[1].titre}}</h2>
+                <h6 class="text-white">{{conseils[1].intro}}</h6>
+                <p class="text-white">Les conseils d'Anne-Sophie</p>
+                <a href="{{ path('conseil_show', {'id': conseils[1].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la
                     suite</a>
             </div>
         </div>
         <div class="carousel-item">
             <picture>
                 <img srcset="{{ asset('img/sun-tree.jpg') }}" class="d-block img-fluid" alt="image">
-                {#<img srcset="{{ asset('img/choux.png') }}" alt="image" class="d-block img-fluid imgCarousel">#}
             </picture>
             <div class="carousel-caption d-none d-md-block">
-                <h2 class="titrePerso">Conseil 3</h2>
-                <p>...</p>
-                <a href="#" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la
+                <h2 class="titrePerso mb-5">{{conseils[2].titre}}</h2>
+                <h6 class="text-white">{{conseils[2].intro}}</h6>
+                <p class="text-white">Les conseils d'Anne-Sophie</p>
+                <a href="{{ path('conseil_show', {'id': conseils[2].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la
                     suite</a>
             </div>
         </div>
