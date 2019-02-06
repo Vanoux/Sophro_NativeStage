@@ -8,11 +8,30 @@
 
     <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
         <div class="container">
-            <h1 class="text-center titrePerso">Retrouvez ici le Formulaire de Contact</h1>
+            <h1 class="text-center titrePerso">Formulaire de Contact</h1>
         </div>
     </div>
+
+    <div class="container mt-3">
+        <h5 class="text-center my-5">Contactez-moi via le formulaire de contact :</h5>
+
+        {{ form_start(formContact) }}
+        <div class="row">
+            <div class="col">{{ form_row(formContact.name, {'attr' : {'placeholder': "Votre nom et prénom"}}) }}</div>
+            <div class="col">{{ form_row(formContact.email, {'attr' : {'placeholder': "Votre adresse mail"}}) }}</div>
+            <div class="col">{{ form_row(formContact.phone, {'attr' : {'placeholder': "Votre numéro de téléphone"}}) }}</div>
+        </div>
+        {{ form_row(formContact.message | raw, {'attr' : {'placeholder': "Votre message"} } ) }}
+
+        <button type="submit" class="btn btn-success" title="Envoyez votre message">Envoyer le message</button>
+
+        {{ form_end(formContact) }}
+
+    </div>
+
     <div class="text-center">
-        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à l'accueil</a>
+        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à
+            l'accueil</a>
     </div>
 </div>
-    {% endblock %}
+{% endblock %}

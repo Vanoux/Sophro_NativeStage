@@ -2,14 +2,17 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Article;
-use App\Repository\ArticleRepository;
-use App\Repository\FaqRepository;
-use App\Repository\ConseilRepository;
 use App\Entity\Conseil;
+use App\Entity\Contact;
+use App\Form\ContactType;
+use App\Repository\FaqRepository;
+use App\Repository\ArticleRepository;
+use App\Repository\ConseilRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 //use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Article;
 
 
@@ -104,9 +107,23 @@ class AppController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact(): Response 
+    public function contact( Request $request): Response 
     {
-        return $this->render('app/contact.html.twig');
+        //Nouveau contact
+        $contact = new Contact();
+        //Création du formulaire
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request); //Traitement du formulaire
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            //Envoi le message qui confirme l'action
+            $this->get('session')->getFlashBag()->add('success', 'Votre message à bien été envoyé ! Je vous répondrai dans les plus bref delais.');
+            //Et fait une redirection vers l'accueil
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('app/contact.html.twig', [
+            'formContact' => $form->createView()
+        ]);
     }
 
     /**
