@@ -8,10 +8,12 @@
 </head>
 
 <body>
-    <h6>Une nouvelle personne souhaite avoir plus d'information ou vous contacter</h6>
-    <p>Nom de la personne : {{ contact.name }}</p>
-    <p>Numéro de téléphone : {{ contact.phone }}</p>
+    <h4>Une nouvelle personne souhaite avoir plus d'information ou vous contacter</h4>
+    <p>Nom de la personne : {{ contact.nom }}</p>
+    <p>Numéro de téléphone : {{ contact.telephone }}</p>
     <p>Email : {{ contact.email }}</p>
+    <p>Demande de rdv pour le : {{ contact.rdv }}</p>
+    <p>Lieu de préférence du rdv : {{ contact.lieu }}</p>
     <p>Message : {{ contact.message | nl2br }}</p>
 </body>
 

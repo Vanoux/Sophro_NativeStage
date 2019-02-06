@@ -6,31 +6,41 @@
 
 <div class="pb-2">
 
-    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+    {# <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
         <div class="container">
             <h1 class="text-center titrePerso">Formulaire de Contact</h1>
         </div>
-    </div>
+    </div> #}
 
     <div class="container mt-3">
-        <h5 class="text-center my-5">Contactez-moi via le formulaire de contact :</h5>
+        <h5 class="text-center my-5">Contactez-moi avec le formulaire de contact :</h5>
+        <p>Pour toutes questions, n'hésitez à me laisser un message ou si vous voulez prendre un rendez-vous, renseignez-moi la date et le lieu...</p>
+        <p>Je vous répondrai dans les plus bref delais !</p>
+        <p>Anne-Sophie</p>
 
+
+        <div class="border border-success p-5 cardInfoHome">
         {{ form_start(formContact) }}
         <div class="row">
-            <div class="col">{{ form_row(formContact.name, {'attr' : {'placeholder': "Votre nom et prénom"}}) }}</div>
-            <div class="col">{{ form_row(formContact.email, {'attr' : {'placeholder': "Votre adresse mail"}}) }}</div>
-            <div class="col">{{ form_row(formContact.phone, {'attr' : {'placeholder': "Votre numéro de téléphone"}}) }}</div>
+            <div class="col">{{ form_row(formContact.nom, {'label': 'Votre nom','attr' : {'placeholder': "Nom et prénom"}}) }}</div>
+            <div class="col">{{ form_row(formContact.email, {'label': 'Votre adresse mail','attr' : {'placeholder': "Email"}}) }}</div>
+            <div class="col">{{ form_row(formContact.telephone, {'label': 'Votre numéro de téléphone','attr' : {'placeholder': "Téléphone"}}) }}</div>
         </div>
-        {{ form_row(formContact.message | raw, {'attr' : {'placeholder': "Votre message"} } ) }}
+        <div class="row">
+            <div class="col">{{ form_row(formContact.rdv, {'label': 'Votre choix d\'une date pour une demande de RDV','attr' : {'placeholder': "Date et jour de préférence"}}) }}</div>
+            <div class="col">{{ form_row(formContact.lieu, {'label': 'Votre lieu de préférence pour une demande de RDV','attr' : {'placeholder': "Lieu de préférence"}}) }}</div>
+        </div>
+        {{ form_row(formContact.message | raw, {'label': 'Votre message','attr' : {'placeholder': "Message"} } ) }}
 
-        <button type="submit" class="btn btn-success" title="Envoyez votre message">Envoyer le message</button>
+        <button type="submit" class="btn btn-success border border-primary mt-5" title="Envoyez votre message">Envoyer le message</button>
 
         {{ form_end(formContact) }}
+    </div>
 
     </div>
 
     <div class="text-center">
-        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à
+        <a href="{{ path('home') }}" class="btn btnSuite mt-5 mb-3 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à
             l'accueil</a>
     </div>
 </div>

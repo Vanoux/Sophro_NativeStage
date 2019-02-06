@@ -12,7 +12,7 @@ class Contact
      * @Assert\NotBlank(message=" Veuillez mettre un nom !")
      * @Assert\Length(min=2, max=100)
      */
-    private $name;
+    private $nom;
 
     /**
      * @var string|null
@@ -25,7 +25,17 @@ class Contact
      * @var string|null
      * @Assert\Regex(pattern="/[0-9]{10}/", message=" Veuillez entrez un numéro valide !")
      */
-    private $phone;
+    private $telephone;
+
+    /**
+     * @var string|null
+     */
+    private $rdv;
+
+    /**
+     * @var string|null
+     */
+    private $lieu;
 
     /**
      * @var string|null
@@ -35,14 +45,14 @@ class Contact
     private $message;
 
 
-    public function getName(): ?string
+    public function getNom(): ?string
     {
-        return $this->name;
+        return $this->nom;
     }
 
-    public function setName(string $name): self
+    public function setNom(string $nom): self
     {
-        $this->name = $name;
+        $this->nom = $nom;
 
         return $this;
     }
@@ -59,14 +69,38 @@ class Contact
         return $this;
     }
 
-    public function getPhone(): ?string
+    public function getTelephone(): ?string
     {
-        return $this->phone;
+        return $this->telephone;
     }
 
-    public function setPhone(string $phone): self
+    public function setTelephone(string $telephone): self
     {
-        $this->phone = $phone;
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getRdv(): ?string
+    {
+        return $this->rdv;
+    }
+
+    public function setRdv(string $rdv): self
+    {
+        $this->rdv = $rdv;
+
+        return $this;
+    }
+
+    public function getLieu(): ?string
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu(string $lieu): self
+    {
+        $this->lieu = $lieu;
 
         return $this;
     }
