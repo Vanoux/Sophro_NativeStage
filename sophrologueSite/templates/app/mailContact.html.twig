@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Nouveau contact venant de votre site web</title>
+</head>
+
+<body>
+    <h6>Une nouvelle personne souhaite avoir plus d'information ou vous contacter</h6>
+    <p>Nom de la personne : {{ contact.name }}</p>
+    <p>Numéro de téléphone : {{ contact.phone }}</p>
+    <p>Email : {{ contact.email }}</p>
+    <p>Message : {{ contact.message | nl2br }}</p>
+</body>
+
+</html>
