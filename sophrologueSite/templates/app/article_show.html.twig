@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+<div class="p-2 actu">
+    <div class="container">
+        <div class="card m-4 shadow">
+            <div class="card-body">
+                <section class="article">
+                    <article>
+                        <h2 class="pb-3 text-center">{{ article.titre }}</h2>
+                        <h6 class="text-center">Les articles d'Anne Sophie</h6>
+                        <div class="metadata text-center">Ecrit le {{ article.date | date('d/m/Y') }}</div>
+                        <div class="content p-5">
+                            <img src="{{ asset('uploads/photos/')~ article.image }}" class="img-fluid" alt="image d'actualité">
+                            <p>{{ article.contenu | raw }}</p>
+                            {# **** Partage réseaux sociaux **** #}
+                            <div class="text-right">
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.sophrologue-labat.fr%2Factualites%2F%7Bid%7D&layout=button_count&size=small&mobile_iframe=true&width=82&height=20&appId" width="82" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                            {# *** fin partage réseaux sociaux *** #}
+                            </div>
+                            {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('myActu') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la liste : Mes actualités">Retour
+                                à la liste</a>
+                            {% else %}
+                            <a href="{{ path('actu') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la liste : Actualités">Retour
+                                à la liste</a>
+                            {% endif %}
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

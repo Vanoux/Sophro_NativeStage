@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+
+<div class="pb-2 actu">
+
+    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+        <div class="container">
+            <h1 class="text-center titrePerso">Retrouvez ici tout mes articles</h1>
+        </div>
+    </div>
+
+    {# *** Liste des articles *** #}
+    {% for article in articles  |sort|reverse %}
+    <div class="container">
+        <div class="card m-4 effetShadow">
+            <img src="{{ asset('uploads/photos/')~ article.image }}" class="card-img-top" alt="image_actualités">
+            <div class="card-body">
+                <section class="article text-center">
+                    <article>
+                        <h2 class="mt-3">{{ article.titre }}</h2>
+                        <div class="metadata mt-3">Ecrit le {{ article.date | date('d/m/Y') }}</div>
+                        <div class="content mt-3">
+                            <p>{{ article.contenu | striptags |truncate(100, false, '.....') }}</p>
+                        </div>
+                        <hr>
+                        <a href="{{ path('article_show', {'id': article.id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover"
+                            title="Lire la suite de l'article d'actualité">Lire la suite</a>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="text-center">
+        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à l'accueil</a>
+    </div>
+</div>
+
+{% endblock %}

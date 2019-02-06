@@ -65,7 +65,8 @@ class AppController extends AbstractController
      */
     public function actu(ArticleRepository $articleRepository): Response  
     {
-        $articles = $articleRepository->findAll();
+        // $articles = $articleRepository->findAll();
+        $articles = $articleRepository->findBy(['category' => 1]);
         return $this->render('app/actu.html.twig', [
             'articles' => $articles
         ]);
@@ -76,6 +77,26 @@ class AppController extends AbstractController
     public function showActu(Article $article): Response  
     {
         return $this->render('app/actu_show.html.twig', [
+            'article' => $article
+        ]);
+    }
+
+    /**
+     * @Route("/articles", name="article")
+     */
+    public function article(ArticleRepository $articleRepository): Response  
+    {
+        $articles = $articleRepository->findBy(['category' => 2]);
+        return $this->render('app/article.html.twig', [
+            'articles' => $articles
+        ]);
+    }
+    /**
+     * @Route("/articles/{id}", name="article_show")
+     */
+    public function showArticle(Article $article): Response  
+    {
+        return $this->render('app/article_show.html.twig', [
             'article' => $article
         ]);
     }

@@ -37,7 +37,6 @@ class ArticleController extends AbstractController
     {
         
         $user = $this->getUser();
-       // $category = $this->getCategory();
         $article = new Article();
         $article->setDate(new \DateTime('now'));
         //Création du formulaire
@@ -47,10 +46,8 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //Dis qu'un article est lié à un utilisateur
             $article->setUser($user);
-            // //Dis qu'un article est lié à une catégorie
-            // $article->setCategory($category);
             //Télécharge l'image, la convertie et la stocke dans le parameter 
-            $image = $form->get('image')->getData();
+            $image = $form->get('image')->getData(); 
             if($image !== null){
                 $imageName = md5(uniqid()).'.'.$image->guessExtension();
                 $image->move($this->getParameter('images_directory'), $imageName); 
@@ -61,6 +58,7 @@ class ArticleController extends AbstractController
             $manager->flush();
             // Envoi le message qui confirme l'action
             $this->get('session')->getFlashBag()->add('success', 'Votre article a bien été créé !');
+            
             //Fait une redirection
             return $this->redirectToRoute('myActu', [
                 'id' => $article->getId()

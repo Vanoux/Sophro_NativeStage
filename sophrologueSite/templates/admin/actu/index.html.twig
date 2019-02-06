@@ -1,20 +1,20 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Mes Actualités{% endblock %}
+{% block title %}Mes Articles et Actualités{% endblock %}
 
 {% block body %}
 
 <div class="jumbotron jumbotron-fluid jumbotronTitle effetShadow">
     <div class="container">
-        <h1 class="display-5 text-center titrePerso">Mes Actualités ADMIN</h1>
+        <h1 class="display-5 text-center titrePerso">Mes Articles et Actualités ADMIN</h1>
     </div>
 </div>
 
 <div class="container">
     <div class="card text-center m-5 createCard effetShadow">
         <div class="card-body">
-            <h4 class="card-title">Créer une nouvelle actualité</h4>
-            <a href=" {{ path('actu_new') }} " class="btn btnSuite mt-2 px-4 effetHover" title="Créer : Une nouvelle actualité">Créer</a>
+            <h4 class="card-title">Créer un nouvel article (actualité ou article)</h4>
+            <a href=" {{ path('actu_new') }} " class="btn btnSuite mt-2 px-4 effetHover" title="Créer : Un nouvel article">Créer</a>
         </div>
     </div>
 </div>
@@ -35,6 +35,7 @@
                     <div class="content">
                         <p>{{ article.contenu | striptags | truncate(119, false, '.....'  )}}</p>
                     </div>
+                    <h6>Catégorie {{ article.category.title }}</h6>
                     <hr>
                     <a href="{{ path('actu_show', {'id': article.id})}}" class="btn-sm btnSuite px-4 py-2" title="Lire la suite : de l'article d'actualité">Lire la
                         suite</a>
