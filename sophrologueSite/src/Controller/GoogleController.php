@@ -105,7 +105,7 @@ class GoogleController extends AbstractController
      */
     public function stat(): Response
     {
-        $results = $this->getResults($this->analytics, $this->profile, 'ga:pageviews,ga:users,ga:sessions');
+        $results = $this->getResults($this->analytics, $this->profile, 'ga:pageviews,ga:users,ga:sessions,ga:sessionsPerUser,ga:newUsers,ga:sessionDuration,ga:bounces');
         return $this->render('admin/myStat.html.twig', array(
             'results' => $results
         ));
