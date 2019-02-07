@@ -22,13 +22,13 @@
         <div class="border border-success p-5 cardInfoHome">
         {{ form_start(formContact) }}
         <div class="row">
-            <div class="col">{{ form_row(formContact.nom, {'label': 'Votre nom','attr' : {'placeholder': "Nom et prénom"}}) }}</div>
+            <div class="col">{{ form_row(formContact.nom, {'label': 'Votre nom','attr' : {'placeholder': "Nom"}}) }}</div>
             <div class="col">{{ form_row(formContact.email, {'label': 'Votre adresse mail','attr' : {'placeholder': "Email"}}) }}</div>
-            <div class="col">{{ form_row(formContact.telephone, {'label': 'Votre numéro de téléphone','attr' : {'placeholder': "Téléphone"}}) }}</div>
+            <div class="col">{{ form_row(formContact.telephone, {'label': 'Votre numéro de téléphone','attr' : {'placeholder': "Téléphone (facultatif)"}}) }}</div>
         </div>
         <div class="row">
-            <div class="col">{{ form_row(formContact.rdv, {'label': 'Votre choix d\'une date pour une demande de RDV','attr' : {'placeholder': "Date et jour de préférence"}}) }}</div>
-            <div class="col">{{ form_row(formContact.lieu, {'label': 'Votre lieu de préférence pour une demande de RDV','attr' : {'placeholder': "Lieu de préférence"}}) }}</div>
+            <div class="col">{{ form_row(formContact.rdv, {'label': 'Votre choix d\'une date pour une demande de RDV','attr' : {'placeholder': "Date et jour de préférence (facultatif)"}}) }}</div>
+            <div class="col">{{ form_row(formContact.lieu, {'label': 'Votre lieu de préférence pour une demande de RDV','attr' : {'placeholder': "Lieu de préférence (facultatif)"}}) }}</div>
         </div>
         {{ form_row(formContact.message | raw, {'label': 'Votre message','attr' : {'placeholder': "Message"} } ) }}
 

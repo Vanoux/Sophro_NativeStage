@@ -27,14 +27,10 @@ class Contact
      */
     private $telephone;
 
-    /**
-     * @var string|null
-     */
+    
     private $rdv;
 
-    /**
-     * @var string|null
-     */
+
     private $lieu;
 
     /**

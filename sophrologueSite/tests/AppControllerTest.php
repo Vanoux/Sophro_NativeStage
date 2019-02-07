@@ -31,9 +31,14 @@ class AppControllerTest extends WebTestCase
         ['/sophrologie'],
         ['/ateliers'],
         ['/tarifsHoraires'],
-        ['/actualites'],
-        ['/contact'],
-        ['/conseils'],
+        ['/faq']
+        // ['/actualites'],
+        // ['/articles']
+        // ['/contact'],
+        // ['/conseil'],
+        // ['/formation'],
+        // ['/experience'],
+        // ['/cabinets']
         ];
     }
 

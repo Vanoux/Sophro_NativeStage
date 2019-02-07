@@ -27,13 +27,5 @@ class AdminController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
-    
-    /**
-     * @Route("/stat", name="myStat")
-     */
-    public function stat(): Response  
-    {
-        return $this->render('admin/myStat.html.twig');
-    }
 }
     

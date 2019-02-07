@@ -1,13 +1,83 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Tarifs Horaires{% endblock %}
+{% block title %}Mes Statistiques{% endblock %}
 
 {% block body %}
 
 <div class="jumbotron jumbotron-fluid jumbotronTitle effetShadow">
     <div class="container">
         <h1 class="display-5 text-center titrePerso">Mes Statistiques de fréquentation du site avec Google Analytics</h1>
+        {{ dump(results) }}
     </div>
+</div>
+
+<div class="card-deck m-3 text-center">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Pages vues</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Nombre de pages vues : {{ results.totalsForAllResults["ga:pageviews"] }}</p>
+            <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Utilisateurs</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Nombre d'utilisateurs : {{ results.totalsForAllResults["ga:users"] }}</p>
+            <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Sessions</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Nombre de sessions : {{ results.totalsForAllResults["ga:sessions"] }}</p>
+            <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="card-deck m-3 text-center">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Session par utilisateurs</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Nombre de sessions par utilisateurs : </p>
+            <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Nouveaux utilisateurs</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Nombre de nouveaux utilisateurs : </p>
+            <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Durée moyenne sessions</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Durée moyenne des sessions : </p>
+            <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+        </div>
+    </div>
+    <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Taux de rebond</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Taux de rebond : </p>
+                <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+            </div>
+        </div>
 </div>
 
 
