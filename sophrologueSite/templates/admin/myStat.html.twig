@@ -6,36 +6,39 @@
 
 <div class="jumbotron jumbotron-fluid jumbotronTitle effetShadow">
     <div class="container">
-        <h1 class="display-5 text-center titrePerso">Mes Statistiques de fréquentation du site avec Google Analytics</h1>
-        {{ dump(results) }}
+        <h1 class="display-5 text-center titrePerso">Toutes les Statistiques du site</h1>
+        {# {{ dump(results) }} #}
     </div>
 </div>
 
-<div class="card-deck m-3 text-center">
+<div class="card-deck mt-5 mx-3 text-center">
     <div class="card">
-        <div class="card-header statHover3">
+        <div class="card-header statCard1">
             <h5 class="card-title">Pages vues</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">Nombre de pages vues : {{ results.totalsForAllResults["ga:pageviews"] }}</p>
+            <p class="card-text font-weight-bold">Nombre de pages vues : {{ results.totalsForAllResults["ga:pageviews"] }}</p>
+            <p class="card-text text-secondary"><i>Le nombre total de pages vue sur les 7 derniers jours</i></p>
             <p class="card-text"><small class="text-muted">Google Analytics</small></p>
         </div>
     </div>
     <div class="card">
-        <div class="card-header statHover3">
+        <div class="card-header statCard2">
             <h5 class="card-title">Utilisateurs</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">Nombre d'utilisateurs : {{ results.totalsForAllResults["ga:users"] }}</p>
+            <p class="card-text font-weight-bold">Nombre d'utilisateurs : {{ results.totalsForAllResults["ga:users"] }}</p>
+            <p class="card-text text-secondary"><i>Le nombre total d'utilisateurs sur les 7 derniers jours</i></p>
             <p class="card-text"><small class="text-muted">Google Analytics</small></p>
         </div>
     </div>
     <div class="card">
-        <div class="card-header statHover2">
+        <div class="card-header statCard3">
             <h5 class="card-title">Sessions</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">Nombre de sessions : {{ results.totalsForAllResults["ga:sessions"] }}</p>
+            <p class="card-text font-weight-bold">Nombre de sessions : {{ results.totalsForAllResults["ga:sessions"] }}</p>
+            <p class="card-text text-secondary"><i>Le nombre total de sessions sur les 7 derniers jours</i></p>
             <p class="card-text"><small class="text-muted">Google Analytics</small></p>
         </div>
     </div>
@@ -43,44 +46,68 @@
 
 <div class="card-deck m-3 text-center">
     <div class="card">
-        <div class="card-header statHover1">
-            <h5 class="card-title">Session par utilisateurs</h5>
+        <div class="card-header statCard1">
+            <h5 class="card-title">Recherche Google</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">Nombre de sessions par utilisateurs : {{ results.totalsForAllResults["ga:sessionsPerUser"] }}</p>
+            <p class="card-text font-weight-bold">Nombre d'utilisateurs : {{ results.totalsForAllResults["ga:organicSearches"] }}</p>
+            <p class="card-text text-secondary"><i>Le nombre d'utilisateurs venu sur le site grâce aux moteurs de recherche sur les 7 derniers jours</i></p>
             <p class="card-text"><small class="text-muted">Google Analytics</small></p>
         </div>
     </div>
     <div class="card">
-        <div class="card-header  statHover3">
+        <div class="card-header statCard2">
             <h5 class="card-title">Nouveaux utilisateurs</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">Nombre de nouveaux utilisateurs : {{ results.totalsForAllResults["ga:newUsers"] }}</p>
+            <p class="card-text font-weight-bold">Nombre de nouveaux utilisateurs : {{ results.totalsForAllResults["ga:newUsers"] }}</p>
+            <p class="card-text text-secondary"><i>Le nombre de nouveaux utilisateurs du site sur les 7 derniers jours</i></p>
             <p class="card-text"><small class="text-muted">Google Analytics</small></p>
         </div>
     </div>
     <div class="card">
-        <div class="card-header  statHover2">
+        <div class="card-header statCard3">
             <h5 class="card-title">Durée moyenne sessions</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">Durée moyenne des sessions : {{ results.totalsForAllResults["ga:sessionDuration"] }}</p>
-            <p class="card-text text-secondary"><i>Durée totale (en secondes) des sessions des utilisateurs</i></p>
+            <p class="card-text font-weight-bold">Durée moyenne des sessions : {{ ((results.totalsForAllResults["ga:sessionDuration"]% 3600) / 60) |truncate(2, false, ' minutes') }}</p>
+            <p class="card-text text-secondary"><i>Durée totale (en minutes) des sessions des utilisateurs du site sur les 7 derniers jours</i></p>
+            <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+        </div>
+    </div>
+</div>
+
+<div class="card-deck mb-5 mx-3 text-center">
+    <div class="card">
+        <div class="card-header statCard1">
+            <h5 class="card-title">Taux de rebond</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text font-weight-bold">Taux de rebond : {{ results.totalsForAllResults["ga:bounces"] }}</p>
+            <p class="card-text text-secondary"><i>Nombre total de sessions d'une seule page (ou d'interaction unique) du site sur les 7 derniers jours</i></p>
             <p class="card-text"><small class="text-muted">Google Analytics</small></p>
         </div>
     </div>
     <div class="card">
-            <div class="card-header statHover1">
-                <h5 class="card-title">Taux de rebond</h5>
-            </div>
-            <div class="card-body">
-                <p class="card-text">Taux de rebond : {{ results.totalsForAllResults["ga:bounces"] }}</p>
-                <p class="card-text text-secondary"><i>Nombre total de sessions d'une seule page</i></p>
-                <p class="card-text"><small class="text-muted">Google Analytics</small></p>
-            </div>
+        <div class="card-header statCard2">
+            <h5 class="card-title">Session par utilisateurs</h5>
         </div>
+        <div class="card-body">
+            <p class="card-text font-weight-bold">Nombre de sessions par utilisateurs : {{ results.totalsForAllResults["ga:sessionsPerUser"]| truncate(4, false, '')}}</p>
+            <p class="card-text text-secondary"><i>Nombre de sessions par utilisateurs du site sur les 7 derniers jours</i></p>
+            <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header statCard3">
+            <h5 class="card-title">Pourcentage de nouvelles sessions</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text font-weight-bold">Pourcentage de nouvelles sessions / utilisateurs : {{ results.totalsForAllResults["ga:percentNewSessions"] |truncate(5, false, ' %') }}</p>
+            <p class="card-text text-secondary"><i>Pourcentage de sessions d'utilisateurs n'ayant jamais visité le site avant sur les 7 derniers jours</i></p>
+            <p class="card-text"><small class="text-muted">Google Analytics</small></p>
+        </div>
+    </div>
 </div>
-
 
 {% endblock %}

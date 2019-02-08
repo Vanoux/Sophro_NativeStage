@@ -98,14 +98,13 @@ class GoogleController extends AbstractController
         }
     }
 
-    
-
     /**
      * @Route("/stat", name="myStat")
      */
     public function stat(): Response
     {
-        $results = $this->getResults($this->analytics, $this->profile, 'ga:pageviews,ga:users,ga:sessions,ga:sessionsPerUser,ga:newUsers,ga:sessionDuration,ga:bounces');
+        $results = $this->getResults($this->analytics, $this->profile, 'ga:pageviews,ga:users,ga:sessions,ga:sessionsPerUser,ga:newUsers,ga:sessionDuration,ga:bounces,ga:percentNewSessions,ga:organicSearches');
+        
         return $this->render('admin/myStat.html.twig', array(
             'results' => $results
         ));
