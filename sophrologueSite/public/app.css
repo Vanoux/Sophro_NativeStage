@@ -116,6 +116,10 @@ p, ul {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #4CABB1;
 }
+#atelier1{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background-color: #4CABB1;
+}
 #atelier2 {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #E9967A;
@@ -127,7 +131,7 @@ p, ul {
 .atelierHover1, .atelierHover2, .atelierHover3, h3 {
     color: #ffffff;
 }
-.atelierHover1:hover, .atelierHover2:hover, .atelierHover3:hover {
+.atelierHover1:hover, .atelierHover2:hover, .atelierHover3:hover{
     transition: 0.8s;
     background-color: #FED586;
 }
@@ -197,9 +201,9 @@ a#cRetour.cVisible{
     .positionPhone {
         display: none;
     }
-    .positionDevice {
+    /* .positionDevice {
         display: initial;
-    }
+    } */
 
 }
 
@@ -214,9 +218,9 @@ a#cRetour.cVisible{
     .positionPhone {
         display: initial;
     }
-    .positionDevice {
+    /* .positionDevice {
         display: none;
-    }
+    } */
 
 }
 

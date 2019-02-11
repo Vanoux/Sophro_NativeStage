@@ -27,8 +27,10 @@
             <section class="article text-center">
                 <article>
                     <figure class="figure">
+                        {% if (article.image is defined) and (article.image is not null) %}
                         <img src="{{ asset('uploads/photos/')~ article.image }}" class="figure-img img-fluid rounded"
                             alt="image_article">
+                        {% endif %}
                     </figure>
                     <h2>{{ article.titre }}</h2>
                     <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }}</div>

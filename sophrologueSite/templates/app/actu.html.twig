@@ -6,17 +6,26 @@
 
 <div class="pb-2 actu">
 
-    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+    {# <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
         <div class="container">
-            <h1 class="text-center titrePerso">Retrouvez ici toutes mes dernières actualités</h1>
+            <h1 class="text-center titrePerso">Mes dernières actualités</h1>
         </div>
-    </div>
+    </div> #}
+<!-- Fil d'ariane -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-light">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Toutes mes actualités</li>
+        </ol>
+    </nav>
 
-    {# *** Liste des articles *** #}
-    {% for article in articles  |sort|reverse %}
+    {# *** Liste des actualités *** #}
+    {% for article in articles |sort|reverse %}
     <div class="container">
         <div class="card m-4 effetShadow">
+            {% if (article.image is defined) and (article.image is not null) %}
             <img src="{{ asset('uploads/photos/')~ article.image }}" class="card-img-top" alt="image_actualités">
+            {% endif %}
             <div class="card-body">
                 <section class="article text-center">
                     <article>
@@ -35,7 +44,8 @@
     </div>
     {% endfor %}
     <div class="text-center">
-        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à l'accueil</a>
+        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à
+            l'accueil</a>
     </div>
 </div>
 
