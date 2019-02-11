@@ -70,7 +70,7 @@
             <h5 class="card-title">Durée moyenne sessions</h5>
         </div>
         <div class="card-body">
-            <p class="card-text font-weight-bold">Durée moyenne des sessions : {{ ((results.totalsForAllResults["ga:sessionDuration"]% 3600) / 60) |truncate(2, false, ' minutes') }}</p>
+            <p class="card-text font-weight-bold">Durée moyenne des sessions : {{ (results.totalsForAllResults["ga:sessionDuration"]/ 60) |truncate(2, false, ' minutes') }}</p>
             <p class="card-text text-secondary"><i>Durée totale (en minutes) des sessions des utilisateurs du site sur les 7 derniers jours</i></p>
             <p class="card-text"><small class="text-muted">Google Analytics</small></p>
         </div>

@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Anne-Sophie LABAT est sophrologue Caycédienne. Une méthode de relaxation dynamique pour améliorer l'harmonie entre son corps et son esprit, optimiser et renforcer ses capacités."/>
-    <meta name="keywords" content="relaxation sophrologie, SOPHROLOGIE, sophrologie Saint Gaudens, sophrologue Saint Gaudens, SOPHROLOGIE Saint Gaudens, sophrologie Labarthe Rivière, sophrologue Labarthe Rivière, SOPHROLOGIE Labarthe Rivière, relaxation, sophrologie caycedienne, SOPHROLOGIE CAYCEDIENNE, formation sophrologie, gestion du stress, sophrologue labat, préparation à l'accouchement, burn-out, aide arret tabac"/>
+    <meta name="description" content="Anne-Sophie LABAT est sophrologue Caycédienne. Une méthode de relaxation dynamique pour améliorer l'harmonie entre son corps et son esprit, optimiser et renforcer ses capacités." />
+    <meta name="keywords" content="relaxation sophrologie, SOPHROLOGIE, sophrologie Saint Gaudens, sophrologue Saint Gaudens, SOPHROLOGIE Saint Gaudens, sophrologie Labarthe Rivière, sophrologue Labarthe Rivière, SOPHROLOGIE Labarthe Rivière, relaxation, sophrologie caycedienne, SOPHROLOGIE CAYCEDIENNE, formation sophrologie, gestion du stress, sophrologue labat, préparation à l'accouchement, burn-out, aide arret tabac" />
     <title>{% block title %}{% endblock %}</title>
     {% block stylesheets %}
-    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/ico"/>
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/ico" />
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+        crossorigin="anonymous">
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
@@ -25,11 +26,12 @@
 </head>
 
 <body>
-
+    <div id="haut"></div>
     <!-- ********** NAVBAR ********** -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow">
 
         <a class="navbar-brand" href="{{ path('home') }}" title="Retour à l'accueil">Anne-Sophie Labat</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -46,7 +48,8 @@
                             Sophrologie</a>
                         <a class="dropdown-item dropdownItemColor" href="{{ path('ateliers') }}" title="Informations sur les ateliers que j'anime">Mes
                             Ateliers</a>
-                        <a class="dropdown-item dropdownItemColor" href="{{ path('cabinets') }}" title="Informations sur les lieux de consultation">Lieux de consultation</a>
+                        <a class="dropdown-item dropdownItemColor" href="{{ path('cabinets') }}" title="Informations sur les lieux de consultation">Lieux
+                            de consultation</a>
                         <a class="dropdown-item dropdownItemColor" href="{{ path('tarifsHoraires') }}" title="Informations sur mes tarifs et horaires">Tarifs
                             et Horaires</a>
                         <a class="dropdown-item dropdownItemColor" href="{{ path('faq') }}" title="Retrouvez ici la foire à question">Foire
@@ -90,13 +93,16 @@
                     <h5 class="text-white">Partenaires</h5>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://www.sofrocay.com/" title="Site de l'Académie Internationale de Sophrologie Caycédienne" target="_blank">Sofrocay</a>
+                            <a class="nav-link" href="http://www.sofrocay.com/" title="Site de l'Académie Internationale de Sophrologie Caycédienne"
+                                target="_blank">Sofrocay</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.facebook.com/CCLa5C/" title="Facebook de la 5C" target="_blank">La 5C</a>
+                            <a class="nav-link" href="https://www.facebook.com/CCLa5C/" title="Facebook de la 5C"
+                                target="_blank">La 5C</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://www.ccsg.fr/cias-saint-gaudens.html" title="Site du centre social Azimut" target="_blank">Azimut</a>
+                            <a class="nav-link" href="http://www.ccsg.fr/cias-saint-gaudens.html" title="Site du centre social Azimut"
+                                target="_blank">Azimut</a>
                         </li>
                     </ul>
                 </div>
@@ -116,14 +122,15 @@
                     <h5 class="text-white">Contactez-moi</h5>
                     <p class="text-white">Anne-Sophie Labat<br>
                         Sophrologue<br>
-                        <i class="fas fa-mobile-alt"></i>  06 88 55 48 03<br>
-                        <i class="far fa-envelope"></i>  contact[at]sophrologue-labat.fr</p>
+                        <i class="fas fa-mobile-alt"></i> 06 88 55 48 03<br>
+                        <i class="far fa-envelope"></i> contact[at]sophrologue-labat.fr</p>
                 </div>
 
             </div>
             <!-- Mentions légale & connexion -->
             <div class="col-xs-12 col-sm-12 col-md-12 mt-5 mt-sm-2 mb-0 text-center">
-                <span class="h6 text-white">2019 © Anne-Sophie Labat, Sophrologue à Saint-Gaudens et Labarthe-Rivière, 31800 |</span>
+                <span class="h6 text-white">2019 © Anne-Sophie Labat, Sophrologue à Saint-Gaudens et Labarthe-Rivière,
+                    31800 |</span>
                 <a class="px-2 linkColor" href="#">Mentions Légales</a>
 
                 <!-- Deconnexion dashboard si admin connecté -->
@@ -138,46 +145,62 @@
         </div>
     </footer>
 
-<!-- ********** SCRIPTS ********** -->
-{% block javascripts %}
+    <!-- Bouton de retour en haut -->
+    <div>
+        <a id="cRetour" class="cInvisible" href="#haut" title="Retour en haut de la page" alt="Bouton de retour en haut de la page"></a>
+    </div>
 
-<!-- JQUERY -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-<!-- BOOTSTRAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-    crossorigin="anonymous"></script>
-<!-- SUMMERNOTE -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 
-{% endblock %}
+    <!-- ********** SCRIPTS ********** -->
+    {% block javascripts %}
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <!-- SUMMERNOTE -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+
+    {% endblock %}
 
     <!-- BANNIERE ALERT SUCCESS OR ERROR -->
     {% for label, flashes in app.session.flashbag.all %}
-    {% for flash in flashes %}
-    <div class="alert alert-{{ label }}">
-        {{ flash }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <script>
-        setTimeout(function () {
-            $('.alert').slideUp('slow');
-        }, 7000);
-    </script>
+        {% for flash in flashes %}
+        <div class="alert alert-{{ label }}">
+            {{ flash }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <script>
+            setTimeout(function () {
+                $('.alert').slideUp('slow');
+            }, 7000);
+        </script>
+        {% endfor %}
+    {% endfor %}
 
-    {% endfor %}
-    {% endfor %}
+    <!-- BOUTON RETOUR en haut -->
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                window.onscroll = function (ev) {
+                    document.getElementById("cRetour").className = (window.pageYOffset > 100) ? "cVisible" :
+                        "cInvisible";
+                };
+            });
+    </script>   
+
     <!-- SUMMERNOTE-->
     <script>
         $(document).ready(function () {
             $('.summernote').summernote({
-                height: 300,      
-                minHeight: null,    
-                maxHeight: null,             
-                focus: true, 
+                height: 300,
+                minHeight: null,
+                maxHeight: null,
+                focus: true,
                 toolbar: [
                     ['style', ['style']],
                     ['font', ['bold', 'italic', 'underline', 'clear']],
@@ -193,7 +216,6 @@
             });
         });
     </script>
-
 
 </body>
 

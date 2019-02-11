@@ -13,7 +13,7 @@
     </div>
 
     {# *** Liste des articles *** #}
-    {% for article in articles  |sort|reverse %}
+    {% for article in articles |sort|reverse %}
     <div class="container">
         <div class="card m-4 effetShadow">
             <img src="{{ asset('uploads/photos/')~ article.image }}" class="card-img-top" alt="image_actualités">
@@ -34,6 +34,7 @@
         </div>
     </div>
     {% endfor %}
+
     <div class="text-center">
         <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à l'accueil</a>
     </div>

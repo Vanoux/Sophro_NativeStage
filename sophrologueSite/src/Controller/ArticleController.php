@@ -38,6 +38,7 @@ class ArticleController extends AbstractController
         
         $user = $this->getUser();
         $article = new Article();
+        //Définit par défaut la date du jour pour la création de l'article
         $article->setDate(new \DateTime('now'));
         //Création du formulaire
         $form = $this->createForm(ArticleType::class, $article);

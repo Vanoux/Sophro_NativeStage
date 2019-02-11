@@ -26,6 +26,8 @@ p, ul {
 .dropdownItemColor:active {
     background-color: #434B56;
 }
+
+/**** Bannière ****/
 .alert {
     top:0;
     width:100%;
@@ -33,6 +35,7 @@ p, ul {
     left: 0;
     position: absolute !important;
 }
+
 .card-header, .createCard {
     background-color: #A69D9F; 
 
@@ -90,6 +93,11 @@ p, ul {
 .adminText {
     text-transform: capitalize;
 }
+.imgCabinetHome {
+    height: 515px;
+}
+
+/**** Links ****/
 .linkColor:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     color: olivedrab;
@@ -97,39 +105,49 @@ p, ul {
 .linkColor{
     color: #4CABB1;
 }
-.imgCabinetHome {
-    height: 515px;
-}
+
+/**** Map ****/
 #map {
     height: 300px;
 }
-#atelierHover1:hover {
+
+/**** Ateliers ****/
+#atelier1 {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #4CABB1;
 }
-#atelierHover2:hover {
+#atelier2 {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background-color: #E9967A;
+}
+#atelier3 {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #69C7AD;
 }
-#atelierHover3:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    background-color: #E9967A;
+.atelierHover1, .atelierHover2, .atelierHover3, h3 {
+    color: #ffffff;
 }
-#newAtelier:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+.atelierHover1:hover, .atelierHover2:hover, .atelierHover3:hover {
+    transition: 0.8s;
     background-color: #FED586;
 }
+#newAtelier {
+    background-color: bisque;
+}
+#newAtelier:hover {
+    transition: 0.8s;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background-color:  #FED586;
+}
 
+/**** Statistiques ****/
 .statCard1 {
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     background-color: #E9967A;
 }
 .statCard2 {
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     background-color: #4CABB1;
 }
 .statCard3 {
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     background-color: #FED586;
 }
 .statCard1:hover, .statCard2:hover, .statCard3:hover {
@@ -137,28 +155,80 @@ p, ul {
     background-color: #A69D9F;
 }
 
-
-
+/**** Bouton retour en haut ****/
+a#cRetour{
+    border-radius:3px;
+    padding:10px;
+    font-size:15px;
+    text-align:center;
+    color:#fff;
+    background:rgba(0, 0, 0, 0.25);
+    position:fixed;
+    right:20px;
+    opacity:1;
+    z-index:99999;
+    transition:all ease-in 0.2s;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    text-decoration: none;
+}
+a#cRetour:before{ 
+    content: "\25b2"; 
+}
+a#cRetour:hover{
+    background:rgba(0, 0, 0, 1);
+    transition:all ease-in 0.2s;
+}
+a#cRetour.cInvisible{
+    bottom:-35px;
+    opacity:0;
+    transition:all ease-in 0.5s;
+}
+a#cRetour.cVisible{
+    bottom:20px;
+    opacity:1;
+}
 
 /* /////////////////// */
 /* ///////// */
 /* ////////////////////////////////@MEDIA//////////////////////////////// */
+@media (max-width: 3000px) {
+    
+    .positionPhone {
+        display: none;
+    }
+    .positionDevice {
+        display: initial;
+    }
+
+}
+
 @media (max-width: 1400px) {
 
-}
-
-@media (max-width: 992px) {
+    
 
 }
 
-@media (max-width: 768px) {
-	
+@media only screen and (max-width: 991px) {
+
+    .positionPhone {
+        display: initial;
+    }
+    .positionDevice {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    
+
 }
 
 @media (max-width: 576px) {
 
 	footer {
 		height : auto;
-	}
+    }
 	
 }
