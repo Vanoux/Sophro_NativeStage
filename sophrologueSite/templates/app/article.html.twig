@@ -5,12 +5,7 @@
 {% block body %}
 
 <div class="pb-2 actu">
-{# 
-    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
-        <div class="container">
-            <h1 class="text-center titrePerso">Mes derniers articles</h1>
-        </div>
-    </div> #}
+
 <!-- Fil d'ariane -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -23,7 +18,7 @@
     {# *** Liste des articles *** #}
     {% for article in articles |sort|reverse %}
     <div class="container">
-        <div class="card m-4 effetShadow">
+        <div class="card my-4 effetShadow">
             {% if (article.image is defined) and (article.image is not null) %}
             <img src="{{ asset('uploads/photos/')~ article.image }}" class="card-img-top" alt="image_articles">
             {% endif %}

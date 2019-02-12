@@ -8,10 +8,10 @@
 
     <div class="jumbotron jumbotron-fluid jumbotronTitle effetShadow">
         <div class="container">
-            <h1 class="display-4 text-center titrePerso mb-3">Dashboard Admin</h1>
+            <h2 class="text-center titrePerso mb-3">Dashboard Admin</h2>
             {% if is_granted('ROLE_ADMIN') %}
             <!-- is_granted() = méthode de sécurité pour que la hiérarchie des rôles fonctionne **granted : bénéficiaire**-->
-            <h2 class="text-center titrePerso adminText">Bonjour {{ app.user.username }} !</h2>
+            <h2 class="text-center titrePerso adminText">Bonjour {{ app.user.username }}</h2>
             {% endif %}
         </div>
     </div>
@@ -19,7 +19,7 @@
 
 {# *** Présentation des actions du dashboard *** #}
 <div class="container">
-    <div class="card text-center m-5 cardContour effetShadow">
+    <div class="card text-center mb-5 cardContour effetShadow">
         <h4 class="card-header">Mes Actualités et Articles</h4>
         <div class="card-body">
             {# <h5 class="card-title">Mes Actualités</h5> #}
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="card text-center m-5 cardContour effetShadow">
+    <div class="card text-center mb-5 cardContour effetShadow">
         <h4 class="card-header">Ma Foire aux questions</h4>
         <div class="card-body">
             {# <h5 class="card-title">Ma Foire à questions</h5> #}
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="card text-center m-5 cardContour effetShadow">
+    <div class="card text-center mb-5 cardContour effetShadow">
         <h4 class="card-header">Mes Statistiques Google Analytics</h4>
         <div class="card-body">
             {# <h5 class="card-title">Ma Statistiques</h5> #}
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div class="card text-center m-5 cardContour effetShadow">
+    <div class="card text-center mb-5 cardContour effetShadow">
         <h4 class="card-header">Mes Modifications personnelles</h4>
         <div class="card-body">
             {# <h5 class="card-title">Modifications Info</h5> #}

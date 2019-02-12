@@ -5,11 +5,7 @@
 {% block body %}
 
 <div class="pb-2">
-    {# <div class="jumbotron jumbotron-fluid shadow jumbotronTitle effetShadow">
-        <div class="container">
-            <h1 class="text-center titrePerso">Foire aux questions</h1>
-        </div>
-    </div> #}
+
     <!-- Fil d'ariane -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -18,11 +14,11 @@
         </ol>
     </nav>
 
-    <h2 class="text-center">Foire aux questions</h2>
+    <h2 class="text-center mx-1">Foire aux questions</h2>
     {# *** Liste des questions / réponses *** #}
     {% for faq in faqs |sort|reverse %}
     <div class="container">
-        <div class="card m-5 cardContour effetShadow">
+        <div class="card my-5 cardContour effetShadow">
             <div class="card-body">
                 <section class="article">
                     <article>
