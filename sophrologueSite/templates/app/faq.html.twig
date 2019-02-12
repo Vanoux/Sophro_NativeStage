@@ -5,12 +5,20 @@
 {% block body %}
 
 <div class="pb-2">
-    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle effetShadow">
+    {# <div class="jumbotron jumbotron-fluid shadow jumbotronTitle effetShadow">
         <div class="container">
             <h1 class="text-center titrePerso">Foire aux questions</h1>
         </div>
-    </div>
+    </div> #}
+    <!-- Fil d'ariane -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Foire aux questions</li>
+        </ol>
+    </nav>
 
+    <h2 class="text-center">Foire aux questions</h2>
     {# *** Liste des questions / réponses *** #}
     {% for faq in faqs |sort|reverse %}
     <div class="container">
@@ -35,7 +43,8 @@
         <a class="btn btnSuite mt-5 px-4 py-2 effetHover" href="{{ path('myFaq') }}" title="Retour à la gestion de la FAQ">Retour
             à la Faq Admin</a>
         {% else %}
-        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la l'accueil">Retour à l'accueil</a>
+        <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la l'accueil">Retour
+            à l'accueil</a>
         {% endif %}
     </div>
 </div>

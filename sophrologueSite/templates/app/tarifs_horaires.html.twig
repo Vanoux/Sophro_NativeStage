@@ -5,16 +5,23 @@
 {% block body %}
 <div class="pb-2 cardInfoHome">
 
-    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+    {# <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
         <div class="container">
             <h1 class="text-center titrePerso">Mes Tarifs et Horaires</h1>
         </div>
-    </div>
+    </div> #}
+    <!-- Fil d'ariane -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Mes tarifs et horaires</li>
+        </ol>
+    </nav>
 
     <div class="container my-5">
         <div class="card m-5 effetShadow">
             <div class="card-body">
-                <h4 class="card-title text-center py-3 pb-4">Choisissez votre formule</h4>
+                <h2 class="card-title text-center py-3 pb-4">Choisissez votre formule</h2>
                 <hr>
                 <h6 class="card-text text-center mt-5">Séance individuelle</h6>
                 <p class="card-text text-center py-3">40€<br>
@@ -22,14 +29,14 @@
                 </p>
                 <h6 class="card-text text-center">Séance collective</h6>
                 <p class="card-text text-center py-3"><u>LABARTHE-RIVIÈRE</u>:<br>
-                le Lundi 11h/12h et 18h/19h<br>
+                    le Lundi 11h/12h et 18h/19h<br>
                     10€<br>
                     8€ *
                 </p>
                 <p class="card-text text-center py-3"><u>SAINT-GAUDENS</u>:<br>
-                au centre social AZIMUT<br>
-                        10€<br>
-                        8€ *
+                    au centre social AZIMUT<br>
+                    10€<br>
+                    8€ *
                 </p>
                 <h6 class="card-text text-center">Forfaits</h6>
                 <p class="card-text text-center py-3">forfait 3 séances : 105 euros<br>

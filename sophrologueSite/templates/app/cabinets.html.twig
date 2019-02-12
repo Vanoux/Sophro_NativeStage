@@ -5,16 +5,23 @@
 {% block body %}
 <div class="pb-2 cardInfoHome">
 
-    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+    {# <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
         <div class="container">
             <h1 class="text-center titrePerso">Mes lieux de consultations</h1>
         </div>
-    </div>
+    </div> #}
+    <!-- Fil d'ariane -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Mes lieux de consultations</li>
+        </ol>
+    </nav>
 
     <div class="container">
         <div class="card m-5 effetShadow">
             <div class="card-body">
-                <h4 class="card-title text-center py-3 pb-4">Découvrir le cabinet</h4>
+                <h2 class="card-title text-center py-3 pb-4">Découvrir le cabinet</h2>
                 <hr>
                 <p class="card-text font-weight-bold mt-5">
                     CABINET DE SOPHROLOGIE , au centre du village de Labarthe-Rivière.

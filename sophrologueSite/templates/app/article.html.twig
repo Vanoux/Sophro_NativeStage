@@ -13,12 +13,13 @@
     </div> #}
 <!-- Fil d'ariane -->
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-light">
-            <li class="breadcrumb-item"><a href="{{ path('home') }}">Accueil</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Tout mes articles</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Tout mes articles</li>
         </ol>
     </nav>
 
+    <h2 class="text-center">Tout mes articles</h2>
     {# *** Liste des articles *** #}
     {% for article in articles |sort|reverse %}
     <div class="container">

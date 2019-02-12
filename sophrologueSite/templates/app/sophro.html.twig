@@ -5,18 +5,25 @@
 {% block body %}
 <div class="pb-2 infoSophro">
 
-    <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
+    {# <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
         <div class="container">
             <h1 class="text-center titrePerso">Les informations sur la Sophrologie Caycédienne</h1>
         </div>
-    </div>
+    </div> #}
+    <!-- Fil d'ariane -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Le cadre de la sophrologie</li>
+        </ol>
+    </nav>
 
     <div class="container">
         <div class="card m-4 effetShadow">
             <div class="card-body">
                 <section class="article">
                     <article>
-                        <h3 class="card-title py-3 text-center">Le cadre de la sophrologie</h3>
+                        <h2 class="card-title py-3 text-center">Le cadre de la sophrologie</h2>
                         <hr>
                         <img src="{{ asset('img/logo_sophrologie_caycedienne.png') }}" class="d-block img-fluid pl-4"
                             alt="image">

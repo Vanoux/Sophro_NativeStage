@@ -7,10 +7,10 @@
 <div class="pb-2 actu">
     <!-- Fil d'ariane -->
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-light">
-            <li class="breadcrumb-item"><a href="{{ path('home') }}">Accueil</a></li>
-            <li class="breadcrumb-item"><a href="{{ path('actu') }}">Toutes mes actualités</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ article.titre }}</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('actu') }}" class="accueilBreadcrumb">Toutes mes actualités</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">{{ article.titre }}</li>
         </ol>
     </nav>
     <!-- Affichage actualité -->

@@ -177,4 +177,28 @@ class AppController extends AbstractController
     {
         return $this->render('app/cabinets.html.twig');
     }
+
+    /**
+     * @Route("/mentions_legales", name="mentions")
+     */
+    public function mentions(): Response 
+    {
+        return $this->render('app/mentions.html.twig');
+    }
+
+     /**
+     * @Route("/politique_confidentialite", name="confidential")
+     */
+    public function confidential(): Response 
+    {
+        return $this->render('app/confidential.html.twig');
+    }
+
+    /**
+     * @Route("/plan_du_site", name="siteMap")
+     */
+    public function siteMap(): Response 
+    {
+        return $this->render('app/siteMap.html.twig');
+    }
 }

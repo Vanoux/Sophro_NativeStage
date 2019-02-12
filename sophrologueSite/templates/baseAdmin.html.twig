@@ -48,7 +48,7 @@
                             Sophrologie</a>
                         <a class="dropdown-item dropdownItemColor" href="{{ path('ateliers') }}" title="Informations sur les ateliers que j'anime">Mes
                             Ateliers</a>
-                        <a class="dropdown-item dropdownItemColor" href="{{ path('cabinets') }}" title="Informations sur les lieux de consultation">Lieux
+                        <a class="dropdown-item dropdownItemColor" href="{{ path('cabinets') }}" title="Informations sur le cabinet et permanence">Lieux
                             de consultation</a>
                         <a class="dropdown-item dropdownItemColor" href="{{ path('tarifsHoraires') }}" title="Informations sur mes tarifs et horaires">Tarifs
                             et Horaires</a>
@@ -131,7 +131,10 @@
             <div class="col-xs-12 col-sm-12 col-md-12 mt-5 mt-sm-2 mb-0 text-center">
                 <span class="h6 text-white">2019 © Anne-Sophie Labat, Sophrologue à Saint-Gaudens et Labarthe-Rivière,
                     31800 |</span>
-                <a class="px-2 linkColor" href="#">Mentions Légales</a>
+                <a class="px-2 linkColor" href="{{ path('mentions') }}" title="Mentions légales">Mentions Légales</a>
+                <a class="px-2 linkColor" href="{{ path('confidential') }}" title="Politique de confidentialité">Politique de confidentialité</a>
+                <a class="px-2 linkColor" href="{{ path('siteMap') }}" title="Plan du site">Plan du site</a>
+
 
                 <!-- Deconnexion dashboard si admin connecté -->
                 <ul class="navbar-nav ml-auto">
@@ -147,7 +150,7 @@
 
     <!-- Bouton de retour en haut -->
     <div>
-        <a id="cRetour" class="cInvisible" href="#haut" title="Retour en haut de la page" alt="Bouton de retour en haut de la page"></a>
+        <a id="cRetour" class="cInvisible js-scrollTo" href="#haut" title="Retour en haut de la page" alt="Bouton de retour en haut de la page"></a>
     </div>
 
 
@@ -185,11 +188,21 @@
 
     <!-- BOUTON RETOUR en haut -->
     <script>
+        //affichage du bouton
             document.addEventListener('DOMContentLoaded', function () {
                 window.onscroll = function (ev) {
                     document.getElementById("cRetour").className = (window.pageYOffset > 100) ? "cVisible" :
                         "cInvisible";
                 };
+            });
+        //action de retour smooth
+            $(document).ready(function() {
+                $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+                    var page = $(this).attr('href'); // Page cible
+                    var speed = 750; // Durée de l'animation (en ms)
+                    $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+                    return false;
+                });
             });
     </script>   
 

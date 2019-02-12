@@ -96,14 +96,20 @@ p, ul {
 .imgCabinetHome {
     height: 515px;
 }
-
-/**** Links ****/
-.linkColor:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    color: olivedrab;
+/**** Fil d'ariane ****/
+.breadcrumb {
+    background-color: #4E5266;
 }
-.linkColor{
+
+/**** Links + Links Breadcrumb ****/
+.linkColor:hover, .accueilBreadcrumb:hover {
+    /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+    /* color: olivedrab; */
     color: #4CABB1;
+    /* text-decoration-line: none; */
+}
+.linkColor, .accueilBreadcrumb{
+    color:#69C7AD;
 }
 
 /**** Map ****/
