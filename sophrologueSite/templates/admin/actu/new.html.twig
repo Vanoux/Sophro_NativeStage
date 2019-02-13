@@ -6,9 +6,8 @@
 
 {% block body %}
 
-<h2 class="text-center mt-5 text-secondary">Créer un nouvel article d'actualité</h2>
-
 <div class="container mt-3">
+    <h2 class="text-center mt-5">Créer un nouvel article</h2>
 
     {{ form_start(formArticle) }}
 
@@ -22,10 +21,9 @@
     <button type="submit" class="btn btn-success" title="Ajouter l'article d'actualité"> Ajouter l'article</button>
 
     {{ form_end(formArticle) }}
-
+    <div class="my-3">
+        <a href="{{ path('myActu') }}" class="btn-sm btn-secondary" title="Retour à la liste : Mes actualités">Retour à la liste</a>
+    </div>
 </div>
 
-<div class="mb-2">
-    <a href="{{ path('myActu') }}" class="btn-sm btn-secondary" title="Retour à la liste : Mes actualités">Retour à la liste</a>
-</div>
 {% endblock %}

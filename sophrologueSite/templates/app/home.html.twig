@@ -24,7 +24,8 @@
                 <h2 class="titrePerso mb-5">{{conseils[0].titre}}</h2>
                 <h6 class="text-white">{{conseils[0].intro}}</h6>
                 <p class="text-white">Les conseils d'Anne-Sophie</p>
-                <a href="{{ path('conseil_show', {'id': conseils[0].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la suite</a>
+                <a href="{{ path('conseil_show', {'id': conseils[0].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover"
+                    title="Lire la suite du conseil">lire la suite</a>
             </div>
         </div>
 
@@ -36,7 +37,8 @@
                 <h2 class="titrePerso mb-5">{{conseils[1].titre}}</h2>
                 <h6 class="text-white">{{conseils[1].intro}}</h6>
                 <p class="text-white">Les conseils d'Anne-Sophie</p>
-                <a href="{{ path('conseil_show', {'id': conseils[1].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la
+                <a href="{{ path('conseil_show', {'id': conseils[1].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover"
+                    title="Lire la suite du conseil">lire la
                     suite</a>
             </div>
         </div>
@@ -48,7 +50,8 @@
                 <h2 class="titrePerso mb-5">{{conseils[2].titre}}</h2>
                 <h6 class="text-white">{{conseils[2].intro}}</h6>
                 <p class="text-white">Les conseils d'Anne-Sophie</p>
-                <a href="{{ path('conseil_show', {'id': conseils[2].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Lire la suite du conseil">lire la
+                <a href="{{ path('conseil_show', {'id': conseils[2].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover"
+                    title="Lire la suite du conseil">lire la
                     suite</a>
             </div>
         </div>
@@ -67,60 +70,113 @@
 
 <!-- ********** INFORMATIONS PRATICIENNE ********** -->
 
-<div class="container my-5">
+<!--Cartes juste avec des row / col sans les class card bootstrap-->
+<div class="container effetShadow">
+    <div class="row my-3">
+        <div class="col-lg col-md-12 mt-3">
+            <img src="{{ asset('img/anne_sophie.jpg') }}" alt="photo_praticienne" class="img-fluid imgHome">
+        </div>
+        <div class="col-lg col-md-12 mt-3">
+            <div class="infoPraticienne text-center py-4">
+                <h4 class="py-3">Formation</h4>
+                <p class="pt-2">Titulaire du diplôme de master spécialiste en Sophrologie Caycédienne
+                    et formée en relation d’aide, je pratique la sophrologie depuis l’année 2011<br>Spécialisée
+                    dans la prévention et
+                    la gestion du stress, des émotions et dans le développement personnel, je propose de vous
+                    accompagner avec des techniques de relaxation dynamique adaptées à votre demande...</p>
+                <a href="{{ path('formation') }}" class="btn btnSuite mt-5 mb-2 px-4 py-2 effetHover" title="En savoir plus : Formation de la praticienne">En
+                    savoir plus...</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col-lg col-md-12 mb-3">
+            <div class="infoPraticienne text-center py-4">
+                <h4 class="py-3">Expériences</h4>
+                <p class="pt-2">En parallèle de mon cursus scolaire et universitaire,<br>Je me
+                    suis
+                    toujours
+                    orientée vers des activités professionnelles auprès d’enfants, en tant qu’animatrice,
+                    dans
+                    l’encadrement,l’organisation et dans la gestion du quotidien<br>
+                    Aussi j’ai choisie l’Aide à domicile, auprès de personne âgées ou dans l’accompagnement
+                    au
+                    quotidien de personnes en difficultés.<br><br>
+                    Ces différentes expériences, au fil des années, m’ont montrée l’importance d’être à
+                    l’écoute de
+                    l’autre, de soi, de ce que l’on ressent.<br>
+                    Savoir prendre du temps pour s’écouter, les bienfaits d’une attitude positive et que
+                    les
+                    solution sont souvent
+                    en nous.<br>
+                    <a href="{{ path('experiences') }}" class="btn btnSuite mt-5 mb-2 px-4 py-2 effetHover" title="En savoir plus : Expériences de la praticienne">En
+                        savoir plus...</a>
+            </div>
+        </div>
+        <div class="col-lg col-md-12 mb-3">
+            <img src="{{ asset('img/cabinet_sophro1.jpg') }}" alt="photo_cabinet" class="img-fluid imgHome">
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- ************* Card initial de presentation *************************** -->
+{# <div class="container my-5">
+
     <div class="card-group effetShadow">
+
         <div class="card">
             <div class="card-body">
                 <picture>
-                    <img srcset="{{ asset('img/anne_sophie.jpg') }}" alt="photo_praticienne" class="d-block card-img">
+                    <img srcset="{{ asset('img/anne_sophie.jpg') }}" alt="photo_praticienne" class="card-img imgPresentation">
                 </picture>
             </div>
         </div>
+
         <div class="card text-center">
-            <div class="container my-3">
-                <div class="card-body infoPraticienne">
-                    <h4 class="card-title py-3" id="formation">Formation</h4>
-                    <p class="card-text pt-2">Titulaire du diplôme de master spécialiste en Sophrologie Caycédienne
-                        et formée en relation d’aide, je pratique la sophrologie depuis l’année 2011<br>Spécialisée
-                        dans la prévention et
-                        la gestion du stress, des émotions et dans le développement personnel, je propose de vous
-                        accompagner avec des techniques de relaxation dynamique adaptées à votre demande...</p>
-                    <a href="{{ path('formation') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Formation de la praticienne">En
-                        savoir plus...</a>
-                </div>
+            <div class="card-body infoPraticienne">
+                <h4 class="card-title py-3" id="formation">Formation</h4>
+                <p class="card-text pt-2">Titulaire du diplôme de master spécialiste en Sophrologie Caycédienne
+                    et formée en relation d’aide, je pratique la sophrologie depuis l’année 2011<br>Spécialisée
+                    dans la prévention et
+                    la gestion du stress, des émotions et dans le développement personnel, je propose de vous
+                    accompagner avec des techniques de relaxation dynamique adaptées à votre demande...</p>
+                <a href="{{ path('formation') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Formation de la praticienne">En
+                    savoir plus...</a>
             </div>
         </div>
     </div>
     <div class="card-group shadow">
         <div class="card text-center">
-            <div class="container my-3">
-                <div class="card-body infoPraticienne">
-                    <h4 class="card-title py-3">Expériences</h4>
-                    <p class="card-text pt-2">En parallèle de mon cursus scolaire et universitaire,<br>Je me suis
-                        toujours
-                        orientée vers des activités professionnelles auprès d’enfants, en tant qu’animatrice, dans
-                        l’encadrement,l’organisation et dans la gestion du quotidien<br>
-                        Aussi j’ai choisie l’Aide à domicile, auprès de personne âgées ou dans l’accompagnement au
-                        quotidien de personnes en difficultés.<br><br>
-                        Ces différentes expériences, au fil des années, m’ont montrée l’importance d’être à l’écoute de
-                        l’autre, de soi, de ce que l’on ressent.<br>
-                        Savoir prendre du temps pour s’écouter, les bienfaits d’une attitude positive et que les
-                        solution sont souvent
-                        en nous.<br>
+            <div class="card-body infoPraticienne">
+                <h4 class="card-title py-3">Expériences</h4>
+                <p class="card-text pt-2">En parallèle de mon cursus scolaire et universitaire,<br>Je me suis
+                    toujours
+                    orientée vers des activités professionnelles auprès d’enfants, en tant qu’animatrice, dans
+                    l’encadrement,l’organisation et dans la gestion du quotidien<br>
+                    Aussi j’ai choisie l’Aide à domicile, auprès de personne âgées ou dans l’accompagnement au
+                    quotidien de personnes en difficultés.<br><br>
+                    Ces différentes expériences, au fil des années, m’ont montrée l’importance d’être à
+                    l’écoute de
+                    l’autre, de soi, de ce que l’on ressent.<br>
+                    Savoir prendre du temps pour s’écouter, les bienfaits d’une attitude positive et que les
+                    solution sont souvent
+                    en nous.<br>
                     <a href="{{ path('experiences') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Expériences de la praticienne">En
                         savoir plus...</a>
-                </div>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
                 <picture>
-                    <img srcset="{{ asset('img/cabinet_sophrologie_labarthe_riviere.jpg') }}" alt="photo_cabinet" class="d-block card-img imgCabinetHome">
+                    <img srcset="{{ asset('img/cabinet_sophrologie_labarthe_riviere.jpg') }}" alt="photo_cabinet" class="d-block card-img imgCabinetHome imgPresentation">
                 </picture>
             </div>
         </div>
     </div>
-</div>
+</div> #}
 
 
 <!-- ********** INFORMATIONS CABINETS / TARIFS / LOCALISATION CARTE ********** -->
@@ -131,15 +187,16 @@
         <div class="card-body">
             <h4 class="card-title text-center py-3 ">Découvrir le cabinet</h4>
             <h6 class="card-text text-center">CABINET DE SOPHROLOGIE , au centre du village de Labarthe-Rivière.</h6>
-                <p class="card-text text-center py-3">8 Place Galliéni 31800 Labarthe-Rivière - Cabinet</p>
+            <p class="card-text text-center py-3">8 Place Galliéni 31800 Labarthe-Rivière - Cabinet</p>
             <hr>
             <h6 class="card-text text-center">
                 Sophrologie à Saint-Gaudens et à domicile
             </h6>
             <p class="card-text text-center pt-3">31 Avenue François Mitterrand 31800 Saint-Gaudens - Permanence</p>
             <div class="text-center">
-                    <a href="{{ path('cabinets') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Découvrir le cabinet et permanence">En savoir plus...</a>
-                </div>
+                <a href="{{ path('cabinets') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Découvrir le cabinet et permanence">En
+                    savoir plus...</a>
+            </div>
         </div>
     </div>
 
@@ -153,7 +210,8 @@
             <p class="card-text text-center">Mutuelles</p>
 
             <div class="text-center">
-                <a href="{{ path('tarifsHoraires') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Tarifs et horaires">En savoir plus...</a>
+                <a href="{{ path('tarifsHoraires') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="En savoir plus : Tarifs et horaires">En
+                    savoir plus...</a>
             </div>
         </div>
     </div>

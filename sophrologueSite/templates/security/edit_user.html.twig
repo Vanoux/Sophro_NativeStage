@@ -5,9 +5,10 @@
 {% block body %}
 
 {# Affiche le tableau user : {{ dump(user) }}#}
-<div class="example-wrapper m-5 p-5">
 
-    <h1 class="mb-4 text-secondary">Modification informations</h1>
+    <h1 class="text-center mt-5">Modification informations</h1>
+
+    <div class="container mt-3">
     {{ form_start(form) }}
 
     {{ form_row(form.username) }}
@@ -17,7 +18,7 @@
 
     {{ form_end(form) }}
 
-    <div class="mt-5 pt-1">
+    <div class="mt-5 mb-2">
         <a href="{{ path('password_edit') }}" class="btn btn-danger" title="Modifiez votre mot de passe">Modification du mot de passe</a>
     </div>
 

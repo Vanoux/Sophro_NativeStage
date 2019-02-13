@@ -49,12 +49,10 @@ p, ul {
     position: absolute !important;
 }
 
+
 /*********************************** Home + Pages *******************************************************/
 .infoPraticienne {
     background-color: #E9967A;
-}
-.imgCabinetHome {
-    height: 515px;
 }
 .infoSophro {
     background-color: #4CABB1;
@@ -65,11 +63,28 @@ p, ul {
 .actu {
     background-color: #FED586;
 }
+.btnSuite {
+    background-color: #4E5266;
+    color: white;
+    border-radius: 20px;
+    text-decoration-line: none; 
+}
+
+/*********************************** Images *************************************************************/
+.imgCabinetHome { /* img card home */
+    height: 500px;
+    width: 538px;
+}
+
+.imgHome {
+    width: 100%;
+    height: 100%;
+}
 
 /********************************* Image / Carousel *****************************************/
 .carousel-item .img-fluid {
     width:100vw; /*Pour que l'image soit responsive sur les grands écrans*/
-    height:500px;
+    height:300px;
 }
 
 /****************************** Fil d'ariane ***********************************************/
@@ -143,26 +158,32 @@ p, ul {
     border-color: #A69D9F; 
     border-radius: 5px;
 }
-.btnSuite {
-    background-color: #626780;
+.btnCreate {
+    background-color: #4E5266;
     color: white;
     border-radius: 20px;
     text-decoration-line: none; 
-
+}
+.btnLireLaSuiteAdmin {
+    background-color: #69C7AD;  /* ou jaune : #FED586;*/
+    color: white;
+    border-radius: 20px;
+    text-decoration-line: none; 
 }
 .btnEdit {
-    background-color:  #FED586;
+    background-color: #4CABB1;
     color: white;
     border-radius: 20px;
     text-decoration-line: none; 
-
 }
 .btnSupr {
     background-color: #E9967A ;
     color: white;
     border-radius: 20px;
     text-decoration-line: none; 
-
+}
+.btnCreate:hover, .btnSuite:hover, .btnEdit:hover, .btnSupr:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 /***************************** Statistiques ******************************************/
@@ -175,10 +196,7 @@ p, ul {
 .statCard3 {
     background-color: #FED586;
 }
-/* .statCard1:hover, .statCard2:hover, .statCard3:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    background-color: #A69D9F;
-} */
+
 
 /**************************** Bouton retour haut ************************************/
 a#cRetour{
@@ -219,37 +237,38 @@ a#cRetour.cVisible{
 /* ////////////////////////////////@MEDIA//////////////////////////////// */
 @media (max-width: 3000px) { 
     
+    /*Pour l'affichage du numéro dans la navbar*/
     .positionPhone {
         display: none;
     }
     .positionDevice {
         display: initial;
     }
-
+    
 }
 
 @media (max-width: 1400px) {
-
+    /* img card home
+    .imgPresentation {
+        height: 100%; 
+    } */
     
 }
 
 @media (max-width: 1024px) {
-
-    img {
-        height: 100%;
-    }
+    
 
 }
 
 @media only screen and (max-width: 991px) {
 
+    /*Pour l'affichage du numéro en dehors du burger*/
     .positionPhone {
         display: initial;
     }
     .positionDevice {
         display: none;
     }
-
 }
 
 @media only screen and (max-width: 768px) {

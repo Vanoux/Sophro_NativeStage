@@ -4,9 +4,9 @@
 
 {% block body %}
 
-<div class="example-wrapper m-5 p-5">
+<div class="container mt-5 p-5">
     {% if not is_granted('ROLE_ADMIN') %}
-<h2 class="mb-5 text-secondary">Connectez-vous</h2>
+<h2 class="mb-5">Connectez-vous</h2>
 
 <form method="post" action="{{ path('security_login') }}" class="form-login">
     {% if error %}

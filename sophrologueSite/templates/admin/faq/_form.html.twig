@@ -1,9 +1,12 @@
 <div class="container mt-3">
 {{ form_start(form) }}
-<div class="my-5">
+<div class="mt-5 mb-3">
     {{ form_widget(form) }}
     <button class="btn btn-success" type="submit" title="Sauvegarder">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(form) }}
+    <div class="mt-3">
+        <a href="{{ path('myFaq') }}" class="btn-sm btn-secondary" title="Retour à la liste : Ma foire à questions">Retour à la liste</a>
+    </div>
 </div>
 
-{{ form_end(form) }}
 </div>
