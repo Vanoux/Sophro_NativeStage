@@ -5,25 +5,23 @@
 {% block body %}
 <div class="pb-2 cardInfoHome">
 
-    {# <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
-        <div class="container">
-            <h1 class="text-center titrePerso">Mes lieux de consultations</h1>
-        </div>
-    </div> #}
-    <!-- Fil d'ariane -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
-            <li class="breadcrumb-item text-white active" aria-current="page">Mes lieux de consultations</li>
-        </ol>
-    </nav>
+<!-- Fil d'ariane -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
+        <li class="breadcrumb-item text-white active" aria-current="page">Mes lieux de consultations</li>
+    </ol>
+</nav>
 
-    <div class="container">
-        <div class="card my-5 effetShadow">
-            <div class="card-body">
-                <h2 class="card-title text-center py-3 pb-4">Découvrir le cabinet</h2>
-                <hr>
-                <p class="card-text font-weight-bold mt-5">
+<div class="container">
+    <div class="card my-5 effetShadow">
+        <div class="card-body">
+            <h2 class="card-title text-center py-3 pb-4">Découvrir le cabinet</h2>
+        <hr>
+
+        <div class="row my-5">
+            <div class="col-lg">
+                <p class="card-text font-weight-bold">
                     CABINET DE SOPHROLOGIE , au centre du village de Labarthe-Rivière.
                 </p>
                 <p class="card-text">
@@ -31,17 +29,35 @@
                     Une petite grange rénovée pour vous accueillir dans un cadre chaleureux et apaisant.<br>
                     Un lieu calme, un espace de détente et d’échange pour faire la parenthèse avec son quotidien, se
                     ressourcer, respirer, se détendre et faire le plein de vitalité.
-                    <p class="card-text">
-                        8 Place Galliéni 31800 Labarthe-Rivière - Cabinet
-                    </p>
+                <p class="card-text">
+                    8 Place Galliéni 31800 Labarthe-Rivière - Cabinet
+                </p>
                 </p>
                 <p class="card-text">
                     Ayant des interventions extérieures et une permanence à Saint-Gaudens, je vous accueille sur
                     rendez-vous, que ce soit pour une séance ou des renseignements.<br>
                 </p>
-                <hr>
-                <p class="card-text font-weight-bold">
-                    Sophrologie à Saint-Gaudens et à domicile
+            </div>
+            <div class="col-lg">
+                    <img src="{{ asset('img/cabinetExterieur1.jpg') }}" alt="Intérieur du cabinet de sophrologie" title="Entrée du Cabinet de sophrologie" class="img-fluid rounded imgHome" />
+            </div>
+        </div>
+            
+        <hr>
+
+        <div class="row my-">
+            <div class="col-lg">
+                <img src="{{ asset('img/cabinetExterieur2.jpg') }}" alt="Intérieur du cabinet de sophrologie" title="Extérieur du Cabinet de sophrologie" class="img-fluid rounded" />
+            </div> 
+            <div class="col-lg">
+                <img src="{{ asset('img/cabinet_sophro.jpg') }}" alt="Intérieur du cabinet de sophrologie" title="Cabinet de sophrologie" class="img-fluid rounded imgHome " />
+            </div>
+        </div>
+        
+        <hr>
+
+        <p class="card-text font-weight-bold mt-5">
+                    SOPHROLOGIE à Saint-Gaudens et à domicile
                 </p>
                 <p class="card-text">
                     Je vous propose des séances de sophrologie Caycédienne sur rendez-vous, à Saint-Gaudens dans un
@@ -52,7 +68,7 @@
                     varier en fonction de l’indemnité kilométrique,<br>
                     Soit hors commune de Saint-Gaudens.
                 </p>
-                <p class="card-text">
+                <p class="card-text mb-5">
                     31 Avenue François Mitterrand 31800 Saint-Gaudens - Permanence
                 </p>
                 <hr>

@@ -18,7 +18,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <picture>
-                <img srcset="{{ asset('img/sunset-tree.jpg') }}" class="d-block img-fluid" alt="image">
+                <img srcset="{{ asset('img/arbre.jpg') }}" class="d-block img-fluid" alt="image">
             </picture>
             <div class="carousel-caption d-md-block">
                 <h2 class="titrePerso mb-5">{{conseils[0].titre}}</h2>
@@ -31,12 +31,12 @@
 
         <div class="carousel-item">
             <picture>
-                <img srcset="{{ asset('img/tree-purple.jpg') }}" class="d-block img-fluid" alt="image">
+                <img srcset="{{ asset('img/eau.jpg') }}" class="d-block img-fluid" alt="image">
             </picture>
             <div class="carousel-caption d-md-block">
                 <h2 class="titrePerso mb-5">{{conseils[1].titre}}</h2>
                 <h6 class="text-white">{{conseils[1].intro}}</h6>
-                <p class="text-white">Les conseils d'Anne-Sophie</p>
+                <p class="text-white pb-2">Les conseils d'Anne-Sophie</p>
                 <a href="{{ path('conseil_show', {'id': conseils[1].id})}}" class="btn btnSuite mt-5 px-4 py-2 effetHover"
                     title="Lire la suite du conseil">lire la
                     suite</a>
@@ -44,7 +44,7 @@
         </div>
         <div class="carousel-item">
             <picture>
-                <img srcset="{{ asset('img/sun-tree.jpg') }}" class="d-block img-fluid" alt="image">
+                <img srcset="{{ asset('img/arbre_fond_violet.jpg') }}" class="d-block img-fluid" alt="image">
             </picture>
             <div class="carousel-caption d-md-block">
                 <h2 class="titrePerso mb-5">{{conseils[2].titre}}</h2>
@@ -74,7 +74,7 @@
 <div class="container effetShadow">
     <div class="row my-3">
         <div class="col-lg col-md-12 mt-3">
-            <img src="{{ asset('img/anne_sophie.jpg') }}" alt="photo_praticienne" class="img-fluid imgHome">
+            <img src="{{ asset('img/anne_sophie.jpg') }}" alt="photo_praticienne" class="img-fluid imgHome" title="Anne-Sophie Labat">
         </div>
         <div class="col-lg col-md-12 mt-3">
             <div class="infoPraticienne text-center py-4">
@@ -115,7 +115,7 @@
             </div>
         </div>
         <div class="col-lg col-md-12 mb-3">
-            <img src="{{ asset('img/cabinet_sophro1.jpg') }}" alt="photo_cabinet" class="img-fluid imgHome">
+            <img src="{{ asset('img/cabinet_sophro1.jpg') }}" alt="photo_cabinet" class="img-fluid imgHome" title="Cabinet Labarthe-Rivière">
         </div>
     </div>
 </div>
