@@ -18,37 +18,57 @@
             <div class="card-body">
                 <h2 class="card-title text-center py-3 pb-4">Choisissez votre formule</h2>
                 <hr>
-                <h6 class="card-text text-center mt-5">Séance individuelle</h6>
-                <p class="card-text text-center py-3">40€<br>
-                    35€ *
-                </p>
-                <h6 class="card-text text-center">Séance collective</h6>
-                <p class="card-text text-center py-3"><u>LABARTHE-RIVIÈRE</u>:<br>
-                    le Lundi 11h/12h et 18h/19h<br>
-                    10€<br>
-                    8€ *
-                </p>
-                <p class="card-text text-center py-3"><u>SAINT-GAUDENS</u>:<br>
-                    au centre social AZIMUT<br>
-                    10€<br>
-                    8€ *
-                </p>
-                <h6 class="card-text text-center">Forfaits</h6>
-                <p class="card-text text-center py-3">forfait 3 séances : 105 euros<br>
-                    forfait 4 séances individuelles de 35 minutes pour les enfants (3/11 ans) : 75 euros
-                </p>
-                <h6 class="card-text text-center">Bon cadeau</h6>
-                <p class="card-text text-center py-3">Offrez une séance à vos amis et vos proches pour leur
-                    bien-être</p>
-                <h6 class="card-text text-center">Parrainage</h6>
-                <p class="card-text text-center py-3">Parrainez un membre de votre famille et faîte lui découvrir
-                    la Sophrologie Caycédienne</p>
-                <h6 class="card-text text-center">Mutuelle</h6>
-                <p class="card-text text-center py-3">Retrouvez ci dessous la liste des mutuelles partenaires<br>
-                    <a href="{{ asset('doc/mutuelles_prise_en_charge_sophrologie_caycedienne.pdf') }}" title="Pdf de la liste non-exhaustives des mutuelles partenaires"
-                        class="linkColor">Liste non-exhaustives des mutuelles partenaires</a>
-                </p>
-                <p class="card-text text-center py-3"> * Enfants/adolescents/étudiants/demandeur d'emploi</p>
+
+                <div class="row my-5">
+                    <div class="col-lg">
+                        <img src="{{ asset('img/goutte_eau.jpg') }}" alt="Intérieur du cabinet de sophrologie" title="Entrée du Cabinet de sophrologie" class="img-fluid rounded imgHome" />
+                    </div>
+                    <div class="col-lg">
+                        <h6 class="text-center mt-5">Séance individuelle</h6>
+                        <p class="text-center py-3">40€<br>
+                            35€ *
+                        </p>
+                        <h6 class="text-center">Séance collective</h6>
+                        <p class="text-center py-3"><u>LABARTHE-RIVIÈRE</u>:<br>
+                            le Lundi 11h/12h et 18h/19h<br>
+                            10€<br>
+                            8€ *
+                        </p>
+                        <p class="text-center py-3"><u>SAINT-GAUDENS</u>:<br>
+                            au centre social AZIMUT<br>
+                            10€<br>
+                            8€ *
+                        </p>
+                        <h6 class="text-center">Forfaits</h6>
+                        <p class="text-center">forfait 3 séances : 105 euros<br>
+                            forfait 4 séances individuelles de 35 minutes<br> pour les enfants (3/11 ans) : 75 euros
+                        </p>
+                        <p class="text-center"> * Enfants/adolescents/étudiants/demandeur d'emploi</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row my-5">
+                    <div class="col-lg">
+                        <h6 class="text-center">Bon cadeau</h6>
+                        <p class="text-center py-3">Offrez une séance à vos amis et vos proches pour leur
+                            bien-être</p>
+                        <h6 class="text-center">Parrainage</h6>
+                        <p class="text-center py-3">Parrainez un membre de votre famille et faîte lui découvrir
+                            la Sophrologie Caycédienne</p>
+                        <h6 class="text-center">Mutuelle</h6>
+                        <p class="text-center py-3">Retrouvez ci dessous la liste des mutuelles partenaires<br>
+                            <a href="{{ asset('doc/mutuelles_prise_en_charge_sophrologie_caycedienne.pdf') }}" title="Pdf de la liste non-exhaustives des mutuelles partenaires"
+                                class="linkColor">Liste non-exhaustives des mutuelles partenaires</a>
+                        </p>
+                    </div>
+                    <div class="col-lg">
+                        <img src="{{ asset('img/nature.jpg') }}" alt="Intérieur du cabinet de sophrologie" title="Entrée du Cabinet de sophrologie"
+                            class="img-fluid rounded imgHome" />
+                    </div>
+                </div>
+
                 <hr>
                 <p class="card-text text-center mt-2">
                     N'hésitez-pas à me contactez,<br>
@@ -60,10 +80,13 @@
                 <hr>
             </div>
         </div>
-        <div class="text-center">
-            <a href="{{ path('home') }}" class="btn btnSuite mt-2 px-4 py-2 effetHover" title="Retour à l'accueil">Retour
-                à l'accueil</a>
-        </div>
+
     </div>
+
+    <div class="text-center">
+        <a href="{{ path('home') }}" class="btn btnSuite mt-2 px-4 py-2 effetHover" title="Retour à l'accueil">Retour
+            à l'accueil</a>
+    </div>
+</div>
 </div>
 {% endblock %}

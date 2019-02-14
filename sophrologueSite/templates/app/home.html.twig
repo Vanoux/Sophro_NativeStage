@@ -181,7 +181,45 @@
 
 <!-- ********** INFORMATIONS CABINETS / TARIFS / LOCALISATION CARTE ********** -->
 
-<div class="card-deck mx-1 my-5">
+<!-- Avec des row / col -->
+<div class="container-fluid">
+    <div class="row my-3">
+        <div class="col-lg col-md-12 mt-3 mx-1 rounded cardInfoHome effetShadow">
+            <h4 class="text-center py-3 ">Découvrir le cabinet</h4>
+            <h6 class="text-center">CABINET DE SOPHROLOGIE , au centre du village de Labarthe-Rivière.</h6>
+            <p class="text-center py-3">8 Place Galliéni 31800 Labarthe-Rivière - Cabinet</p>
+            <hr>
+            <h6 class="text-center">
+                Sophrologie à Saint-Gaudens et à domicile
+            </h6>
+            <p class="text-center pt-3">31 Avenue François Mitterrand 31800 Saint-Gaudens - Permanence</p>
+            <div class="text-center">
+                <a href="{{ path('cabinets') }}" class="btn btnSuite mt-3 px-4 py-2 mb-2 effetHover" title="En savoir plus : Découvrir le cabinet et permanence">En savoir plus...</a>
+            </div>
+        </div>
+        <div class="col-lg col-md-12 mt-3 mx-1 rounded cardInfoHome effetShadow">
+            <h4 class="text-center py-3">Choisissez votre formule</h4>
+            <p class="text-center font-weight-bold pb-1">Séance individuelle</p>
+            <p class="text-center font-weight-bold pb-1">Séance collective</p>
+            <p class="text-center font-weight-bold pb-2">Forfaits</p>
+            <p class="text-center pt-4">Bon cadeau, Parrainage ...</p>
+            <p class="text-center">Mutuelles</p>
+
+            <div class="text-center">
+                <a href="{{ path('tarifsHoraires') }}" class="btn btnSuite mt-3 px-4 py-2 mb-2 effetHover" title="En savoir plus : Tarifs et horaires">En savoir plus...</a>
+            </div>
+        </div>
+        <div class="col-lg col-md-12 mt-3 mx-1 rounded cardInfoHome effetShadow">
+            <h4 class="text-center py-3">Où me trouver</h4>
+            {# div qui contient la carte google map #}
+            <div class="mb-2" id="map"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Avec des card-deck-->
+{# <div class="card-deck mx-1 my-5">
 
     <div class="card mt-2 cardInfoHome effetShadow">
         <div class="card-body">
@@ -218,10 +256,9 @@
 
     <div class="card mt-2 cardInfoHome effetShadow">
         <h4 class="card-title text-center pt-4 mt-2">Où me trouver</h4>
-        {# div qui contient la carte google map #}
         <div class="card-body" id="map"></div>
     </div>
 
-</div>
+</div> #}
 
 {% endblock %}
