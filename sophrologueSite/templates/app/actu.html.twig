@@ -6,12 +6,7 @@
 
 <div class="pb-2 actu">
 
-    {# <div class="jumbotron jumbotron-fluid shadow jumbotronTitle">
-        <div class="container">
-            <h1 class="text-center titrePerso">Mes dernières actualités</h1>
-        </div>
-    </div> #}
-<!-- Fil d'ariane -->
+    <!-- Fil d'ariane -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
@@ -19,9 +14,9 @@
         </ol>
     </nav>
 
-<h2 class="text-center">Toutes mes actualités</h2>
+    <h2 class="text-center">Toutes mes actualités</h2>
     {# *** Liste des actualités *** #}
-    {% for article in articles |sort|reverse %}
+    {% for article in pagination %}
     <div class="container">
         <div class="card my-4 effetShadow">
             {% if (article.image is defined) and (article.image is not null) %}
@@ -44,6 +39,9 @@
         </div>
     </div>
     {% endfor %}
+    <div class="pagination justify-content-center p-3">
+        {{ knp_pagination_render(pagination) }}
+    </div>
     <div class="text-center">
         <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à
             l'accueil</a>

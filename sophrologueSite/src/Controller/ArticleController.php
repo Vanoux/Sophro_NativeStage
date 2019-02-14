@@ -13,20 +13,30 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller; //permet d'accéder à plusieurs services de paginator avec la méthode get de la classe.
 
 /**
  * @Route("admin/actu")
  */
-class ArticleController extends AbstractController
+class ArticleController extends Controller
 {
     /**
      * @Route("/", name="myActu", methods={"GET"})
      */
-    public function actu(ArticleRepository $articleRepository): Response 
+    public function actu(ArticleRepository $articleRepository, Request $request): Response 
     {
-        $articles = $articleRepository->findAll();
+        $articles = $articleRepository->findAll(['id' => 'DESC']); 
+
+        //Instanciation du paginateur et conservation dans une variable,
+        $paginator = $this->get('knp_paginator');
+        //Appel la méthode paginate() en passant l'objet à paginer, la page que nous voulons, le nombre de résultats par page
+        $pagination = $paginator->paginate(
+            $articles,
+            $request->query->getInt('page', 1), 3 // limite par page
+        );
         return $this->render('admin/actu/index.html.twig', [
-            'articles' => $articles
+            //'articles' => $articles
+            'pagination' => $pagination
         ]);
     }
 

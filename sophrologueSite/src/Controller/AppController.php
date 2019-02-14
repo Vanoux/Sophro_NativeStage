@@ -13,11 +13,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-//use App\Notification\ContactNotification;
-//use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Article;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller; //permet d'accéder à plusieurs services de paginator avec la méthode get de la classe.
 
-
-class AppController extends AbstractController
+class AppController extends Controller
 {
     /**
      * @Route("/", name="home")
@@ -67,12 +65,23 @@ class AppController extends AbstractController
     /**
      * @Route("/actualites", name="actu")
      */
-    public function actu(ArticleRepository $articleRepository): Response  
+    public function actu(ArticleRepository $articleRepository, Request $request): Response  
     {
-        // $articles = $articleRepository->findAll();
-        $articles = $articleRepository->findBy(['category' => 1]);
+        //Récupération des articles par catégorie actu et tri par ordre descendant
+        $articles = $articleRepository->findBy(
+            ['category' => 1],
+            ['id' => 'DESC']
+        );
+        //Instanciation du paginateur et conservation dans une variable,
+        $paginator = $this->get('knp_paginator');
+        //Appel la méthode paginate() en passant l'objet à paginer, la page que nous voulons, le nombre de résultats par page
+        $pagination = $paginator->paginate(
+            $articles,
+            $request->query->getInt('page', 1), 2 // limite par page
+        );
         return $this->render('app/actu.html.twig', [
-            'articles' => $articles
+            //'articles' => $articles,
+            'pagination' => $pagination
         ]);
     }
     /**
@@ -88,11 +97,23 @@ class AppController extends AbstractController
     /**
      * @Route("/articles", name="article")
      */
-    public function article(ArticleRepository $articleRepository): Response  
+    public function article(ArticleRepository $articleRepository, Request $request): Response  
     {
-        $articles = $articleRepository->findBy(['category' => 2]);
+        //Récupération des articles par catégorie article et tri par ordre descendant
+        $articles = $articleRepository->findBy(
+            ['category' => 2],
+            ['id' => 'DESC']
+        );
+        //Instanciation du paginateur et conservation dans une variable,
+        $paginator = $this->get('knp_paginator');
+        //Appel la méthode paginate() en passant l'objet à paginer, la page que nous voulons, le nombre de résultats par page
+        $pagination = $paginator->paginate(
+            $articles,
+            $request->query->getInt('page', 1), 2 // limite par page
+        );
         return $this->render('app/article.html.twig', [
-            'articles' => $articles
+            //'articles' => $articles
+            'pagination' => $pagination
         ]);
     }
     /**

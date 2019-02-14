@@ -20,7 +20,7 @@
 </div>
 
 {# **** Liste des articles *** #}
-{% for article in articles |sort|reverse %}
+{% for article in pagination %}
 <div class="container">
     <div class="card my-5 cardContour effetShadow">
         <div class="card-body">
@@ -35,15 +35,16 @@
                     <h2>{{ article.titre }}</h2>
                     <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }}</div>
                     <div class="content">
-                        <p>{{ article.contenu | striptags | truncate(119, false, '.....'  )}}</p>
+                        <p>{{ article.contenu | striptags | truncate(119, false, '.....' )}}</p>
                     </div>
                     <h6>Catégorie {{ article.category.title }}</h6>
                     <hr>
-                    <a href="{{ path('actu_show', {'id': article.id})}}" class="btn btn-sm btnLireLaSuiteAdmin  px-4 py-2" title="Lire la suite de l'article">Lire la
+                    <a href="{{ path('actu_show', {'id': article.id})}}" class="btn btn-sm btnLireLaSuiteAdmin  px-4 py-2"
+                        title="Lire la suite de l'article">Lire la
                         suite</a>
                     <a href="{{ path('actu_edit', {'id': article.id}) }}" class="btn btn-sm btnEdit px-4 py-2" title="Editer l'article">Editer</a>
                     {#<a href="{{ path('actu_delete', {'id': article.id}) }}" class="btn btn-primary">Supprimer</a>#}
-                   <form class="mt-2" method="post" action="{{ path('actu_delete', {'id': article.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
+                    <form class="mt-2" method="post" action="{{ path('actu_delete', {'id': article.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
                         <button class="btn btn-sm py-1 btnSupr" title="Supprimer l'article">Supprimer</button>
@@ -54,5 +55,8 @@
     </div>
 </div>
 {% endfor %}
+<div class="pagination justify-content-center p-3"> 
+    {{ knp_pagination_render(pagination) }}
+</div>
 
 {% endblock %}
