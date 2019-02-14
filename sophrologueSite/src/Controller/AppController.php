@@ -197,8 +197,16 @@ class AppController extends AbstractController
     /**
      * @Route("/plan_du_site", name="siteMap")
      */
-    public function siteMap(): Response 
+    public function siteMap(ConseilRepository $conseilRepository, ArticleRepository $articleRepository, FaqRepository $faqRepository): Response 
     {
-        return $this->render('app/siteMap.html.twig');
+        $conseils = $conseilRepository->findAll();
+        $actualites = $articleRepository->findBy(['category' => 1]);
+        $articles = $articleRepository->findBy(['category' => 2]);
+
+        return $this->render('app/siteMap.html.twig', [
+            'conseils' => $conseils,
+            'actualites' => $actualites,
+            'articles' => $articles,
+        ]);
     }
 }
