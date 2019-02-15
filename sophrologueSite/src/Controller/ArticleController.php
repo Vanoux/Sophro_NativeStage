@@ -25,7 +25,10 @@ class ArticleController extends Controller
      */
     public function actu(ArticleRepository $articleRepository, Request $request): Response 
     {
-        $articles = $articleRepository->findAll(['id' => 'DESC']); 
+        $articles = $articleRepository->findBy(
+            ['user' => 1],
+            ['id' => 'DESC']
+        ); 
 
         //Instanciation du paginateur et conservation dans une variable,
         $paginator = $this->get('knp_paginator');

@@ -30,7 +30,8 @@
     <!-- ********** NAVBAR ********** -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow">
 
-        <a class="navbar-brand" href="{{ path('home') }}" title="Retour à l'accueil">Anne-Sophie Labat</a>
+        <a class="navbar-brand" href="{{ path('home') }}" title="Retour à l'accueil"><img src="{{ asset('img/logoSophro.png') }}"
+            alt="image logo favicon"> Anne-Sophie Labat</a>
         {% if is_granted('ROLE_ADMIN') %}
         <a class="nav-link text-white positionPhone" href="{{ path('dashboard') }}" title="Retour accueil gestion administrateur">Dashboard
             Home</a>

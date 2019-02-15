@@ -3,5 +3,11 @@
 {% block title %}Politique de confidentialité - RGPD -{% endblock %}
 
 {% block body %}
-
+<!-- Fil d'ariane -->
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Politique de confidentialité</li>
+        </ol>
+    </nav>
 {% endblock %}

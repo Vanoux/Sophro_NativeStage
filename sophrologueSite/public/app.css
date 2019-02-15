@@ -1,7 +1,7 @@
 body {
     font-family: 'Raleway', sans-serif;
 }
-nav, footer {
+.navbar, footer {
     background-color: #434B56;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -11,6 +11,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 p, ul {
     color: #434B56;
+}
+
+/******************************* Pagination *******************************************************/
+
+/* .pagination > li > .page-item > .active{ 
+    background-color: #69C7AD;
+} */
+/* span > .page-link {
+    background-color: #69C7AD;
+} */
+.page-link {
+    color: #69C7AD;
 }
 
 /****************************** Effet boutons site ************************************************/
@@ -117,23 +129,27 @@ p, ul {
 #atelier1 {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #4CABB1;
+    color:white
 }
 #atelier1{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #4CABB1;
+    color:white
 }
 #atelier2 {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #E9967A;
+    color:white
 }
 #atelier3 {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #69C7AD;
+    color:white
 }
-.atelierHover1, .atelierHover2, .atelierHover3, h3 {
+h3 {
     color: #ffffff;
 }
-.atelierHover1:hover, .atelierHover2:hover, .atelierHover3:hover{
+#atelier1:hover, #atelier2:hover, #atelier3:hover{
     transition: 0.8s;
     background-color: #FED586;
 }
