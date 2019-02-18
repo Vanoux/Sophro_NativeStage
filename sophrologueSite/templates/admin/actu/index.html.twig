@@ -40,10 +40,8 @@
                     <h6>Catégorie {{ article.category.title }}</h6>
                     <hr>
                     <a href="{{ path('actu_show', {'id': article.id})}}" class="btn btn-sm btnLireLaSuiteAdmin  px-4 py-2"
-                        title="Lire la suite de l'article">Lire la
-                        suite</a>
+                        title="Lire la suite de l'article">Lire la suite</a>
                     <a href="{{ path('actu_edit', {'id': article.id}) }}" class="btn btn-sm btnEdit px-4 py-2" title="Editer l'article">Editer</a>
-                    {#<a href="{{ path('actu_delete', {'id': article.id}) }}" class="btn btn-primary">Supprimer</a>#}
                     <form class="mt-2" method="post" action="{{ path('actu_delete', {'id': article.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">

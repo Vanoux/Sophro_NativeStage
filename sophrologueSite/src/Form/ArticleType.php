@@ -11,7 +11,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-// use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ArticleType extends AbstractType
@@ -20,7 +19,9 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class)
-            ->add('metadescription')
+            ->add('metadescription', TextType::class, [
+                'required' => false,
+            ])
             ->add('contenu', TextareaType::class, [
                 'attr' => [
                     'class' => 'summernote'

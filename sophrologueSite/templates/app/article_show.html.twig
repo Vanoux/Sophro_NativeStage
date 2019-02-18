@@ -24,7 +24,7 @@
                         <div class="metadata text-center">Ecrit le {{ article.date | date('d/m/Y') }}</div>
                         <div class="content p-5">
                             {% if (article.image is defined) and (article.image is not null) %}
-                            <img src="{{ asset('uploads/photos/')~ article.image }}" class="img-fluid" alt="image d'actualité">
+                            <img src="{{ asset('uploads/photos/')~ article.image }}" class="img-fluid rounded" alt="image d'actualité">
                             {% endif %}
                             <p>{{ article.contenu | raw }}</p>
                             {# **** Partage réseaux sociaux **** #}
@@ -41,7 +41,7 @@
                             <a href="{{ path('myActu') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la liste : Mes actualités">Retour
                                 à la liste</a>
                             {% else %}
-                            <a href="{{ path('actu') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la liste : Actualités">Retour
+                            <a href="{{ path('article') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à la liste : Actualités">Retour
                                 à la liste</a>
                             {% endif %}
                         </div>

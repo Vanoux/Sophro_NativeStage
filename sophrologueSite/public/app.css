@@ -75,6 +75,10 @@ p, ul, ol {
     border-radius: 20px;
     text-decoration-line: none; 
 }
+.btnSuite:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    color: black;
+}
 
 /*********************************** Images *************************************************************/
 .imgCabinetHome { /* img card home */
@@ -90,7 +94,21 @@ p, ul, ol {
     width: 80%;
     height: 80%;
 }
-
+/***** Images cabinet ******/
+.effet {
+	/* -webkit-filter:grayscale(100%); /*ou sepia*/
+    /* filter: grayscale(100%); */ 
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.effet:hover {
+	-webkit-filter: grayscale(100%); /*ou sepia*/
+    filter: grayscale(100%);
+    -webkit-transform: scale(1.05);
+	transform: scale(1.05);
+}
 
 /********************************* Carousel *****************************************/
 .carousel-item .img-fluid {
@@ -162,6 +180,11 @@ h3 {
     background-color:  #FED586;
 }
 
+/********************************* Faq *******************************************************/
+.colorQuestion {
+    color: #E9967A;
+}
+
 /******************************** Admin ******************************************************/
 .jumbotron {
     background-color: #4E5266;
@@ -186,7 +209,7 @@ h3 {
     text-decoration-line: none; 
 }
 .btnLireLaSuiteAdmin {
-    background-color: #69C7AD;  /* ou jaune : #FED586;*/
+    background-color: #69C7AD;  
     color: white;
     border-radius: 20px;
     text-decoration-line: none; 
@@ -203,6 +226,7 @@ h3 {
     border-radius: 20px;
     text-decoration-line: none; 
 }
+
 .btnCreate:hover, .btnLireLaSuiteAdmin:hover, .btnEdit:hover, .btnSupr:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     color: whitesmoke;

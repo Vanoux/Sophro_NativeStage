@@ -26,11 +26,12 @@
 </head>
 
 <body>
+    <!-- Action du bouton de retour -->
     <div id="haut"></div>
     <!-- ********** NAVBAR ********** -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow">
 
-        <a class="navbar-brand" href="{{ path('home') }}" title="Retour à l'accueil"><img src="{{ asset('img/logoSophro.png') }}"
+        <a class="navbar-brand" href="{{ path('home') }}" title="Allez à l'accueil du site"><img src="{{ asset('img/logoSophro.png') }}"
             alt="image logo favicon"> Anne-Sophie Labat</a>
         {% if is_granted('ROLE_ADMIN') %}
         <a class="nav-link text-white positionPhone" href="{{ path('dashboard') }}" title="Retour accueil gestion administrateur">Dashboard
@@ -57,8 +58,7 @@
                             de consultation</a>
                         <a class="dropdown-item dropdownItemColor" href="{{ path('tarifsHoraires') }}" title="Informations sur mes tarifs et horaires">Tarifs
                             et Horaires</a>
-                        <a class="dropdown-item dropdownItemColor" href="{{ path('faq') }}" title="Retrouvez ici la foire à question">Foire
-                            aux questions</a>
+                        <a class="dropdown-item dropdownItemColor" href="{{ path('faq') }}" title="Retrouvez ici la foire à question">Foire aux questions</a>
                     </div>
                 </li>
                 <!--Articles -->
@@ -67,7 +67,7 @@
                 </li>
                 <!--Actualités -->
                 <li class="nav-item">
-                    <a class="nav-link mr-3" href="{{ path('actu') }}" title="Actualités : Toutes mes articles et actualités">Actualités</a>
+                    <a class="nav-link mr-3" href="{{ path('actu') }}" title="Actualités : Toutes mes actualités">Actualités</a>
                 </li>
                 <!-- Contact -->
                 <li class="nav-item">
@@ -79,8 +79,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     {% if is_granted('ROLE_ADMIN') %}
-                    <a class="nav-link positionDevice" href="{{ path('dashboard') }}" title="Retour accueil gestion administrateur">Dashboard
-                        Home</a>
+                    <a class="nav-link positionDevice" href="{{ path('dashboard') }}" title="Retour à l'accueil gestion administrateur">Dashboard Home</a>
                     {% endif %}
                 </li>
             </ul>
@@ -132,12 +131,12 @@
                 </div>
 
             </div>
-            <!-- Mentions légale & connexion -->
+            <!-- Mentions légale / RGPD & plan du site -->
             <div class="col-xs-12 col-sm-12 col-md-12 mt-5 mt-sm-2 mb-0 text-center">
                 <span class="h6 text-white">2019 © Anne-Sophie Labat, Sophrologue à Saint-Gaudens et Labarthe-Rivière,
                     31800 |</span>
                 <a class="px-2 linkColor" href="{{ path('mentions') }}" title="Mentions légales">Mentions Légales</a>
-                <a class="px-2 linkColor" href="{{ path('confidential') }}" title="Politique de confidentialité">Politique de confidentialité</a>
+                <a class="px-2 linkColor" href="{{ path('confidential') }}" title="Politique de confidentialité - RGPD -">Politique de confidentialité</a>
                 <a class="px-2 linkColor" href="{{ path('siteMap') }}" title="Plan du site">Plan du site</a>
 
 

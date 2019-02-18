@@ -24,9 +24,7 @@ class FaqType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Mettez votre réponse ici...'
                 ]
-            ])
-            //->add('user')
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

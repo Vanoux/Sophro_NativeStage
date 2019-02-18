@@ -29,7 +29,6 @@ class ArticleController extends Controller
             ['user' => 1],
             ['id' => 'DESC']
         ); 
-
         //Instanciation du paginateur et conservation dans une variable,
         $paginator = $this->get('knp_paginator');
         //Appel la méthode paginate() en passant l'objet à paginer, la page que nous voulons, le nombre de résultats par page

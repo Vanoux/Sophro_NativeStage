@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 
 class EditUserType extends AbstractType
@@ -13,7 +14,7 @@ class EditUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('mail', TextType::class, [
+            ->add('mail', EmailType::class, [
                 'label' => 'Adresse Email : ',
                 'attr' => [
                     'placeholder' => 'Entrez votre nouvelle adresse mail...'

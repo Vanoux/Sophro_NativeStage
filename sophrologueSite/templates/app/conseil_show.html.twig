@@ -21,7 +21,7 @@
                         <h6 class="text-center">{{ conseil.intro }}</h6>
                         <p class="text-center">Les conseils d'Anne Sophie</p>
                         <div class="content p-5 text-center">
-                            <img src="{{ asset('uploads/photos/')~ conseil.image }}" class="img-fluid" alt="image d'actualité">
+                            <img src="{{ asset('uploads/photos/')~ conseil.image }}" class="img-fluid rounded" alt="image du conseil">
                         </div>
                         <div class="content p-5">
                             <p>{{ conseil.contenu | raw }}</p>
@@ -35,8 +35,7 @@
                                     frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                 {# *** fin partage réseaux sociaux *** #}
                             </div>
-                            <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour
-                                à l'accueil</a>
+                            <a href="{{ path('home') }}" class="btn btnSuite mt-5 px-4 py-2 effetHover" title="Retour à l'accueil">Retour à l'accueil</a>
                         </div>
                     </article>
                 </section>

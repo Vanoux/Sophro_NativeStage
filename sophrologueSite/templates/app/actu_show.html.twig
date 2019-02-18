@@ -24,7 +24,7 @@
                         <div class="metadata text-center">Ecrit le {{ article.date | date('d/m/Y') }}</div>
                         <div class="content p-5">
                             {% if (article.image is defined) and (article.image is not null) %}
-                            <img src="{{ asset('uploads/photos/')~ article.image }}" class="img-fluid" alt="image d'actualité">
+                            <img src="{{ asset('uploads/photos/')~ article.image }}" class="img-fluid rounded" alt="image d'actualité">
                             {% endif %}
                             <p>{{ article.contenu | raw }}</p>
                             {# **** Partage réseaux sociaux **** #}

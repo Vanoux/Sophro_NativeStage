@@ -1,23 +1,24 @@
-{% extends 'base.html.twig' %}
+{# ******** DESACTIVATION DU FORMULAIRE D'INSCRIPTION ************#}
+
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Incription{% endblock %}
 
 {% block body %}
 
-<div class="example-wrapper">
+<h1 class="text-center mt-5">Inscription ✅</h1>
 
-    <h1>Inscription ✅</h1>
-
+    <div class="container mt-3">
     {{ form_start(form) }}
 
     {{ form_row(form.username, {'label': 'Nom ou Pseudo : ','attr': {'placeholder': 'Votre nom ou pseudo...'}}) }}
     {{ form_row(form.mail, {'label': 'Adresse Email : ','attr': {'placeholder': 'Adresse email...'}}) }}
     {{ form_row(form.password, {'label':'Mot de passe : ' ,'attr': {'placeholder': 'Mot de passe...'}}) }}
 
-    <button type="submit" class="btn btn-successs">Incription !</button>
+    <button type="submit" class="btn btn-success mb-2">Incription !</button>
 
     {{ form_end(form) }}
 
 </div>
 
-{% endblock %}
+{% endblock %} #}

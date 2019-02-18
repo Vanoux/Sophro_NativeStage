@@ -12,8 +12,8 @@
     {{ form_start(formArticle) }}
 
     {{ form_row(formArticle.titre, {'attr' : {'placeholder': "Titre de l'article"}}) }}
-    {{ form_row(formArticle.metadescription, {'attr' : {'placeholder': "Mots clefs (pas obligatoire)"}}) }}
-    {{ form_row(formArticle.image, {'attr' : {'placeholder': "Image à télécharger (pas obligatoire)"}}) }}
+    {{ form_row(formArticle.metadescription, {'attr' : {'placeholder': "Mots clefs (facultatif)"}}) }}
+    {{ form_row(formArticle.image, {'attr' : {'placeholder': "Image à télécharger (facultatif)"}}) }}
     {{ form_row(formArticle.date, {'attr' : {'placeholder': "Date de l'article"}}) }}
     {{ form_row(formArticle.category)}}
     {{ form_row(formArticle.contenu | raw, {'attr' : {'placeholder': "Contenu de l'article"} } ) }}

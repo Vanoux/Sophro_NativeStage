@@ -14,7 +14,7 @@
     <div class="card text-center my-5 createCard effetShadow">
         <div class="card-body">
             <h4 class="card-title">Créer une nouvelle question / réponse</h4>
-            <a href=" {{ path('faq_new') }} " class="btn btnCreate" title="Créer : Une nouvelle question et réponse">Créer</a>
+            <a href=" {{ path('faq_new') }} " class="btn btnCreate mt-2 px-4 effetHover" title="Créer : Une nouvelle question et réponse">Créer</a>
         </div>
     </div>
 </div>
@@ -26,7 +26,7 @@
         <div class="card-body">
             <section class="article text-center">
                 <article>
-                    <h5 class="card-title">{{ faq.question }}</h5>
+                    <h5 class="card-title text-center colorQuestion">{{ faq.question }}</h5>
                     <div class="content">
                         <p class="card-text">{{ faq.reponse }}</p>
                     </div>
@@ -37,7 +37,7 @@
                     <form class="mt-2" method="post" action="{{ path('faq_delete', {'id': faq.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ faq.id) }}">
-                        <button class="btn btn-sm py-2 btnSupr" title="Supprimer la question avec sa réponse">Supprimer</button>
+                        <button class="btn btn-sm py-1 btnSupr" title="Supprimer la question avec sa réponse">Supprimer</button>
                     </form>
                 </article>
             </section>
@@ -45,6 +45,5 @@
     </div>
 </div>
 {% endfor %}
-
 
 {% endblock %}
