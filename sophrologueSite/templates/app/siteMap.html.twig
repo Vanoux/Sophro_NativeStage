@@ -13,42 +13,42 @@
 <div class="m-3 p-3">
     <h4>Pages</h4>
     <ul class="mt-3">
-        <li><a href="{{ path('home') }}" title="Accueil" class="linkColor">1. Accueil</a></li>
+        <li><a href="{{ path('home') }}" title="Accueil" class="link">1. Accueil</a></li>
         <ul>
-            <li><a href="{{ path('sophrologie') }}" title="La sophrologie" class="linkColor">1.1 La sophrologie</a></li>
-            <li><a href="{{ path('ateliers') }}" title="Mes ateliers" class="linkColor">1.1 Mes ateliers</a></li>
-            <li><a href="{{ path('cabinets') }}" title="Cabinets" class="linkColor">1.1 Lieux de consultation</a></li>
-            <li><a href="{{ path('tarifsHoraires') }}" title="Tarifs et horaires" class="linkColor">1.1 Tarifs et
+            <li><a href="{{ path('sophrologie') }}" title="La sophrologie" class="link">1.1 La sophrologie</a></li>
+            <li><a href="{{ path('ateliers') }}" title="Mes ateliers" class="link">1.1 Mes ateliers</a></li>
+            <li><a href="{{ path('cabinets') }}" title="Cabinets" class="link">1.1 Lieux de consultation</a></li>
+            <li><a href="{{ path('tarifs-horaires') }}" title="Tarifs et horaires" class="link">1.1 Tarifs et
                     horaires</a></li>
-            <li><a href="{{ path('faq') }}" title="Foire aux questions" class="linkColor">1.1 Foire aux questions</a></li>
-            <li><a href="{{ path('article') }}" title="Tout mes articles" class="linkColor">1.1 Articles</a></li>
+            <li><a href="{{ path('faq') }}" title="Foire aux questions" class="link">1.1 Foire aux questions</a></li>
+            <li><a href="{{ path('article') }}" title="Tout mes articles" class="link">1.1 Articles</a></li>
             <ul> {# boucle pour chaque articles et actu individuels (pareil pour conseils !)#}
                 {% for article in articles |sort|reverse %} 
-                <li><a href="{{ path('article_show', {'id': article.id})}}" class="linkColor"
+                <li><a href="{{ path('article_show', {'id': article.id})}}" class="link"
                     title="Aller sur l'article">1.1.1 {{article.titre}}</a></li>
                 {% endfor %}
             </ul>
-            <li><a href="{{ path('actu') }}" title="Toutes mes actualités" class="linkColor">1.1 Actualités</a></li>
+            <li><a href="{{ path('actu') }}" title="Toutes mes actualités" class="link">1.1 Actualités</a></li>
             <ul>
                 {% for actualite in actualites |sort|reverse %}
-                <li><a href="{{ path('article_show', {'id': actualite.id})}}" class="linkColor"
+                <li><a href="{{ path('article_show', {'id': actualite.id})}}" class="link"
                     title="Aller sur l'actualité">1.1.1 {{actualite.titre}}</a></li>
                 {% endfor %}
             </ul>
-            <li><a href="{{ path('contact') }}" title="Formulaire de contact" class="linkColor">1.1 Contact</a></li>
+            <li><a href="{{ path('contact') }}" title="Formulaire de contact" class="link">1.1 Contact</a></li>
             {% for conseil in conseils |sort|reverse %}
-            <li><a href="{{ path('conseil_show', {'id': conseil.id})}}" class="linkColor" title="Aller sur le conseil">1.1 Conseil : {{conseil.titre}}</a></li>
+            <li><a href="{{ path('conseil_show', {'id': conseil.id})}}" class="link" title="Aller sur le conseil">1.1 Conseil : {{conseil.titre}}</a></li>
             {% endfor %}
-            <li><a href="{{ path('formation') }}" title="Formation" class="linkColor">1.1 Formation</a></li>
-            <li><a href="{{ path('experiences') }}" title="Expériences" class="linkColor">1.1 Expériences</a></li>
+            <li><a href="{{ path('formation') }}" title="Formation" class="link">1.1 Formation</a></li>
+            <li><a href="{{ path('experiences') }}" title="Expériences" class="link">1.1 Expériences</a></li>
 
-            <li><a href="{{ path('cabinets') }}" title="Cabinets" class="linkColor">1.1 Découvrir le cabinet</a></li>
-            <li><a href="{{ path('tarifsHoraires') }}" title="Tarifs et horaires" class="linkColor">1.1 Choisir votre
+            <li><a href="{{ path('cabinets') }}" title="Cabinets" class="link">1.1 Découvrir le cabinet</a></li>
+            <li><a href="{{ path('tarifs-horaires') }}" title="Tarifs et horaires" class="link">1.1 Choisir votre
                     formule</a></li>
-            <li><a href="{{ path('mentions') }}" title="Partenaire Azimut" class="linkColor">1.1 Mention légale</a></li>
-            <li><a href="{{ path('confidential') }}" title="Partenaire Azimut" class="linkColor">1.1 Politique de
+            <li><a href="{{ path('mentions') }}" title="Partenaire Azimut" class="link">1.1 Mention légale</a></li>
+            <li><a href="{{ path('confidential') }}" title="Partenaire Azimut" class="link">1.1 Politique de
                     confidentialité</a></li>
-            <li><a href="{{ path('siteMap') }}" title="Partenaire Azimut" class="linkColor">1.1 Plan de site</a></li>
+            <li><a href="{{ path('siteMap') }}" title="Partenaire Azimut" class="link">1.1 Plan de site</a></li>
         </ul>
     </ul>
 </div>

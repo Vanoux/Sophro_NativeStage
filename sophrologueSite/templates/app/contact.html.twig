@@ -5,59 +5,62 @@
 {% block body %}
 
 <!-- Fil d'ariane -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
-            <li class="breadcrumb-item text-white active" aria-current="page">Formulaire de contact</li>
-        </ol>
-    </nav>
-    <div class="row">
-            <div class="col-12 col-lg-12 col-md-12 col-xs-12">
-    <div class="container mt-3">
-        <h2 class="text-center my-5">Formulaire de contact</h2>
-        <p>Pour toutes questions, n'hésitez à me laisser un message ou si vous voulez prendre un rendez-vous,
-            renseignez-moi la date et le lieu...</p>
-        <p>Je vous répondrai dans les plus bref delais !</p>
-        <p>Anne-Sophie</p>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('home') }}" class="accueilBreadcrumb">Accueil</a></li>
+        <li class="breadcrumb-item text-white active" aria-current="page">Formulaire de contact</li>
+    </ol>
+</nav>
+<div class="">
+    <div class="col-12 col-lg-12 col-md-12 col-xs-12">
+        <div class="container mt-3">
+            <h2 class="text-center my-5">Formulaire de contact</h2>
+            <p>Pour toutes questions, n'hésitez à me laisser un message ou si vous voulez prendre un rendez-vous,
+                renseignez-moi la date et le lieu...</p>
+            <p>Je vous répondrai dans les plus bref delais !</p>
+            <p>Anne-Sophie</p>
 
 
-                <div class="border p-5 cardInfoHome">
-                    {{ form_start(formContact) }}
-                    <div class="row">
-                        <div class="col-12 col-lg-4">{{ form_row(formContact.nom, {'label': 'Votre nom','attr' : {'placeholder':
-                            "Nom"}})
-                            }}</div>
-                        <div class="col-12 col-lg-4">{{ form_row(formContact.email, {'label': 'Votre adresse mail','attr' :
-                            {'placeholder':
-                            "Email"}}) }}</div>
-                        <div class="col-12 col-lg-4">{{ form_row(formContact.telephone, {'label': 'Votre numéro de
-                            téléphone','attr' :
-                            {'placeholder': "Téléphone (facultatif)"}}) }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-lg-6">{{ form_row(formContact.rdv, {'label': 'Votre choix d\'une date pour une
-                            demande de
-                            RDV','attr' : {'placeholder': "Date et jour de préférence (facultatif)"}}) }}</div>
-                        <div class="col-12 col-lg-6">{{ form_row(formContact.lieu, {'label': 'Votre lieu de préférence pour une
-                            demande de
-                            RDV','attr' : {'placeholder': "Lieu de préférence (facultatif)"}}) }}</div>
-                    </div>
-                    {{ form_row(formContact.message | raw, {'label': 'Votre message','attr' : {'placeholder':
-                    "Message"} } ) }}
-
-                    <button type="submit" class="btn btn-success mt-5" title="Envoyez votre message">Envoyer
-                        le message</button>
-
-                    {{ form_end(formContact) }}
+            <div class="border p-5 cardInfoHome">
+                {{ form_start(formContact) }}
+                <div class="row">
+                    <div class="col-12 col-lg-4">{{ form_row(formContact.nom, {'label': 'Votre nom','attr' :
+                        {'placeholder':
+                        "Nom"}})
+                        }}</div>
+                    <div class="col-12 col-lg-4">{{ form_row(formContact.email, {'label': 'Votre adresse mail','attr' :
+                        {'placeholder':
+                        "Email"}}) }}</div>
+                    <div class="col-12 col-lg-4">{{ form_row(formContact.telephone, {'label': 'Votre numéro de
+                        téléphone','attr' :
+                        {'placeholder': "Téléphone (facultatif)"}}) }}</div>
                 </div>
+                <div class="row">
+                    <div class="col-12 col-lg-6">{{ form_row(formContact.rdv, {'label': 'Votre choix d\'une date pour
+                        une
+                        demande de
+                        RDV','attr' : {'placeholder': "Date et jour de préférence (facultatif)"}}) }}</div>
+                    <div class="col-12 col-lg-6">{{ form_row(formContact.lieu, {'label': 'Votre lieu de préférence pour
+                        une
+                        demande de
+                        RDV','attr' : {'placeholder': "Lieu de préférence (facultatif)"}}) }}</div>
+                </div>
+                {{ form_row(formContact.message | raw, {'label': 'Votre message','attr' : {'placeholder':
+                "Message"} } ) }}
 
+                <button type="submit" class="btn btn-success mt-5" title="Envoyez votre message">Envoyer
+                    le message</button>
+
+                {{ form_end(formContact) }}
             </div>
 
-            <div class="text-center">
-                <a href="{{ path('home') }}" class="btn btnSuite mt-5 mb-3 px-4 py-2 effetHover" title="Retour à l'accueil">Retour
-                    à l'accueil</a>
-            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="{{ path('home') }}" class="btn btnSuite mt-5 mb-3 px-4 py-2 effetHover" title="Retour à l'accueil">Retour
+                à l'accueil</a>
         </div>
     </div>
 </div>
-        {% endblock %}
+</div>
+{% endblock %}

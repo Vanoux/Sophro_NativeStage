@@ -26,7 +26,8 @@ class ArticleController extends Controller
     public function actu(ArticleRepository $articleRepository, Request $request): Response 
     {
         $articles = $articleRepository->findBy(
-            ['user' => 1],
+            // ['user' => 1],
+            [], // Tableau vide synonyme de "tout" au lieu de préciser l'utilisateur = puisqu'il y en a qu'1 seul
             ['id' => 'DESC']
         ); 
         //Instanciation du paginateur et conservation dans une variable,

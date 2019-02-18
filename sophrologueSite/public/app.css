@@ -77,7 +77,6 @@ p, ul, ol {
 }
 .btnSuite:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    color: black;
 }
 
 /*********************************** Images *************************************************************/
@@ -132,10 +131,16 @@ p, ul, ol {
     /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
     /* color:  #69C7AD; */
      /* text-decoration-line: none; */
-    color: olivedrab;
+    color: whitesmoke;
 }
 .linkColor, .accueilBreadcrumb{
-    color: #4CABB1;
+    color: darkturquoise;
+}
+.link {
+    color: lightseagreen; 
+}
+.link:hover {
+    color: rgb(13, 106, 114);
 }
 
 /************************************ Map ************************************************/
@@ -144,11 +149,6 @@ p, ul, ol {
 }
 
 /*********************************** Ateliers *******************************************/
-#atelier1 {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    background-color: #4CABB1;
-    color:white
-}
 #atelier1{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #4CABB1;

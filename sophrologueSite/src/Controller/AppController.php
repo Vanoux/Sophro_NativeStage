@@ -45,7 +45,7 @@ class AppController extends Controller
     }
 
     /**
-     * @Route("/tarifsHoraires", name="tarifsHoraires")
+     * @Route("/tarifs-horaires", name="tarifs-horaires")
      */
     public function tarifsHoraires() : Response 
     {
