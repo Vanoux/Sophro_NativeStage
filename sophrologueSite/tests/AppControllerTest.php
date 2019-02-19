@@ -30,26 +30,29 @@ class AppControllerTest extends WebTestCase
         ['/'],
         ['/sophrologie'],
         ['/ateliers'],
-        ['/tarifsHoraires'],
-        ['/faq']
-        // ['/actualites'],
-        // ['/articles']
-        // ['/contact'],
-        // ['/conseil'],
-        // ['/formation'],
-        // ['/experience'],
-        // ['/cabinets']
+        ['/tarifs-horaires'],
+        ['/faq'],
+        ['/actualites'],
+        ['/articles'],
+        ['/contact'],
+       // ['/conseil'],
+        ['/formation'],
+        ['/experiences'],
+        ['/cabinets'],
+        ['/mentions_legales'],
+        ['/politique_confidentialite'],
+        ['/plan_du_site']
         ];
     }
 
-    //Test que le title est bien présent dans la page home
-    public function testHomepage()
-    {
-        $client = static::createClient();
-        //le crawler permet de se balader dans le DOM document de notre page => c'est 1 objet qui peut être utilisé pour sélectionner des éléments dans la réponse, cliquer sur des liens et soumettre des formulaires.
-        $crawler = $client->request('GET', '/');
-        // On s'assure que dans l'assertion il y a 1fois notre title puis on fait appel à $crawler qui fait appel à la méthode filter() qui permet de récuperer des info en rapport avec un élément balise html
-        $this->assertContains('Labat Sophrologie', $crawler->filter('title')->text());
-    }
+    // //Test que le title est bien présent dans la page home
+    // public function testHomepage()
+    // {
+    //     $client = static::createClient();
+    //     //le crawler permet de se balader dans le DOM document de notre page => c'est 1 objet qui peut être utilisé pour sélectionner des éléments dans la réponse, cliquer sur des liens et soumettre des formulaires.
+    //     $crawler = $client->request('GET', '/');
+    //     // On s'assure que dans l'assertion il y a 1fois notre title puis on fait appel à $crawler qui fait appel à la méthode filter() qui permet de récuperer des info en rapport avec un élément balise html
+    //     $this->assertContains('Labat Sophrologie', $crawler->filter('title')->text());
+    // }
 
 }
