@@ -144,7 +144,7 @@ class AppController extends Controller
             //Génération d'un nouveau message avec l'instance de Swift_Mailer
             $message = (new \Swift_Message('Nouveau message de votre formulaire de contact'))
             ->setFrom($contact->getEmail())
-            ->setTo('vanessa.roux891@orange.fr')
+            ->setTo('contact@sophrologue-labat.fr')
             //->setReplyTo($contact->getEmail())
             ->setBody(
                 $this->renderView(
